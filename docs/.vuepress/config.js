@@ -3,7 +3,7 @@ module.exports = {
   locales: {
     "/": {
       lang: "en-US",
-      title: "learn-sf",
+      title: "sf-monkey",
       description:
         "Tutorials, knowledge articles and links to learn Salesforce.com and related technologies.."
     }
@@ -54,7 +54,8 @@ module.exports = {
       titleMap: {
         "salesforce-for-students": "Salesforce for Students",
         "pd1-guide": "Platform Developer I Certification Guide",
-        "admin-guide": "Admin Certification Guide"
+        "admin-guide": "Admin Certification Guide",
+        "why-learn-salesforce": "Why Learn Salesforce?"
       }
     },
     "vuepress-plugin-clean-urls": {
