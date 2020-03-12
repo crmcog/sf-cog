@@ -51,18 +51,18 @@ Our platform is simple. The objective is to organize written content, videos, pr
 
 ## Contributing
 
-Contributing to the guide(s) is as simple as opening pull request, making changes, and requesting merge. Head over to the [contributing page](/contributing) for instructions.
+Contributing to the guide(s) is as simple as opening a pull request, making changes on your version of content, and requesting merge. Head over to the [contributing page](https://github.com/crmcog/sf-monkey/blob/master/CONTRIBUTING.md) for instructions.
 
 We are careful about duplication, quality of content, and cautious in ensuring that the repository is not seen as a "directory" of Salesforce content.
 
 Found a bug? Want to ask for a new feature? [Create an issue](https://github.com/crmcog/sf-monkey/issues)
 
-## Support Us
-
-If you are benefited from our work, consider supporting us!
-
-- [Patreon](https://www.patreon.com/crmcog)
-
 ## Sponsors
 
 - [Pragital](https://pragital.com)
+
+## Support Us
+
+Consider supporting us if you have benefited from our work!
+
+- [Patreon](https://www.patreon.com/crmcog)

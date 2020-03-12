@@ -62,7 +62,8 @@ module.exports = {
       normalSuffix: "/",
       indexSuffix: "/",
       notFoundPath: "/404.html"
-    }
+    },
+    "@silvanite/tailwind": {}
   },
   evergreen: true
 };

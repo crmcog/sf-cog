@@ -19,7 +19,7 @@ You can use the study materials here to -
 
 ## Contributing
 
-See https://sf-monkey.crmcog.com/contributing.
+See https://github.com/crmcog/sf-monkey/blob/master/CONTRIBUTING.md.
 
 ## Support Us
 
