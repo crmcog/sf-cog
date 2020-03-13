@@ -5,7 +5,7 @@ module.exports = {
       lang: "en-US",
       title: "sf-monkey",
       description:
-        "Tutorials, knowledge articles and links to learn Salesforce.com and related technologies.."
+        "Tutorials, knowledge articles and links to learn Salesforce.com and related technologies."
     }
   },
   description:
@@ -43,7 +43,7 @@ module.exports = {
         nav: require("./nav/en")
       }
     },
-    repo: "crmcog/learn-sf",
+    repo: "crmcog/sf-monkey",
     editLinks: true
   },
   plugins: {
@@ -55,7 +55,8 @@ module.exports = {
         "salesforce-for-students": "Salesforce for Students",
         "pd1-guide": "Platform Developer I Certification Guide",
         "admin-guide": "Admin Certification Guide",
-        "why-learn-salesforce": "Why Learn Salesforce?"
+        "why-learn-salesforce": "Why Learn Salesforce?",
+        misc: "Miscellany"
       }
     },
     "vuepress-plugin-clean-urls": {
@@ -63,7 +64,11 @@ module.exports = {
       indexSuffix: "/",
       notFoundPath: "/404.html"
     },
-    "@silvanite/tailwind": {}
+    "@silvanite/tailwind": {},
+    sitemap: {
+      hostname: "https://sf-monkey.crmcog.com"
+    }
   },
+
   evergreen: true
 };

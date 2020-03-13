@@ -1,6 +1,8 @@
 ---
 title: Hola
----# Hola intro
+---
+
+# Hola intro
 
 # Heading 1
 

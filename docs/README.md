@@ -10,8 +10,8 @@ features:
     details: Focused on getting you up and running with Salesforce.com platform and tools.
   - title: Structured Learning
     details: Easy to organise yourself - learn individual topics or study for certification.
-  - title: Open Source
-    details: Open sourced content. Enjoy responsibly, and contribute.
+  - title: Free
+    details: Free and open sourced content. Enjoy responsibly, and contribute.
 
 footer: MIT Licensed | Copyright © 2020-present Prashanth Krishnamurthy
 ---
@@ -29,7 +29,7 @@ You can use the study materials here to -
 
 ## Where to start?
 
-A good place will be to go over [why you should learn salesforce](/why-learn-salesforce) in this day and age.
+A good place to start is to go over [why you should learn salesforce](/why-learn-salesforce) in this day and age.
 
 Or, you can jump to the topic of interest here or through the top navigation bar.
 
@@ -45,7 +45,7 @@ The aim is to have open source content that anyone can use as reference to study
 
 Our platform is simple. The objective is to organize written content, videos, presentations and links. We are nowhere near to Trailhead when it comes to organization, humour and interactivity - but we still do cool stuff.
 
-- Content is written in Markdown with some help from MARP for presentation
+- Content is written in Markdown with some help from MARP / Google Slides for presentation
 - We use [Vuepress](https://vuepress.vuejs.org/) to generate static pages from Markdown
 - The main site is hosted on GitHub and we guarantee that this will remain up as long as there is Git in this Universe
 
@@ -53,9 +53,13 @@ Our platform is simple. The objective is to organize written content, videos, pr
 
 Contributing to the guide(s) is as simple as opening a pull request, making changes on your version of content, and requesting merge. Head over to the [contributing page](https://github.com/crmcog/sf-monkey/blob/master/CONTRIBUTING.md) for instructions.
 
-We are careful about duplication, quality of content, and cautious in ensuring that the repository is not seen as a "directory" of Salesforce content.
+We are careful about duplication, quality of content, and cautious in ensuring that the repository is not seen as a "super directory" of all Salesforce content in every part of this Universe.
 
 Found a bug? Want to ask for a new feature? [Create an issue](https://github.com/crmcog/sf-monkey/issues)
+
+## Terms of Use
+
+See [Terms](/misc/terms)
 
 ## Sponsors
 
