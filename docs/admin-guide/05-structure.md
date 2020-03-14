@@ -2,7 +2,6 @@
 title: Course Structure
 lang: en-US
 permalink: /admin-guide/structure
-autoNext: 20-introduction
 metaTitle: Course structure for Salesforce.com Administrator certification (ADM201)
 meta:
   - name: description

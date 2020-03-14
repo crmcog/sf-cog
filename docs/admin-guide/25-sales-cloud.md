@@ -2,7 +2,7 @@
 title: Sales Cloud
 lang: en-US
 permalink: /admin-guide/sales-cloud
-autoNext: 60-deep-dive-business-layer
+# autoNext: 60-deep-dive-business-layer
 metaTitle: Sales Cloud
 meta:
   - name: description

@@ -1,7 +1,7 @@
 ---
 title: TRUST - Security Revisited
 lang: en-US
-permalink: /admin-guide/data-management
+permalink: /admin-guide/trust-security
 autoNext: 110-collaboration
 metaTitle: Learn how function and data access security is implemented in Salesforce.
 meta:

@@ -1,8 +1,7 @@
 ---
 title: Start Here
 lang: en-US
-permalink: /admin-guide/
-autoNext: 10-structure
+permalink: /admin-guide/start
 metaTitle: Salesforce.com Administrator certification (ADM201) guide
 meta:
   - name: description

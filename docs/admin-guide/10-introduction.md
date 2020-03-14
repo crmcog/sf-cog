@@ -2,7 +2,6 @@
 title: Introduction
 lang: en-US
 permalink: /admin-guide/introduction
-autoNext: 30-platform-fundamentals
 metaTitle: Course structure for Salesforce.com Administrator certification (ADM201)
 meta:
   - name: description

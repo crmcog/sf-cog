@@ -2,7 +2,6 @@
 title: Configure Custom Functionality
 lang: en-US
 permalink: /admin-guide/configure-custom-functionality
-autoNext: 50-sales-cloud
 metaTitle: Configure custom functionality on salesforce.com platform.
 meta:
   - name: description

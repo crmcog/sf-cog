@@ -13,6 +13,4 @@ So, you are interested in Salesforce huh? Well, there are good reasons to do tha
 
 ## DEF
 
-<ShowPresentation/>
-
 ## Presentation Aid

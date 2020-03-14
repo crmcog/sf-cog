@@ -2,7 +2,6 @@
 title: Platform Fundamentals
 lang: en-US
 permalink: /admin-guide/platform-fundamentals
-autoNext: 40-configure
 metaTitle: Fundamentals of Salesforce platform.
 meta:
   - name: description

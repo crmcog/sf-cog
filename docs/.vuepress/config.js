@@ -40,25 +40,22 @@ module.exports = {
         selectText: "Languages",
         editLinkText: "Edit this page on GitHub",
         lastUpdated: "Last Updated",
-        nav: require("./nav/en")
+        nav: require("./nav/en"),
+        sidebar: {
+          "/why-learn-salesforce/": getSideBar("why-learn-salesforce"),
+          "/admin-guide/": getSideBar("admin-guide")
+        }
       }
     },
+
     repo: "crmcog/sf-monkey",
     editLinks: true
   },
+
   plugins: {
     "@vuepress/last-updated": {},
     "@vuepress/back-to-top": {},
     "@vuepress/google-analytics": { ga: "UA-5388048-9" },
-    "vuepress-plugin-auto-sidebar": {
-      titleMap: {
-        "salesforce-for-students": "Salesforce for Students",
-        "pd1-guide": "Platform Developer I Certification Guide",
-        "admin-guide": "Admin Certification Guide",
-        "why-learn-salesforce": "Why Learn Salesforce?",
-        misc: "Miscellany"
-      }
-    },
     "vuepress-plugin-clean-urls": {
       normalSuffix: "/",
       indexSuffix: "/",
@@ -72,3 +69,34 @@ module.exports = {
 
   evergreen: true
 };
+
+function getSideBar(parent) {
+  const sideBar = {
+    "admin-guide": {
+      title: "Admin Certification Guide",
+      children: [
+        "",
+        "05-structure",
+        "10-introduction",
+        "15-platform-fundamentals",
+        "20-configure",
+        "25-sales-cloud",
+        "30-deep-dive-business-layer",
+        "35-ui-customisation",
+        "40-service-cloud",
+        "45-data-management",
+        "50-trust-security",
+        "55-collaboration",
+        "60-rest-of-salesforce",
+        "65-workshop-conclusion",
+        "70-case-studies"
+      ]
+    },
+    "why-learn-salesforce": {
+      title: "Why Learn Salesforce?",
+      children: ["", "one", "two", "eg"]
+    }
+  };
+
+  return [sideBar[parent]];
+}
