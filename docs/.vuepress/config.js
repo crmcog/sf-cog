@@ -1,3 +1,6 @@
+const fs = require("fs");
+const path = require("path");
+
 module.exports = {
   base: "/",
   locales: {
@@ -42,8 +45,14 @@ module.exports = {
         lastUpdated: "Last Updated",
         nav: require("./nav/en"),
         sidebar: {
-          "/why-learn-salesforce/": getSideBar("why-learn-salesforce"),
-          "/admin-guide/": getSideBar("admin-guide")
+          "/why-learn-salesforce/": getSideBar(
+            "why-learn-salesforce",
+            "Why Salesforce?"
+          ),
+          "/admin-guide/": getSideBar(
+            "admin-guide",
+            "Admin Certification Guide"
+          )
         }
       }
     },
@@ -70,33 +79,17 @@ module.exports = {
   evergreen: true
 };
 
-function getSideBar(parent) {
-  const sideBar = {
-    "admin-guide": {
-      title: "Admin Certification Guide",
-      children: [
-        "",
-        "05-structure",
-        "10-introduction",
-        "15-platform-fundamentals",
-        "20-configure",
-        "25-sales-cloud",
-        "30-deep-dive-business-layer",
-        "35-ui-customisation",
-        "40-service-cloud",
-        "45-data-management",
-        "50-trust-security",
-        "55-collaboration",
-        "60-rest-of-salesforce",
-        "65-workshop-conclusion",
-        "70-case-studies"
-      ]
-    },
-    "why-learn-salesforce": {
-      title: "Why Learn Salesforce?",
-      children: ["", "one", "two", "eg"]
-    }
-  };
+function getSideBar(folder, title) {
+  const extension = [".md"];
 
-  return [sideBar[parent]];
+  const files = fs
+    .readdirSync(path.join(`${__dirname}/../${folder}`))
+    .filter(
+      item =>
+        item.toLowerCase() != "readme.md" &&
+        fs.statSync(path.join(`${__dirname}/../${folder}`, item)).isFile() &&
+        extension.includes(path.extname(item))
+    );
+
+  return [{ title: title, children: ["", ...files] }];
 }
