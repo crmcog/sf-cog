@@ -52,6 +52,11 @@ module.exports = {
           "/admin-guide/": getSideBar(
             "admin-guide",
             "Admin Certification Guide"
+          ),
+          "/pd1-guide/": getSideBar("pd1-guide", "PD1 Certification Guide"),
+          "/salesforce-for-students/": getSideBar(
+            "salesforce-for-students",
+            "Salesforce for Students"
           )
         }
       }
@@ -70,7 +75,6 @@ module.exports = {
       indexSuffix: "/",
       notFoundPath: "/404.html"
     },
-    "@silvanite/tailwind": {},
     sitemap: {
       hostname: "https://sf-monkey.crmcog.com"
     }

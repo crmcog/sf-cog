@@ -1,29 +1,17 @@
 <template>
-  <div class="md:flex-wrap lg:flex">
-    <div
-      v-for="topic in topics"
-      :key="topic.title"
-      class="max-w-md rounded shadow-md px-1 py-1 m-2 flex-1 flex-wrap"
-    >
-      <div class="md:px-1 flex m-2 items-center">
-        <img :src="topic.image" :alt="topic.title" class="h-12 flex m-2" />
-        <span class="flex-wrap font-bold m-2 text-xl ">
-          {{ topic.title }}
-        </span>
+  <div class="features">
+    <div v-for="topic in topics" :key="topic.title" class="feature topicFeature">
+      <div class="topicHeader">
+        <img :src="topic.image" :alt="topic.title" class="topicImage" />
+        <span class="topicTitle">{{ topic.title }}</span>
       </div>
-      <div class="md:px-3 flex m-2">
-        <p class="text-gray-700">
-          {{ topic.description }}
-        </p>
+      <div>
+        <p class="topic-description">{{ topic.description }}</p>
       </div>
 
-      <div class="flex-flow w-full object-bottom">
+      <div>
         <router-link :to="topic.to" tag="span">
-          <button
-            class="w-full bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 border shadow"
-          >
-            Go
-          </button>
+          <a>Go</a>
         </router-link>
       </div>
     </div>
@@ -62,3 +50,32 @@ export default {
   }
 };
 </script>
+
+<style lang="stylus" scoped>
+.topicFeature {
+  border-width: 1px;
+  border-color: red;
+  padding: 3 !important;
+}
+
+.topicHeader {
+  align-content: center;
+  justify-items: center;
+}
+
+.topicTitle {
+  font-weight: bold;
+  font-size: 103%;
+}
+
+.topicImage {
+  height: 2rem !important;
+  width: 2rem !important;
+  vertical-align: middle !important;
+  margin-right: 0.5em;
+}
+
+.topic-description {
+  font-size: 85%;
+}
+</style>

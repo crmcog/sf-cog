@@ -20,7 +20,5 @@
     "vuepress-plugin-clean-urls": "^1.1.1",
     "vuepress-plugin-sitemap": "^2.3.1"
   },
-  "dependencies": {
-    "@silvanite/vuepress-plugin-tailwind": "^1.2.0"
-  }
+  "dependencies": {}
 }
