@@ -1,13 +1,13 @@
 ---
 title: Test Prep Discussion & Workshop Conclusion
 lang: en-US
-permalink: /admin-guide/prep-final-workshop
+permalink: /pd1-guide/prep-final-workshop
 metaTitle: Final test prep and conclusion of workshops
 meta:
   - name: description
-    content: Conclude workshops and test prep for ADM201 exam.
+    content: Conclude workshops and test prep for PD1 exam.
   - name: keywords
-    content: exam-prep-tips, ADM201-certification, admin-credential
+    content: exam-prep-tips, PD1-certification, developer-credential
 ---
 
 # Workshop Conclusion

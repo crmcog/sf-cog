@@ -1,6 +1,6 @@
 ---
 title: One
-autoNext: hola
+permalink: /salesforce-for-students/one
 ---
 
 # One

@@ -2,10 +2,10 @@
 title: Introduction
 lang: en-US
 permalink: /admin-guide/introduction
-metaTitle: Course structure for Salesforce.com Administrator certification (ADM201)
+metaTitle: An introduction to Salesforce.com Administrator certification (ADM201)
 meta:
   - name: description
-    content: All of the knowledge that you need to pass ADM201 exam - organised in one page. Use this as a reference to evaluate yourself on the progress towards earning that sleek administrator credential.
+    content: Get started on your admin journey.
   - name: keywords
     content: ADM201-intro, certification-study, course-structure
 ---
@@ -20,6 +20,6 @@ meta:
 
 &nbsp;
 
-  <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSasr6Tba9qMmhTuU_Pq1ek1KXK_MNr07aPutlsmEflC9yXyDRHa66VU082KsL4vA/embed?start=true&loop=false&delayms=60000" frameborder="0" width="800" height="600" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+  <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSasr6Tba9qMmhTuU_Pq1ek1KXK_MNr07aPutlsmEflC9yXyDRHa66VU082KsL4vA/embed?start=false&loop=false&delayms=60000" frameborder="0" width="800" height="600" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
 [More info](/misc/pricing#sf-monkey)

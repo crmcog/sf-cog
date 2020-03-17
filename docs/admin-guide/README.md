@@ -52,7 +52,7 @@ Note that Salesforce recommends actual experience as an admin to attempt ADM201 
 
 ## Duration
 
-This course has been split into ~15 lessons. There is no strict guidelines on the number of days, but we have typically seen the lessons taught at an average rate of 0.5 to 1 lesson per day. This includes -
+This course has been split into ~15 lessons. There are no strict guidelines on the number of days, but we have typically seen the lessons taught at an average rate of 0.5 to 1 lesson per day. This includes -
 
 - Teaching a class of ~10-15 students for 2 hours / day. Note that these students would typically have a strong technical background before they begin, so your mileage may vary a bit
 - Let students apply their knowledge during rest of the time

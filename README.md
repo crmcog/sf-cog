@@ -14,7 +14,7 @@ You can use the study materials here to -
 
 1. Self-educate on salesforce
 1. Prepare for certification
-1. Use the guides as teaching aids
+1. Use content as teaching aids
 1. Have a blast
 
 ## Contributing

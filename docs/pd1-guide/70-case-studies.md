@@ -1,11 +1,11 @@
 ---
 title: Practice Case Studies
 lang: en-US
-permalink: /admin-guide/case-studies
-metaTitle: Practice case studies as part of ADM201 certification study
+permalink: /pd1-guide/case-studies
+metaTitle: Practice case studies as part of PD1 certification study
 meta:
   - name: description
-    content: Real-world case studies that you can solve by applying salesforce admin knowledge. Focused on beginners.
+    content: Real-world case studies that you can solve by applying salesforce developer knowledge. Focused on beginners.
   - name: keywords
     content: salesforce-case-studies, exam-prep-case-study, real-world-problems
 ---
@@ -14,13 +14,13 @@ meta:
 
 ## Purpose
 
-This section provides students with a set of case studies in order to familiarise them with the Salesforce.com applications. The case studies provided here are targeted at beginners. They will include/are accompanied by -
+This section provides students with a set of case studies in order to familiarise them with the Salesforce.com applications. The case studies provided here are targeted at beginner SFDC developers. They will include –
 
 1. Problems
    Expose students to real-world problems. The problems may be documented in business or technical language. Later case studies have user stories that the students need to implement.
 
 2. Solution hints
-   Help students move towards determining possible solutions, design those solutions, and implement them.
+   Help students move towards determining possible solutions, design solutions, and implement them.
 
 3. Activities and tasks
    Series of activities and tasks that the case studies demand.
@@ -39,10 +39,10 @@ This section provides students with a set of case studies in order to familiaris
 - Your approach to problem solving is more important than the final solution
 - Plan to present options, design and implemented solution to the assessment panel and a select audience
 
-On the system front -
+On the technical front -
 
-- Create a distinct Salesforce org for case studies (unless it is a Trailhead project, in which case a Trailhead-only environment should suffice)
+- Create a distinct developer org for case studies (unless it is a Trailhead project, in which case a Trailhead-only environment should suffice)
 
 ## Case Studies
 
-<CaseStudyList caseStudyPath="/admin-guide/_case-study"> </CaseStudyList>
+<CaseStudyList caseStudyPath="/pd1-guide/_case-study"> </CaseStudyList>

@@ -21,6 +21,6 @@ meta:
 
 &nbsp;
 
-  <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTaehspHKzHPTKM5dnq0MfsCNta-LnIK-H4SKeW99liVLL5yjxL5zIILRe55vNqEw/embed?start=true&loop=false&delayms=60000" frameborder="0" width="800" height="600" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+  <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTaehspHKzHPTKM5dnq0MfsCNta-LnIK-H4SKeW99liVLL5yjxL5zIILRe55vNqEw/embed?start=false&loop=false&delayms=60000" frameborder="0" width="800" height="600" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
 [More info](/misc/pricing#sf-monkey)

@@ -1,5 +1,6 @@
 ---
 title: Hola
+permalink: /salesforce-for-students/hola
 ---
 
 # Hola intro
