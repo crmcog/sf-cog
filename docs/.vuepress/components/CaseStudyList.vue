@@ -1,8 +1,10 @@
 <template>
   <div>
     <div v-if="posts">
-      <div v-for="item of posts" v-if="item && item.path">
-        <h3 v-if="item.title" v-text="item.title" class="post" />
+      <div v-for="(item, index) of posts" v-if="item && item.path">
+        <h3 v-if="item.title" class="post">
+          {{ index + 1 }}. {{ item.title }}
+        </h3>
 
         <CaseStudyCard :card="item"></CaseStudyCard>
       </div>
