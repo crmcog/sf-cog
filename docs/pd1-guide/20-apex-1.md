@@ -14,7 +14,7 @@ meta:
 
 ## Workshop
 
-Remember the golden rules when creating Apex -
+Remember the golden rules of creating Apex code -
 
 - Always create bulkified Apex
 - All Apex classes MUST have 100% test coverage
