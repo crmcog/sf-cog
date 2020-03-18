@@ -12,6 +12,27 @@ meta:
 
 # Introduction
 
+## Workshop
+
+Complete following tasks.
+
+| No. | Type    | Description            | Time (hrs) |
+| --- | ------- | ---------------------- | ---------- |
+| 1   | Do      | Simple UI              | 3          |
+| 2   | Do      | Beyond Simple UI       | 6          |
+| 3   | Present | Discuss completed work | 1          |
+
+### Simple UI
+
+1. Create simple list view for Top 100 accounts – retail accounts with max life time value and in active status (no styling required)
+2. Create a quick action to send select messages & promotions to all using manual action
+
+### Beyond Simple UI
+
+1. Recreate My Accounts page that was created in Visualforce earlier in Lightning
+2. Create a Lightning page that shows calendar for a given partner with scheduled services for the time period
+3. Create a Google map accessible by partners that can mark customer locations for car pick up on a given day based on scheduled & confirmed services
+
 ## Teaching Aids
 
 ### Presentation

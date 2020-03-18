@@ -11,7 +11,7 @@ meta:
     content: heroku, marketing-cloud
 ---
 
-# Introduction
+# Rest of Salesforce Ecosystem
 
 ## Teaching Aids
 
