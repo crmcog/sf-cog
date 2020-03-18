@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="card leading-card">
+    <div class="card leading-card" v-if="card && card.frontmatter">
       <!-- <div class="card-header header">
         <p class="has-text-weight-bold">&nbsp; {{ card.frontmatter.title }}</p>
       </div> -->
