@@ -1,7 +1,7 @@
 ---
 title: Careers in Salesforce
 lang: en-US
-permalink: /why-salesforce/salesforce-careers
+permalink: /why-learn-salesforce/salesforce-careers
 ---
 
 # Careers in Salesforce

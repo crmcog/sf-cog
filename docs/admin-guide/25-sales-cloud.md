@@ -47,7 +47,7 @@ Find out where you can find all Sales Cloud related entities in SFDC documentati
 2. Use the email template to send an email to yourself against a lead record
 3. Create an email template with below content
 
-   ```text
+   ```
    Dear <contact first name>,
    We have recorded your query. We will respond within two business days from <Date Opened>.
    Please use reference number <case id> for any further communication.

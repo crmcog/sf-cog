@@ -1,7 +1,7 @@
 ---
 title: Why Salesforce?
 lang: en-US
-permalink: /why-salesforce/start
+permalink: /why-learn-salesforce/start
 ---
 
 # Why Salesforce?

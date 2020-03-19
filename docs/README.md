@@ -29,7 +29,7 @@ You can use the study materials here to -
 
 ## Where to start?
 
-A good place to start is to go over [why you should learn salesforce](/why-learn-salesforce) in this day and age.
+A good place to start is to go over [why you should learn salesforce](/why-learn-salesforce/) in this day and age.
 
 Or, you can jump to the topic of interest here or through the top navigation bar.
 
