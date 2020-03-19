@@ -21,9 +21,6 @@ While we feel the objectives are novel, we have to deal with limited time availa
 
 # Course Structure - Salesforce for Students
 
-**Pre-requisites:**
-Completed Admin course [ or ] Working knowledge of salesforce applications - incl. configuration, and data security.
-
 ## Lesson 1: Introduction, CRM & Salesforce.com Overview
 
 1. Course Introduction
@@ -80,10 +77,11 @@ Completed Admin course [ or ] Working knowledge of salesforce applications - inc
    - Deployment: Change sets
    - Desktop and mobile admin: Mobile app, Outlook
    - Introduction to developer tools and ecosystem
-5. Workshop: Visibility and Sharing
+5. Workshop: Visibility and Sharing II
    - Explore application security
    - Create change sets and explore deployment
-6. Workshop: Apps and Access to Views and Data
+6. Chatter
+7. Workshop: Apps and Access to Views and Data
    - Explore AppExchange
    - Explore Tools for enabling application security
    - View access
@@ -93,7 +91,6 @@ Completed Admin course [ or ] Working knowledge of salesforce applications - inc
 
 1. Workshop: Build Objects and Relationships
    - Create custom objects and establish relationships
-   - Introduction to Schema Builder
    - Create UI
    - Data security
    - Record types revisited
@@ -103,37 +100,53 @@ Completed Admin course [ or ] Working knowledge of salesforce applications - inc
    - Field types
 3. Enable UI to users
    - Introduction to OOB UI, Visualforce, Lightning
-4. Overview & Demo-driven lessons for Entity Relationships
+
+## Lesson 4: Deep-dive Configuration I
+
+1. Overview & Demo-driven lessons for Entity Relationships
    - Standard objects and custom objects
    - Relationships: Lookup, Master Detail, Indirect Lookup & External Lookup
    - Relationships: Many-to-Many, Hierarchical, Self
-5. Workshop: Relationships
+2. Workshop: Relationships
    - Implement all relationships
    - Explore & create ERDs
-
-## Lesson 4: Deep-dive Configuration
-
-1. Business rules validation & automation
-   - Validation rules, Workflow rules, Roll-up summary fields
-   - Flow, Process Builder and Workflows
-2. Workshop: Explore Business Rules
-3. Demo-driven lessons: User Interfaces
+3. Business rules validation & automation: Validation rules, Workflow rules, Roll-up summary fields
+4. Workshop: Explore Business Rules
+5. Demo-driven lessons: User Interfaces
    - Introduction to OOB UI - Classic & Lightning, Visualforce
-   - Page Layouts, Detail and List Views
+   - Page Layouts
+   - Detail and List Views
    - Hide and show related lists
    - Filters for parent and related lists
-4. Business logic and automation in UI
+6. Business logic and automation in UI
    - Logic driven by Record Types
    - Buttons/Quick actions
-5. Salesforce Mobile concepts
-6. Reports & Dashboards
-7. Data management
-   - Accessing data from back-end - SOQL/SOSL using Workbench
-   - Import, export and mass data changes
-   - Data wizard and Apex Data Loader
-8. Workshop: User interfaces & Data Management
+7. Salesforce Mobile concepts
+8. Reports & Dashboards
+9. Workshop: User interfaces
 
-## Lesson 5: Salesforce Sales & Service Cloud
+## Lesson 5: Deep-dive Configuration II
+
+1. Profiles, Permission Sets, OWD
+2. UI Security
+   - App and view access
+3. Data Security
+   - Roles
+   - Permissions
+   - Audit trail
+4. Sharing rules
+   - Objects
+   - Files
+   - Reports & Dashboards
+   - Apex
+   - Visualforce
+5. Validation and Business automation
+   - Workflow
+   - Visual flows
+   - Process flows
+   - Flow
+
+## Lesson 6: Salesforce Sales & Service Cloud
 
 1. Sales Cloud Overview
    - Account, Contact & Lead
@@ -149,70 +162,70 @@ Completed Admin course [ or ] Working knowledge of salesforce applications - inc
    - Quotes, Quote templates and Pricing
    - Approval flows
    - Business automation: Emails, Record types, Assignment rules, Auto-response rules
-4. Service cloud overview
+4. Workshop
+5. Service cloud overview
    - Case management
-5. Solution & Knowledge management
-6. Demo-driven Lessons: Explore Service app
-7. Business Rule Validation and Automation
+6. Solution & Knowledge management
+7. Demo-driven Lessons: Explore Service app
+8. Business Rule Validation and Automation
    - Email to case, web to case
    - Assignment rules
    - Auto-response rules
    - Escalation rules
-8. Workshop: Explore Sales & Service apps
+9. Workshop: Explore Service app
 
-## Lesson 6: Advanced Customization & Apex Deep-dive
+## Lesson 7: Apex
 
-1. Introduction to SFDX and Git workflow for development and deployment
-2. Apex Overview
-   - Variables and constants in Apex, Primitive and complex data types
+1. Apex language constructs
+   - Object oriented concepts
+   - Variables
+   - Primitive and complex data types
    - Lists, maps and sets
-   - Apex triggers, classes and methods
-   - Inheritance and interface
-   - When to use Apex as compared to declarative programming tools?
-3. Demo-driven lessons: Use Developer console & Visual Studio Code to create & run Apex
-4. Order of execution in an event-driven paradigm
-5. Query & DML operations
-6. Workshop: Create simple Apex classes
+   - SOQL / SOSL
+1. Apex usage
+   - Where to use Apex?
+   - Alternatives
+   - Limits
+   - Order of execution
+   - Debugging
+1. Demo-driven Lessons: Bulkification vs. single record processing
+1. Workshop: Apex
+   - Create triggers & classes using OOP concepts
+   - Bulkified code
+1. Testing
+   - Importance of test classes
+   - Code coverage
+   - How to write test class for triggers, controllers and classes?
+   - Execute one or multiple test classes
+   - Execution in anonymous vs. tests
 
-## Lesson 7: Apex Deep-dive II
+## Lesson 8: Lightning
 
-1. Batch and scheduled Apex
-   - Transaction control and rollback
-2. Error handling best practices
-3. Unit testing in Apex
-4. Salesforce.com Limits and Bulkification
-   - DML, CPU
-   - Limits in managed and unmanaged packages
-5. Introduction to Apex patterns and libraries, Test data management
+1. Lightning overview
+   - What is Lightning?
+   - Why Lightning?
+   - Architecture
+2. Demo: Showcase Lightning pages vs. VF
+3. Creating Lightning UI
+   - Apps
+   - Components
+4. Workshop: Create simple Lightning apps
+   - Lightning components
+   - Lightning pages & apps
 
-## Lesson 8: Salesforce UI & Low Code App Development
+## Lesson 9: Data Management
 
-1. Visualforce UI overview
-   - Pages, components, tags, expression syntax
-   - Data binding, Action & navigation methods
-   - When to use VF pages
-   - Security considerations
-2. Lightning UI - The New Future
-   - Lightning overview & architecture
-3. Demo-driven Lessons: Create Lightning Pages & Apps
-4. Workshop: Build simple Lightning apps
-
-## Lesson 9: Lightning Components
-
-1. Lightning components
-   - Overview
-   - Components of a Lightning component!
-   - When to use what - client-side controller, server-side controller, helpers
-   - Component reuse
-2. Demo-driven Lessons: Create simple Lightning component
-3. Workshop: Build Lightning components and include in existing and new Lightning apps
+1. Data Export
+2. Data Import
+   - Inserts, Updates and Deletes
+3. Process for Bulk Data Operations
+   - Mass data change impact assessment
+   - Testing
+4. Brief Introduction to Third-party Tools for Integration and Data Management
+5. Workshop: Explore Bulk Data Operations
 
 ## Lesson 10:
 
-1. Where to get help and support
-2. Overview of Salesforce career tracks & certifications
-3. Real-world Case Studies to get you started
-4. Continued learning
-5. Q & A
-
----
+1. Case Studies
+2. Lifelong learning plan
+3. Q & A
