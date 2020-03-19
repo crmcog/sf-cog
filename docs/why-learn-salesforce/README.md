@@ -14,7 +14,7 @@ So, you are interested in Salesforce huh? Well, there are good reasons to do tha
 
 Salesforce started in the last century and had revolutionary idea for the time. That was simply - "no software".
 
-![salesforce-no-software](./img/salesforce-no-software.png)
+![salesforce-no-software](./img/salesforce-no-software.jpg)
 
 When the market was dominated by 'on premise' SAP's and Oracle's of the world, Salesforce was seen as a niche player pushing enterprises towards cloud.
 
@@ -66,6 +66,15 @@ Add all those positives to -
 1. Constant improvements in Salesforce will translate into newer skills to learn and an opportunity to see it realise business benefits in shorter duration
 
 Want to see these points in numbers - see the [presentation below](#_1-why-salesforce-sf-monkey).
+
+## Why not to learn salesforce?
+
+Things are all good until they aren't. Keep in mind a few points while you embark on this journey.
+
+1. Salesforce is not a coding platform. If you cannot live without your daily dose of coding in C / Assembly, or you get irked about "lack of independence" to write that shiny new thing - you may want to evaluate the platform thoroughly before rushing in
+1. Let's repeat this - coding is not the focus in Salesforce. As a good developer you prioritize configuration options and deploy a good mix of configuration + customisation using code. Configuring using clicks is easy, simpler to deploy /maintain and keeps improving to cover new ground
+1. At the end of the day, Salesforce is an ecosystem - it has its walled garden and all that. While that is expected to change in the future with the independence to write code in your favourite language (think Heroku but with better all-in-one package), today Salesforce customisation is primarily on Apex + Lightning
+1. We see future major competition to Salesforce more in low-code/no-code platforms coupled with code generators rather than in traditional applications. Use of generators introduce a bit of instability but is (typically) light-weight and better performing - at potentially lower cost
 
 ### Presentation
 
