@@ -10,7 +10,37 @@ meta:
     content: platform-fundamentals
 ---
 
-# Introduction
+# Platform Fundamentals
+
+## What is Salesforce platform about?
+
+### Salesforce Apps
+
+#### User Interface Components
+
+#### Chatter
+
+### How to use Salesforce?
+
+### Editions
+
+## Users
+
+### Security
+
+#### Roles
+
+#### Profiles
+
+#### Permissions
+
+#### Permission Sets
+
+### Licenses
+
+## Salesforce AppExchange
+
+## Data Security
 
 ## Workshop
 

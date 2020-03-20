@@ -10,7 +10,98 @@ meta:
     content: salesforce-configuration
 ---
 
-# Introduction
+# Configure Custom Functionality
+
+To restate what we cover here -
+
+1. Configure = clicks
+1. Customise = use code
+
+This is just for clarity and simplicity of the language used here. More than few organisations use the terms interchangeably and the terms mean more or less the same. So 'configure custom functions' is a pun on itself, and on us.
+
+In this section, we will start seeing a bit of how we can add functionality to salesforce using clicks. By now you should have an org to begin your click-click adventure.
+
+In Salesforce, adding new functions can be -
+
+1. Adding new entities. For e.g. I want a `Health History` for Contacts that is not available out of the box
+1. Adding new screens for people to work on (called UI = user interface)
+1. Adding new validation rules. For e.g. contacts must have a middle name (so make contact middle name mandatory)
+1. Adding automation flows. For e.g. whenever I create a contact, also create an activity to send them a welcome kit
+
+While each of (2) - (4) can be done on entities provided by Salesforce, we often find the need to support businesses by adding even more entities to the mix. All these entities are "Objects" in Salesforce. We can modify existing objects are create new.
+
+## Objects
+
+As we have seen earlier - objects represent entities. Standard objects are those provided by Salesforce, while you (or package vendors) create custom ones.
+
+Objects can be roughly thought of as -
+
+- 'model' layer of a MVC pattern
+- ..and at the same time 'tables' of the app
+
+They themselves do not store data, but are the only window to access said data. User interfaces are built on top of the fields, validation, and automation added to objects.
+
+### Standard Objects
+
+Salesforce provided objects are more than enough for many small to medium businesses out there :). As soon as you buy Salesforce or create a dev edition, they are very much in your face. Just navigate to 'Sales' or 'Service' apps through the 'app' icon if you don't see anything.
+
+A few examples -
+
+1. Contacts, Accounts
+1. Activities, Opportunities, Leads, Cases
+1. Notes, Files
+
+Salesforce smartly bundles all the things that you could do against objects under, well, "Object Manager". Navigate to `Setup` | `Object Manager` tab to see examples.
+
+<img src="./img/sf-setup-objects.png" width=600/>
+
+Keep in mind while thinking about these entities -
+
+1. It is easier to extend current entities than to create new ones. For e.g. you can create a new field called `Super Strengths` in `Contact` rather than creating a new entity called `Super Strengths` with a field called `Strength`. Both options have their usage, but you must know the simpler option
+1. Keep scalability in mind. Don't over-engineer by creating entities that you may never need.
+1. Standard objects have their limitations on what you could customise (e.g. defining relationships that involve a Salesforce object)
+1. There are limits on the number of new entities you can add
+
+### Custom Objects
+
+When out of box objects are simply not enough, you create custom objects which are local to your org.
+
+For e.g., a retail company can create -
+
+1. Trade Promotions
+1. Planograms (that show images of product placements in shelves)
+
+Custom objects may also be created through the packages installed in the org. All custom objects have a `__c` suffix against their name - whether created by you or the package.
+
+The typical cycle to create new custom objects is -
+
+1. Evaluate the use case / requirement. Identify the need for a new object
+1. Design entity / fields / relationship with other entities
+1. Design security rules - who will see and update data stored using the said entity
+1. Design efficient ways of working with this entity - including UI, automation and validation rules
+1. Create stuff as part of a project - in your development environment
+1. Deploy the changes for testing. Test and fix things that may not be working as expected
+1. Deploy changes to production as part of the project roll-out
+
+## Object Relationships
+
+### Lookup
+
+### Master Detail
+
+### Others
+
+### Data Security
+
+#### Data Security in Objects
+
+#### How security is enforced in relationships?
+
+#### UI Layer Security
+
+## Fields
+
+## Introduction to User Interface
 
 ## Workshop
 
