@@ -12,6 +12,148 @@ meta:
 
 # Introduction
 
+Hello, hello, hello.
+
+Have you gone through the [structure of the admin certification course](/admin-guide/structure)? Do you understand the [different Salesforce career options](/why-learn-salesforce/salesforce-careers)? Ok then, get started on your Salesforce admin journey from here!
+
+## What this course / guide is about?
+
+Well, we are big fans of practical learning. We are also bigger fans of having an objective in sight. Hence.. this course.
+
+With this guide / course structure, you get -
+
+1. Rapid learning to prepare for potential Salesforce Administrator certification (ADM201)
+1. Equip yourself with the knowledge required by administrators. All the tools that you require to meet market expectations from an admin
+1. Practical guide to understand Salesforce from scratch
+1. Real-world problems in workshops and case studies to apply your knowledge
+
+But, why certification did we hear you ask?
+
+1. We are more inclined to have a structure for our learning process
+1. Salesforce world is vast and growing. Preparing for certification will impart adequate knowledge about most of the significant topics that all admins should know
+1. With this guide + some experience, you should be confident to attend Salesforce ADM201 exam. Certifications provide credibility in any market
+
+To maximise benefits from the guide -
+
+1. Go through the guide from the beginning (you are at the starting point - so congratulations)
+1. Practice tasks from lessons and applied learning workshops
+1. Make notes from the guide and from your tasks
+1. Gather knowledge through Trailhead and learn by doing
+
+## What is CRM?
+
+We hope you have gone through the [why learn salesforce](/why-learn-salesforce/) section? That chapter should provide you _some_ information about what Salesforce can do.
+
+Salesforce started as a customer relationship management ("CRM") application.
+
+Imagine you are an individual or company peddling your goods or services to dozens of customers. Customers pay you money and get the goods - all simple and well.
+
+On one bright day, you decide to increase you business and include more goods, or deliver services to the customers' location.
+
+You may also want to sell services to people that have bought your products in the past. You even want to wish them on their birthdays .. because, what company doesn't?
+
+All these tasks require you to -
+
+- track customer information
+- capture transaction information and set up a seamless process to deliver goods and services
+- track customer issues and provide lasting solutions
+- identify potential customers from the people who were fortunate to have had previous experience with your business
+
+And.. you have to track all these in a way that will not make your employees insane. You may also want to provide incentives for the good sales/service reps.
+
+CRM includes all the above and a 'CRM system' is the underlying technology on which CRM can happen. CRM encompasses managing information and processes that have customer touch-points.
+
+But, with increasing focus on customers and the ability to apply technology more efficiently, companies put customers at the center of _all_ transactions. From a technology stand-point, this may mean more efficient integrations between CRM and other systems, or better still, make CRM systems the only or core system of all transactions.
+
+Salesforce and other CRM systems increasingly plays a crucial role as the modern enterprise system. They are not just simple sales/ service applications to record transactions, and to 'talk to backend' to get the job done (the 'old paradigm'), but a lot of -
+
+1. Enable superior customer experience across different channels of communication
+1. Know your customer and their buying, servicing habits
+1. Recognise your high value customers
+1. Provide ability to align your sales, service and marketing teams to customer-focused processes and work seamlessly
+1. Track efficiencies and opportunities for improvement, and in turn drive agility
+1. Enable companies to summarise what they have done across time and drill-down to details when needed
+
+All (most?) of us love a great experience when talking to a company to buy a product or get a service. At the same time, companies love to get customers to come back for more, and spread a good word about their products or services.
+
+![crm-benefits](./img/crm-benefits.png)
+
+As a direct result of the need - the market for CRM keeps growing year on year. It is expected to be a \$80 Billion market by 2025 according to "leading analysts".
+
+If we can be coarse-grained about what this means to you -
+
+> More investment = More things to do in the field = More jobs
+
+## The 'System' Part of CRM
+
+Despite all the hoopla surrounding CRM technologies - you do recognise that Salesforce and other 'systems' provide the tools and practices to get stuff done. Every organisation is unique and will decide on how to use those tools better to drive their objectives and actions.
+
+![crm-business-function-technology](./img/crm-business-function-technology.png)
+
+CRM systems started as monolithic systems that focused on a single job and directed at internal groups.
+
+- Implementation was expensive and time consuming
+- Hard to support quick changes
+- CRM projects often failed to realise stated objectives
+- Complex technology needs with multiple integrations, back-and-forth data movement, and inconsistent processes across systems
+
+On the other hand, modern CRM systems are cloud-based, modular, support a "plug-and-play" approach, and take the technology problem away from organisations.
+
+The objective is for organisations focus on their products / services and on processes to deliver customer excellence - not on maintaining technology systems and infrastructure, and certainly not on worrying about technology costs to change.
+
+With all-pervasive internet, sophisticated user experiences that can be enabled in a simple browser, it is all but natural that modern CRM systems have moved to the cloud.
+
+![crm-cloud](./img/crm-cloud.png) <br>_src: Wikipedia_
+
+There are different levels of enabling technologies through the cloud.
+
+![cloud-systems-flavours](./img/cloud-systems-flavours.png) <br>_src: Wikipedia_
+
+## where does Salesforce fit in?
+
+Salesforce.com or SFDC as it is dearly known, stands out as a leader in numerous enterprise functions.
+
+Salesforce checks two of the above boxes -
+
+- SaaS: you can use the software for CRM (& more) and configure/customise to suite your need
+- PaaS: build new stuff, your own apps, and add significant enhancements to what Salesforce provides out-of-the-box
+
+> [See here for an overview of CRM leaders and how they fare](https://dynamics.microsoft.com/en-us/analyst-awards/) as per market analysts.
+> <br>(PS: Yes, this is using a 'competitor' website to make a point, but we equally love Microsoft )
+
+Salesforce provides -
+
+1. horizontal functions - functions like sales, service, marketing etc. that exist across industries. Salesforce Sales Cloud, Service Cloud are examples of products in the salesforce ecosystem that provide horizontal functions
+1. vertical functions - support processes tailored to a particular 'vertical' or industry. This includes products like Salesforce Health Cloud, Financial Cloud and CRM for numerous other industries supported by different apps on AppExchange
+
+The unparalleled functionality enablers, ease of implementation and the 'cloud advantage' have propelled salesforce to the forefront, and has resulted in more & more organisations adopting the product. The increased adoption has led to more salesforce technology partners focusing on making it easier and quicker to implement products and services. All the positive feedback loop leads to a strong Salesforce-driven economy.
+
+![salesforce-economy](./img/salesforce-economy.png) <br>src:salesforce.com
+
+Remember that we mentioned that Salesforce goes beyond just a traditional CRM? That fact is more evident in the above chart.
+
+## Salesforce Platform
+
+Salesforce provides more than few functions and has an ever-expanding portfolio to solve many business problems.
+
+An outline of popular products is below -
+
+![salesforce-clouds](./img/salesforce-clouds.png)
+
+As part of this guide, we will be focusing more on the core platform, Sales Cloud, Service Cloud, Lightning (which is the UI component) and Community Cloud products. Henceforth, when we refer something as SFDC - we just have these products in mind.
+
+## Salesforce Editions
+
+Salesforce.com comes to you in different editions that varies the available functions and available customisation options. As with anything in nature, the more you want -> the more you pay.
+
+Popular editions are below -
+
+| Professional                                                                                                      | Enterprise                                                                                                                          | Unlimited                                                |
+| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
+| Most CRM functions for any sized teams. All major entities and processes – e.g. Accounts, Contacts, Opportunities | Custom App Development, Workflow and approval automation, Console applications, Integration via webservice API, Salesforce Identity | Unlimited power,Additional data storage, Powerful addons |
+
+See [Sales Cloud pricing page](https://www.salesforce.com/in/editions-pricing/sales-cloud/) for an example of how this works.
+
 ## Workshop
 
 Workshop section in a chapter/lesson provides a set of activities that the students need to do after the theory and practice classes for individual lessons in the Salesforce Admin course.
