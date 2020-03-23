@@ -109,7 +109,7 @@ There are different levels of enabling technologies through the cloud.
 
 ![cloud-systems-flavours](./img/cloud-systems-flavours.png) <br>_src: Wikipedia_
 
-## where does Salesforce fit in?
+## Where does Salesforce fit in?
 
 Salesforce.com or SFDC as it is dearly known, stands out as a leader in numerous enterprise functions.
 
@@ -128,7 +128,7 @@ Salesforce provides -
 
 The unparalleled functionality enablers, ease of implementation and the 'cloud advantage' have propelled salesforce to the forefront, and has resulted in more & more organisations adopting the product. The increased adoption has led to more salesforce technology partners focusing on making it easier and quicker to implement products and services. All the positive feedback loop leads to a strong Salesforce-driven economy.
 
-![salesforce-economy](./img/salesforce-economy.png) <br>src:salesforce.com
+![salesforce-economy](./img/salesforce-economy.png) <br>_src:salesforce.com_
 
 Remember that we mentioned that Salesforce goes beyond just a traditional CRM? That fact is more evident in the above chart.
 
