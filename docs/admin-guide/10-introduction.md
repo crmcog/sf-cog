@@ -218,3 +218,21 @@ Each chapter is accompanied by teaching materials that (hopefully) help you pres
 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSasr6Tba9qMmhTuU_Pq1ek1KXK_MNr07aPutlsmEflC9yXyDRHa66VU082KsL4vA/embed?start=false&loop=false&delayms=60000" frameborder="0" width="800" height="600" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
 [More info](/misc/pricing#sf-monkey)
+
+## References and Further Study
+
+### Read & Research
+
+- Go over [Cloud Computing history](https://www.salesforce.com/in/cloudcomputing/?d=70130000000YsaZ)
+- Study up on alternate CRM platforms on cloud
+- Competitors to SFDC - traditional and cloud
+
+### Watch
+
+- [What is CRM - Youtube](https://www.youtube.com/watch?v=biTpNmFXYd0)
+- [What is Salesforce - Youtube](https://www.youtube.com/watch?v=di6iwHhrH6s)
+
+### Do
+
+- Sign up for [Trailhead](https://trailhead.salesforce.com). How many courses can you complete in 24 hours?
+- Checkout [Trailhead trails](https://trailhead.salesforce.com/en/content/learn/trails/learn_salesforce_with_trailhead)
