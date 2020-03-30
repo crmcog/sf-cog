@@ -16,9 +16,96 @@ At this point, you have gone through what salesforce is. We will see what compon
 
 ## What is Salesforce platform about?
 
+Out of the box, Salesforce provides you with a standard core CRM product, a sales product, service product and so on - the functionality depends on which product or edition you choose. You build applications on top of the product/platform and customise for your need.
+
+And.. by "platform" - we mean the base product that comes with Salesforce. The platform enables you to carry out customisations to tailor the out of the box (OOB) Salesforce product. The customisations can be with or without using code - administrators or developers can change application behaviour for all users.
+
+- Add new fields or entities
+- Change validation
+- Enable system to automatically send emails when you change opportunity status
+
+The users themselves have some freedom to decide how they use the application. For .e.g they can set default filters on screens, change appearance, change locale etc.
+
+A "product" can be referred to the set of specific functions like sales or service built on top of the Salesforce platform. A product may also be licensed from third parties from AppExchange - for e.g. Veeva product is available on AppExchange and is mainly targeted at Pharma companies.
+
+Companies and people may just refer to the product they have licensed from Salesforce (& third parties) as the platform, and start adding more customisations on top of the product. This is ok for the real world.
+
+## Underlying Components in Salesforce
+
+We will delve a bit more into components that make up Salesforce.
+
+### Layered Architecture
+
+Any application /system will have multiple layers to do its job. You can visualise those layers with the following diagram.
+
+![salesforce-layered-architecture](./img/salesforce-layered-architecture.png)
+
+- The User Interface ("UI") layer has apps (a group of tabs), tabs that you can click on to navigate to different pages, and custom-built pages / components of pages that use Lightning or Visualforce
+- The business layer supports UI by providing a window to data after applying security rules and data manipulation logic. It also enables data validation rules and business automation
+- Data layer can be just imagined as a underlying database that exists somewhere in the background. It is abstracted from us using business layer, which serves as the foundational layer in salesforce
+
+The customisation of a Salesforce app consists of designing and developing an app. This typically consists of two major steps -
+
+**Design top-down**
+
+Start with what users want to see and where do they want to see them, and how do they carry out their tasks. Then design the business layer including business objects, validation rules and automation routines.
+
+**Develop bottom-up**
+
+Start developing the business layer - from business objects before moving on to the UI layer.
+
+If you think the above clear-cut process sounds too good to be true, you will be right. It is representational - any design/development process will iterate amongst all layers.
+
+Let us start looking at individual layers in more detail.
+
+## User Interface Components
+
+Users interact with the application through UI (the name gives away all the suspense).
+
+UI consists of -
+
+- apps: containers of all goodness
+- tabs: click on 'em to get to pages
+- elements that make up a page
+  - input elements like fields (text fields, drop-downs), buttons
+  - display elements like labels, image galleries
+  - complex elements that are made up of other UI elements and data - like forms, list views, charts, etc.
+
+You can create UI in Salesforce through drag/drop action
+
 ### Salesforce Apps
 
-#### User Interface Components
+Apps lead you into the wonderful world of salesforce applications. While they are the starting point, you can see that the user interface ("UI") is made up of many, many more elements.
+
+At the same time, UI is all but a layer that relies on other layers to fetch data, do validations etc.
+
+Salesforce apps can be seen as a bunch of screens that provides a nice boxed layout for related functionality.
+
+The app consists of -
+
+1. One or more tabs
+1. A logo
+1. Little else
+
+An "app" is just a starting point of your amazing application. Salesforce gives you apps based on what you purchased and you can create your own apps.
+
+You access the app through the navigation bar.
+
+![salesforce-what-is-app](./img/salesforce-what-is-app.gif)
+
+While the product you licensed determine which app you get - you could always create more apps on existing functionality.
+
+For e.g. if you have Sales Cloud, nothing will prevent you from having Sales - Retail, Sales - Wholesale apps targeting two different groups and having two distinct set of tabs.
+
+### Tabs
+
+Tabs expose a business entity & function on UI. You click on a tab to reach pages that consist of UI elements like charts, list views or detail views.
+
+For example - see the above image. You see a bunch of tabs for cases, accounts, reports etc. when you select an app.
+
+Tabs are directly mapped to business object in the business layer - however, there can be more than one tab on a single business object. Remember that we said "typically" - there are exceptions abound to this non-rule. For e.g. home / report tabs can have dashboards that are based on unrelated components.
+
+Any page reached by clicking through a tab is typically based on the root business object that the tab is based on or a related entity. This makes sense since we (pretend to ) learn our organisational skills from day 0.
 
 #### Chatter
 
