@@ -65,7 +65,7 @@ Add all those positives to -
 1. Organizations look at more and more of using a niche-product to address their niche-needs. This translates into opportunities to create small businesses around products and services, and even more jobs
 1. Constant improvements in Salesforce will translate into newer skills to learn and an opportunity to see it realise business benefits in shorter duration
 
-Want to see these points in numbers - see the [presentation below](#_1-why-salesforce-sf-monkey).
+Want to see these points in numbers - see the [presentation below](#_1-why-salesforce-sf-cog).
 
 ## Why not to learn salesforce?
 
@@ -78,7 +78,7 @@ Things are all good until they aren't. Keep in mind a few points while you embar
 
 ### Presentation
 
-#### 1. Why Salesforce? : SF-Monkey
+#### 1. Why Salesforce? : sf-cog
 
 &nbsp;
 

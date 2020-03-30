@@ -42,10 +42,10 @@ Complete following tasks.
 
 ### Presentation
 
-#### 1. Visualforce: SF-Monkey
+#### 1. Visualforce: sf-cog
 
 &nbsp;
 
 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQa7UBxFsA5J1hl8RsFgPwRAK9nuyfVbjNDwi-ykLVksFp-mnCWeM15NgHQYlW7Zw/embed?start=false&loop=false&delayms=3000" frameborder="0" width="800" height="600" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
-[More info](/misc/pricing#sf-monkey)
+[More info](/misc/pricing#sf-cog)

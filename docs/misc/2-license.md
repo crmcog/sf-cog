@@ -13,11 +13,11 @@ meta:
 
 # License Information
 
-sf-monkey covers three different licenses.
+sf-cog covers three different licenses.
 
 ## MIT
 
-All code provided on the sf-monkey website is MIT licensed.
+All code provided on the sf-cog website is MIT licensed.
 
 The MIT License (MIT)
 
@@ -33,7 +33,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 Copyright © 2020-Present Prashanth Krishnamurthy.
 
-Unless stated otherwise, the content on sf-monkey is licensed under a Creative Commons Attribution 4.0 International License:
+Unless stated otherwise, the content on sf-cog is licensed under a Creative Commons Attribution 4.0 International License:
 
 Attribution 4.0 International
 
@@ -424,7 +424,7 @@ Creative Commons may be contacted at creativecommons.org.
 
 ## Miscellaneous Proprietary Licenses
 
-<p>Unless otherwise stated above, sf-monkey and/or its licensors own the intellectual property rights for all material on sf-monkey. All intellectual property rights are reserved. You may access this from sf-monkey for your own personal use or commercial use subjected to restrictions set in these terms and conditions.</p>
+<p>Unless otherwise stated above, sf-cog and/or its licensors own the intellectual property rights for all material on sf-cog. All intellectual property rights are reserved. You may access this from sf-cog for your own personal use or commercial use subjected to restrictions set in these terms and conditions.</p>
 
 This may include up to but not limited to -
 
@@ -433,8 +433,8 @@ This may include up to but not limited to -
 
 <p>You must not:</p>
 <ul>
-    <li>Republish such material from sf-monkey</li>
-    <li>Sell, rent or sub-license such material from sf-monkey</li>
-    <li>Reproduce, duplicate or copy such material from sf-monkey</li>
-    <li>Redistribute such content from sf-monkey</li>
+    <li>Republish such material from sf-cog</li>
+    <li>Sell, rent or sub-license such material from sf-cog</li>
+    <li>Reproduce, duplicate or copy such material from sf-cog</li>
+    <li>Redistribute such content from sf-cog</li>
 </ul>

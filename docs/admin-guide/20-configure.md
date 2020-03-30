@@ -213,10 +213,10 @@ Setup activity/event types/services –
 
 ### Presentation
 
-#### 1. Configure Custom Functionality: SF-Monkey
+#### 1. Configure Custom Functionality: sf-cog
 
 &nbsp;
 
 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRINqBiMv2SE6j8WUDrkDRSO6H7GZm72wp0dC8PE-VRWq3t3hbN5lsweWAYNfIaCQ/embed?start=false&loop=false&delayms=60000" frameborder="0" width="800" height="600" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
-[More info](/misc/pricing#sf-monkey)
+[More info](/misc/pricing#sf-cog)

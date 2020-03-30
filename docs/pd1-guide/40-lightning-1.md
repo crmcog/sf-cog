@@ -37,10 +37,10 @@ Complete following tasks.
 
 ### Presentation
 
-#### 1. Lightning: SF-Monkey
+#### 1. Lightning: sf-cog
 
 &nbsp;
 
 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTx8g0tQuPq2t5bU_WWs0WlwND6Jmb5ircRhZpe7YIrJJNjZ-oL4NHOQJDCucrw6A/embed?start=false&loop=false&delayms=3000" frameborder="0" width="800" height="600" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
-[More info](/misc/pricing#sf-monkey)
+[More info](/misc/pricing#sf-cog)

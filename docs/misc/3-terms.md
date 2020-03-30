@@ -6,39 +6,39 @@ autoNext: 4-privacypolicy
 metaTitle: Terms of Use
 meta:
   - name: description
-    content: Terms of use for content and code on sf-monkey.
+    content: Terms of use for content and code on sf-cog.
   - name: keywords
     content: terms
 ---
 
 # Terms
 
-<p>Welcome to sf-monkey!</p>
+<p>Welcome to sf-cog!</p>
 
-<p>These terms and conditions outline the rules and regulations for the use of sf-monkey's Website, located at sf-monkey.crmcog.com.</p>
+<p>These terms and conditions outline the rules and regulations for the use of sf-cog's Website, located at sf-cog.crmcog.com.</p>
 
-<p>By accessing this website we assume you accept these terms and conditions. Do not continue to use sf-monkey if you do not agree to take all of the terms and conditions stated on this page.</p>
+<p>By accessing this website we assume you accept these terms and conditions. Do not continue to use sf-cog if you do not agree to take all of the terms and conditions stated on this page.</p>
 
 <p>The following terminology applies to these Terms and Conditions, Privacy Statement and Disclaimer Notice and all Agreements: "Client", "You" and "Your" refers to you, the person log on this website and compliant to the Company’s terms and conditions. "The Company", "Ourselves", "We", "Our" and "Us", refers to our Company. "Party", "Parties", or "Us", refers to both the Client and ourselves. All terms refer to the offer, acceptance and consideration of payment necessary to undertake the process of our assistance to the Client in the most appropriate manner for the express purpose of meeting the Client’s needs in respect of provision of the Company’s stated services, in accordance with and subject to, prevailing law of Netherlands. Any use of the above terminology or other words in the singular, plural, capitalization and/or he/she or they, are taken as interchangeable and therefore as referring to same.</p>
 
 <h3><strong>Cookies</strong></h3>
 
-<p>We employ the use of cookies. By accessing sf-monkey, you agreed to use cookies in agreement with the sf-monkey's Privacy Policy.</p>
+<p>We employ the use of cookies. By accessing sf-cog, you agreed to use cookies in agreement with the sf-cog's Privacy Policy.</p>
 
 <p>Most interactive websites use cookies to let us retrieve the user’s details for each visit. Cookies are used by our website to enable the functionality of certain areas to make it easier for people visiting our website. Some of our affiliate/advertising partners may also use cookies.</p>
 
 <h3><strong>License</strong></h3>
 
-<p>Unless otherwise stated, sf-monkey and/or its licensors own the intellectual property rights for all material on sf-monkey. All intellectual property rights are reserved. You may access this from sf-monkey for your own personal use or commercial use subjected to restrictions set in these terms and conditions.</p>
+<p>Unless otherwise stated, sf-cog and/or its licensors own the intellectual property rights for all material on sf-cog. All intellectual property rights are reserved. You may access this from sf-cog for your own personal use or commercial use subjected to restrictions set in these terms and conditions.</p>
 
 See <a href="/misc/license">License</a> page for details.
 
 <p>Unless otherwise stated and covered by the license conditions, you must not:</p>
 <ul>
-    <li>Republish material from sf-monkey</li>
-    <li>Sell, rent or sub-license material from sf-monkey</li>
-    <li>Reproduce, duplicate or copy material from sf-monkey</li>
-    <li>Redistribute content from sf-monkey</li>
+    <li>Republish material from sf-cog</li>
+    <li>Sell, rent or sub-license material from sf-cog</li>
+    <li>Reproduce, duplicate or copy material from sf-cog</li>
+    <li>Redistribute content from sf-cog</li>
 </ul>
 
 <p>This Agreement shall begin on the date hereof.</p>
@@ -81,7 +81,7 @@ See <a href="/misc/license">License</a> page for details.
 <p>Approved organizations may hyperlink to our Website as follows:</p>
 
 <ul>
-    <li>By use of the brand 'sf-monkey'; or</li>
+    <li>By use of the brand 'sf-cog'; or</li>
     <li>By use of our corporate name; or</li>
     <li>By use of the uniform resource locator being linked to; or</li>
     <li>By use of any other description of our Website being linked to that makes sense within the context and format of content on the linking party’s site.</li>

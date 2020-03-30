@@ -139,10 +139,10 @@ Create objects, attributes and basic UI.
 
 ### Presentation
 
-#### 1. Configuration Deep-dive: SF-Monkey
+#### 1. Configuration Deep-dive: sf-cog
 
 &nbsp;
 
 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRfu_vhfHjlreucmXkA4eCpNIKSAwU0MCya6jytaYnyAWvdIdXUEc8wbDTHEEMwEg/embed?start=false&loop=false&delayms=60000" frameborder="0" width="800" height="600" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
-[More info](/misc/pricing#sf-monkey)
+[More info](/misc/pricing#sf-cog)

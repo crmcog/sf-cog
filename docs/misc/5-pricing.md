@@ -16,9 +16,9 @@ Content on the website is available for personal or commercial use unless the co
 
 You can consider supporting content creators by buying third-party presentation artefacts and videos. The information is available in the 'More Info' links specified against the content available for sale.
 
-## sf-monkey
+## sf-cog
 
-### sf-monkey certification guide presentations
+### sf-cog certification guide presentations
 
 You are free to use the presentation artefacts hosted on Google Slides for personal or commercial use.
 

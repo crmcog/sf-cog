@@ -1,5 +1,5 @@
 {
-  "name": "sf-monkey",
+  "name": "sf-cog",
   "version": "0.0.1",
   "description": "Tutorials, Knowledge articles and links to learn Salesforce.com and related technologies.",
   "scripts": {
@@ -7,7 +7,7 @@
     "build": "vuepress build docs"
   },
   "main": "index.js",
-  "repository": "https://github.com/crmcog/sf-monkey.git",
+  "repository": "https://github.com/crmcog/sf-cog.git",
   "author": "Prashanth Krishnamurthy",
   "license": "MIT",
   "devDependencies": {

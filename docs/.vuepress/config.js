@@ -6,7 +6,7 @@ module.exports = {
   // prettier-ignore
   head: [
     ["link", { rel: "stylesheet", href:"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css"}],
-    ["link", { rel: "icon", href: "/images/sf-monkey-200x200.png" }],
+    ["link", { rel: "icon", href: "/images/sf-cog_logo.png" }],
     ["link", { rel: "manifest", href: "/manifest.json" }],
     ["meta", { name: "theme-color", content: "#2196f3" }],
     ["meta", { name: "apple-mobile-web-app-capable", content: "yes" }],
@@ -19,7 +19,7 @@ module.exports = {
   locales: {
     "/": {
       lang: "en-US",
-      title: "sf-monkey",
+      title: "sf-cog",
       description:
         "Tutorials, knowledge articles and links to learn Salesforce.com and related technologies."
     }
@@ -76,7 +76,7 @@ module.exports = {
       }
     },
 
-    repo: "crmcog/sf-monkey",
+    repo: "crmcog/sf-cog",
     editLinks: true
   },
 
@@ -92,7 +92,7 @@ module.exports = {
       notFoundPath: "/404.html"
     },
     sitemap: {
-      hostname: "https://sf-monkey.crmcog.com"
+      hostname: "https://sf-cog.crmcog.com"
     },
     "@vuepress/pwa": {
       serviceWorker: true,

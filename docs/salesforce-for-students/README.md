@@ -35,7 +35,7 @@ Still confused? Talk to a professional in the field and to your career counsello
 
 ### Presentation
 
-#### 1. Salesforce for Students : SF-Monkey
+#### 1. Salesforce for Students : sf-cog
 
 &nbsp;
 

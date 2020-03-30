@@ -44,10 +44,10 @@ meta:
 
 ### Presentation
 
-#### 1. Collaboration: SF-Monkey
+#### 1. Collaboration: sf-cog
 
 &nbsp;
 
  <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTf-e620yy3Kn0VYgIHK49MtYcDGRpid8IDHGiuZhJgPmESXUDP8AJOHsgVQpAtwg/embed?start=false&loop=false&delayms=60000" frameborder="0" width="800" height="600" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
-[More info](/misc/pricing#sf-monkey)
+[More info](/misc/pricing#sf-cog)

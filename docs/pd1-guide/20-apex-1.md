@@ -69,10 +69,10 @@ Here are the activities for the day (or week!? :))
 
 ### Presentation
 
-#### 1. Apex: SF-Monkey
+#### 1. Apex: sf-cog
 
 &nbsp;
 
 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSh5OHMxrWgp12qFXpzm1qZ0PqvT_mpY0Uhu5BKoV7j5qZPWCOCxB8oFz2aSdhw4w/embed?start=false&loop=false&delayms=60000" frameborder="0" width="800" height="600" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
-[More info](/misc/pricing#sf-monkey)
+[More info](/misc/pricing#sf-cog)

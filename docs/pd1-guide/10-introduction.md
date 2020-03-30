@@ -198,10 +198,10 @@ Each chapter is accompanied by teaching materials that (hopefully) help you pres
 
 ### Presentation
 
-#### 1. Introduction to PD1 Certification Course: SF-Monkey
+#### 1. Introduction to PD1 Certification Course: sf-cog
 
 &nbsp;
 
 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQECwkCtXtlifG4eZL5gG3ZRqgVEs2mXvw3jRLmU5DHWl6xZQkFVNYMBYRNsEXf7Q/embed?start=false&loop=false&delayms=60000" frameborder="0" width="800" height="600" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
-[More info](/misc/pricing#sf-monkey)
+[More info](/misc/pricing#sf-cog)

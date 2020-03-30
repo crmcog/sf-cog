@@ -123,10 +123,10 @@ Install following apps in your dev org.
 
 ### Presentation
 
-#### 1. Platform Fundamentals: SF-Monkey
+#### 1. Platform Fundamentals: sf-cog
 
 &nbsp;
 
   <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSNcT_AgPRtmWBlz2Xe0tpX8Pb7hpENWGWlgVwmAJIOJ40G2AI71i7zi_VZ_S6WOg/embed?start=false&loop=false&delayms=60000" frameborder="0" width="800" height="600" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
-[More info](/misc/pricing#sf-monkey)
+[More info](/misc/pricing#sf-cog)

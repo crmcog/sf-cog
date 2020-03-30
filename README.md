@@ -1,12 +1,12 @@
-# SF-MONKEY
+# sf-cog
 
 Learn salesforce.com and stuff.
 
-![sf-monkey-logo](./docs/.vuepress/public/images/sf-monkey-200x200.png)
+![sf-cog-logo](./docs/.vuepress/public/images/sf-cog_logo.png)
 
 ## What this is?
 
-The content here looks neat on https://sf-monkey.crmcog.com.
+The content here looks neat on https://sf-cog.crmcog.com.
 
 This repository is yet another attempt to collate salesforce.com learning materials, tutorials, links and stuff to (hopefully) make your learning process easier.
 
@@ -19,7 +19,7 @@ You can use the study materials here to -
 
 ## Contributing
 
-See https://github.com/crmcog/sf-monkey/blob/master/CONTRIBUTING.md.
+See https://github.com/crmcog/sf-cog/blob/master/CONTRIBUTING.md.
 
 ## Support Us
 
@@ -29,5 +29,5 @@ Consider supporting us if you get benefited by this work.
 
 ## Questions? Comments?
 
-- [Raise an issue](https://github.com/crmcog/sf-monkey/issues)
+- [Raise an issue](https://github.com/crmcog/sf-cog/issues)
 - Shout out to [crmcog on Twitter](https://twitter.com/crmcog)
