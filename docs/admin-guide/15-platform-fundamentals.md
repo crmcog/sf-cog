@@ -12,6 +12,8 @@ meta:
 
 # Platform Fundamentals
 
+At this point, you have gone through what salesforce is. We will see what components make up Salesforce and how it behaves for various types of users and organizations.
+
 ## What is Salesforce platform about?
 
 ### Salesforce Apps
