@@ -45,6 +45,8 @@ They themselves do not store data, but are the only window to access said data. 
 
 Salesforce provided objects are more than enough for many small to medium businesses out there :). As soon as you buy Salesforce or create a dev edition, they are very much in your face. Just navigate to 'Sales' or 'Service' apps through the 'app' icon if you don't see anything.
 
+![standard-objects](./img/standard-objects.png)
+
 A few examples -
 
 1. Contacts, Accounts
@@ -73,6 +75,8 @@ For e.g., a retail company can create -
 
 Custom objects may also be created through the packages installed in the org. All custom objects have a `__c` suffix against their name - whether created by you or the package.
 
+![custom-objects](./img/custom-objects.png)
+
 The typical cycle to create new custom objects is -
 
 1. Evaluate the use case / requirement. Identify the need for a new object
@@ -83,25 +87,273 @@ The typical cycle to create new custom objects is -
 1. Deploy the changes for testing. Test and fix things that may not be working as expected
 1. Deploy changes to production as part of the project roll-out
 
+### Limits
+
+Custom objects are not infinite - as is anything on this planet. Remember that Salesforce is a shared ecosystem and, even with all good intentions, Salesforce cannot provide anyone infinite resources.
+
+The following limits are applicable for custom objects-
+
+| Edition                 | # Custom Objects |
+| ----------------------- | ---------------- |
+| Contact Manager         | 5                |
+| Group, Professional     | 50               |
+| Enterprise              | 200              |
+| Unlimited & Performance | 2000             |
+| Developer               | 400              |
+
+Additional objects can be installed by managed packages, and you could request relaxing the limits - to an extent. There is a hard limit of 3000 objects per org.
+
+See [salesforce limits page](https://help.salesforce.com/articleView?id=overview_limits_general.htm&type=0) for the latest numbers.
+
 ## Object Relationships
+
+As the old jungle saying goes -
+
+> No object is an island
+
+So then, we have relationships between objects.
+
+As in the real real-world, relationships can be complex and simple at the same time. They can be one of one to one, one to many, many to many and many to one. We will look at each of these next.
 
 ### Lookup
 
+Lookup relationships -
+
+- Can be 1:1, M:1
+- Bind one object so that it can be “looked up” from another
+- Relationships can change – reparenting possible
+- Child does not inherit security, is independent
+
+For e.g. an account can have zero or more contacts, an account can have zero or more attachments.
+
+![object-relationships-lookup](./img/object-relationships-lookup.png)
+
+You can create lookup relationships on standard or custom objects -
+
+1. start creating a new field
+1. specify the type of relationship
+1. specify the target object
+
+![salesforce-create-new-relationships](./img/salesforce-create-new-relationships.png)
+
 ### Master Detail
 
-### Others
+Master detail relationships -
 
-### Data Security
+- Can be 1:M relationship. Have one object as master and another detail (surprise!?)
+- In a 1:M relationship - the 'child' record cannot exist 'without' parent
+- Child record inherits security rules from parent
 
-#### Data Security in Objects
+For example, a contact can have more than one activities.
 
-#### How security is enforced in relationships?
+![object-relationships-master-detail](./img/object-relationships-master-detail.png)
 
-#### UI Layer Security
+You create master-detail relationships very much like lookup relationship and start creating the new field to specify the relationship.
+
+There are a couple of interesting things about master detail relationships -
+
+1. Roll-up summary fields work on master-detail. So, just with an additional field on master object and without doing anything else - you can get the sum of a field in the child object, or count of child records
+1. Standard objects cannot be on the 'child' side of master-detail relationships. They make good parents though (supposedly)
+
+### Other Considerations
+
+There are few other interesting ways in which objects can relate to others. We simply cobbled them under one heading since we are lazy.
+
+#### M:M using junction object
+
+M:M relationships in salesforce are a couple of 1:M relationships between the said objects and a third object called 'junction object'. The junction object is a simple object that typically stores ids of related records from two different objects. This is similar to the intersection table concept in relational databases
+
+For e.g. a campaign can have one or more leads. A lead in-turn can be part of more than one campaign.
+
+![object-relationships-junction](./img/object-relationships-junction.png)
+
+#### External lookup:
+
+An external object is a Salesforce object representation of data structure that resides outside the org.
+
+For e.g you can relate Salesforce accounts to orders stored in ERP. Then -
+
+- orders are created as external objects within salesforce. It integrates using supported mechanisms to get data from the said external system
+- a relationship field is created to relate those external records to account.
+
+External look up fields specify an external object as parent and salesforce object as the child.
+
+#### Indirect lookup
+
+Again relates an external object to salesforce objects - only in this case, external object is child and parent is a custom/standard object.
+
+This kind of relationship uses an unique external id as key.
+
+#### Self relationship
+
+A self-relationship is an object relating to the same object. It is not exactly a distinct type of relationship - it can be either 1:1 or 1:M.
+
+For e.g. an account can have zero or more child accounts.
+
+![object-relationships-self](./img/object-relationships-self.png)
+
+#### Hierarchical relationship
+
+Hierarchical relationships define cascading relationships between records. In Salesforce it exists only for User object.
 
 ## Fields
 
-## Introduction to User Interface
+Now that we have seen something of objects and fields that define relationships, you might have already taken a look at other types of fields that you can create against an object. But, let's do that again together - we simply don't like people to get smart too quickly.
+
+Fields are just attributes.
+
+For e.g., account can have attributes like Name, Location, Address, Total Revenue, etc., each of which are fields in Account object. Salesforce provides its own, rich typing for its fields – thanks to its abstraction of the data layer.
+
+You would have seen the type of fields in full glory while trying to create a field for relationships.
+
+| Type                  | Can Contain                     | Description                                                  |
+| --------------------- | ------------------------------- | ------------------------------------------------------------ |
+| Text                  | Letters, numbers, symbols       | Max 255 char.                                                |
+| Number                | Integers and decimals           | Significant digits specified in definition.                  |
+|                       |                                 | Rounds off to higher number in case of “tie”                 |
+| Date, Date-time, Time | Valid date or time              | Enables easier date calculations                             |
+| Currency              | Valid currency                  | Uses even number tie breaking rule                           |
+| Checkbox              | Boolean                         |                                                              |
+| Formula               | Calculations                    | Math functions, System references, lookup field values, etc. |
+| Master-detail, Lookup | Relationships to other entities | Field specified during configuration                         |
+| Picklist              | Drop-down list                  | Use hard-coded values or global picklist                     |
+
+Some interesting points -
+
+- Standard fields, i.e. , fields supplied by salesforce, cannot be changed. Add custom fields to std. or custom objects
+- Design before you develop. Establish relationships and foreign keys/external ids
+- Field types can be changed after the field is created (with or without data) - but not in every case. Pick right type for your fields (yes, we don't do that often)
+- Be aware of filter & sort needs while choosing the type. Alphabetical sorting puts an account with account number '100' ahead of '20'
+- Be aware of limits – rich text, number of fields etc.
+- Encryption of data is supported on only specific field types
+
+See more of this on the [Salesforce help page for fields](https://help.salesforce.com/articleView?id=custom_field_types.htm&language=en&type=5).
+
+## Data Security - Part Deux
+
+Now that we know more about objects and fields, it is time to see bit more on securing data.
+
+### Field Level Security
+
+Field-level security enables controlling visibility and read-only behaviour at business layer level.
+
+To set field level security, go to **Setup** > **Object Manager** > **Fields** > Click on button 'Set Field Level Security'.
+
+![object-field-security](./img/object-field-security.png)
+
+You can check access to different profiles/permission sets by going to **Setup** > **Object Manager** > **Fields** > Click on button 'View Field Accessibility'.
+
+![check-field-level-security](./img/check-field-level-security.png)
+
+The permissions set at business layer are applicable to all aspects of the application - may it be UI, reports, data coming through API calls from external applications, or anywhere else. Security rules here override everything else.
+
+### Record-level Security
+
+In the previous chapter, we have already seen how role-based security plays a big part in what data the user sees based on her role.
+
+In addition, also note that dynamic filters may be applied based on data values in a record. You can configure these filtering rules in couple of ways:
+
+1. Set record types (for e.g. an account's type) and change layouts based on record types. The UI then depends on the record type and user's permission to see a particular layout (see UI security section below)
+1. Enable ad-hoc and dynamic sharing of data by users or through logic (using Apex for example)
+
+### Security in object relationships
+
+Two objects may have distinct / contradictory security rules and be related. The security rules for showing related data are applied in context of parent as applicable.
+
+- A lookup field shows up depending on the field level security + UI security rules - even though the user may not have access to the related record
+- In case of a master detail relationship: detail record inherits the sharing settings (record level security rules) of the parent, and will be visible whenever the parent is visible. However, they can control field level security (e.g. what is displayed and updateable on the layout ) independently
+
+## Revisiting User Interface
+
+All this talk about object layer is up in the air until this thing called "user interface" (UI) enters the chat.
+
+UI is where all the magic happens as far as the user is concerned. We have seen what exactly UI in salesforce looks like and its components in the previous chapter. It is time to drill-down further.
+
+As we have seen earlier, UI has these layers-
+
+1. Apps and tabs
+1. Detail or list views
+1. Individual UI elements like buttons, fields etc.
+
+Salesforce provides apps, screens and views for the objects supplied as part of the product. You can modify them or create new elements on your own.
+
+For the record, Salesforce has two distinct types of UI -
+
+1. Classic: This is the salesforce of yore. We may have these in old orgs that find it difficult to migrate to the new UI (was born in 2014, so not quite new at this time)
+1. Lightning: This is the default behaviour for all new orgs. Almost all orgs would have some or the other component of Lightning
+
+We almost never deal with Classic. But you have to know a couple of things -
+
+1. Visualforce technology was built to create custom UI in classic Salesforce. It continues to exist and can also support Lightning UI
+1. Modern salesforce UI will be developed only using Lightning framework
+
+![classic-ui-salesforce](./img/classic-ui-salesforce.png)
+
+Lightning is the modern avatar of Salesforce UI. Lightning allows you to -
+
+1. Use modern web standards to develop components and assemble them to create powerful UI
+1. Create delightful user experiences based on user roles and responsibilities
+
+![salesforce-lightning-ui](./img/salesforce-lightning-ui.png)
+
+Couple of terminologies to note -
+
+- Lightning UI is the modern UI experience
+- Lightning components are the individual UI components built by Salesforce, third parties, or our own development team.
+- Lightning framework is used by developers to create custom lightning components
+
+Lightning components come together to form Lightning pages, which in turn are exposed within our beloved tabs.
+
+We can configure different pages using Lightning UI using App Builder -
+
+Go to **Setup** > **User Interface** > **Lightning App Builder**. Click 'New' to be presented with options to create one of three pages -
+
+- app page: created for an app :)
+- home page: create one or more home pages for different profiles/permission sets in the same app
+- record page: create record detail page that shows records, any visualisations and related records
+
+![lightning-app-builder-start](./img/lightning-app-builder-start.png)
+
+With Lightning app builder, you can -
+
+- Drag and drop components to create a page
+- Use different layouts
+- Reuse the page in multiple tabs
+
+![lightning-page-builder](./img/lightning-page-builder.png)
+
+### UI Layer Security
+
+As we have seen earlier -
+
+1. Profiles control which views user has access to
+1. Roles control the data
+
+Now, we will change the first statement to "profiles control which UI user has access to". You control the access to UI fields by creating layouts for a page and assigning layouts to different profiles.
+
+So..
+
+1. You create/modify layouts (out of box layouts are read-only and can only be cloned)
+1. You can make fields visible (or read-only) on specific layouts of account page
+1. Assign those layouts to distinct profiles - e.g. sales rep layout and sales manager layout
+
+.. and you are done.
+
+![account-profile-layout-assign](./img/account-profile-layout-assign.jpg)
+
+But, where do these layouts fit in?
+
+You do remember that we previously said that you include components in the Lightning Page builder to create pages? You can include detail views in those pages, and those views automatically show the layouts based on user's profile.
+
+If that's not cool, we don't know what is.
+
+![account-lightning-page-layout](./img/account-lightning-page-layout.png)
+
+A few more interesting points -
+
+1. You not only make fields visible on a layout, but can also make those fields read-only
+1. Business layer (i.e., object and field-level) rules will override any UI level rules. For e.g. if a field is read only at the object level, it cannot be made read-write at the UI layer. UI can only add restrictions on top of whatever exists at the business object layer
+1. There are interesting combinations to be had with UI layouts and read-only behaviour - these can also be driven by data. For e.g. accounts with status 'Approved' can have certain fields read-only to most users. All these rules come together to apply the most restrictive policy for a user.
 
 ## Workshop
 
