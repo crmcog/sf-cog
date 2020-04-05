@@ -159,42 +159,13 @@ There are a couple of interesting things about master detail relationships -
 
 There are few other interesting ways in which objects can relate to others. We simply cobbled them under one heading since we are lazy.
 
-#### M:M using junction object
+You can have interesting relationships between objects including -
 
-M:M relationships in salesforce are a couple of 1:M relationships between the said objects and a third object called 'junction object'. The junction object is a simple object that typically stores ids of related records from two different objects. This is similar to the intersection table concept in relational databases
+1. M:M relationship - by having a intermediary object (called 'junction' object in between the parent and child relationship)
+1. Specialised relationships like self (account is related to parent account), and hierarchical (the name says it all - only possible with User object)
+1. External lookup and Indirect lookup - relate object that represent integrated data structures with salesforce objects. For e.g. relate SAP Orders object (which can have data coming over from SAP through Salesforce provided / custom means ) to Salesforce Accounts
 
-For e.g. a campaign can have one or more leads. A lead in-turn can be part of more than one campaign.
-
-![object-relationships-junction](./img/object-relationships-junction.png)
-
-#### External lookup:
-
-An external object is a Salesforce object representation of data structure that resides outside the org.
-
-For e.g you can relate Salesforce accounts to orders stored in ERP. Then -
-
-- orders are created as external objects within salesforce. It integrates using supported mechanisms to get data from the said external system
-- a relationship field is created to relate those external records to account.
-
-External look up fields specify an external object as parent and salesforce object as the child.
-
-#### Indirect lookup
-
-Again relates an external object to salesforce objects - only in this case, external object is child and parent is a custom/standard object.
-
-This kind of relationship uses an unique external id as key.
-
-#### Self relationship
-
-A self-relationship is an object relating to the same object. It is not exactly a distinct type of relationship - it can be either 1:1 or 1:M.
-
-For e.g. an account can have zero or more child accounts.
-
-![object-relationships-self](./img/object-relationships-self.png)
-
-#### Hierarchical relationship
-
-Hierarchical relationships define cascading relationships between records. In Salesforce it exists only for User object.
+We will get back to relationships while doing a further deep-dive.
 
 ## Fields
 

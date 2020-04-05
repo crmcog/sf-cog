@@ -13,6 +13,121 @@ meta:
 
 # UI Customisation
 
+We previously mentioned that we will be back with more of UI. And.. here we are.
+
+Before starting all that - let us just put this forward this very simple message - "you are awesome". Not because you are here and reading this page, but because you are learning something new and taking your career to newer heights!
+
+Back to Salesforce UI.
+
+## What is Salesforce UI?
+
+Salesforce UI allows you to configure and composition pages /screens to capture information and display data. There are many features that make Salesforce UI really good -
+
+1. Enables quick build out of UI components -
+   - define business layer, fill in a few attributes and a configured UI with all relationships is generated
+   - drag and drop "stuff" to build UI layouts or entire pages
+   - do additional configuration to change layouts, and provide advanced functionality
+1. Compose UI by assembling UI components. Lightning components can come together to form beautiful and functional UIs
+1. Security is enforced for UI access through profiles / permission sets
+1. Allows personalization – e.g. users can create their own lists, customise dashboards, or hide fields
+1. Allows seamless integration of business logic through selective filtering of data, record types for variable layouts
+
+The typical components of Salesforce UI are below -
+
+- Typical Terms
+- Apps
+- Tabs
+- Detail and List Views
+- Fields
+- Home / App / Record pages
+- Visualforce page
+- Lightning & Visualforce Components
+
+The following diagram outlines UI elements and how they relate to each other -
+
+![salesforce-ui-elements](./img/salesforce-ui-elements.png)
+
+When dealing with Salesforce UI, you will often hear Lightning UI framework and talks of Salesforce Classic. We have seen that before - we will try to focus more on Lightning since that is where Salesforce is going in the future. Lightning UI will work on typical form factors (e.g. desktop, tablet or phone), and provides an user experience atypical to a modern app.
+
+## Start configuring Salesforce UI
+
+A common structure followed to configure UI will include following steps -
+
+1. Create Page Layouts
+1. Create List / Detail Views
+1. Create Quick Actions / Buttons
+1. Related Lists
+1. Use Lightning App Builder to configure screen
+
+## UI Configuration
+
+### Create Page Layouts
+
+### Create List and Detail Views
+
+### Create Quick Action / OOB buttons
+
+### Show and hide related lists
+
+### Use Lightning App Builder
+
+### Data-driven behaviour for UI
+
+#### UI security rules
+
+#### Record types
+
+## Reports
+
+No UI discussion is complete without reports.
+
+Reports and dashboards (a collection of related or independent reports) are easily configured in Salesforce.
+
+The typical life cycle for creation of reports -
+
+1. Create report types
+1. Create reports
+1. Create dashboards
+1. Include reports in customised UI (if relevant)
+
+### Create Report Types
+
+### Create reports
+
+#### Report filtering and bucket fields
+
+### Dashboard and Related reports
+
+### Inline/in-view reports in Lightning vs Classic
+
+## Security for reports and dashboards
+
+## Customising Salesforce UI
+
+So far, we have seen how you can configure Salesforce UI. As you would have seen, configuring UI is quick, painless, and easy to maintain.
+
+At the same time -
+
+1. UI has defined layouts (a list has to be fields arranged side-by-side, a form has fields arrayed in an x-column layout)
+1. Standard layouts may not allow complex operations (for example: interact with a rich text box to show spelling mistakes, or showing activities in a colour-coded calendar)
+1. It is not possible to go out of standard UI behaviour - e.g. clicking on fields to edit record, pop-up edit for parent/related records, etc.
+
+The Salesforce-standard behaviour may be changed by customising UI. This customisation is not an administrator function, but all good administrators should be aware of what the system can do. So, here's a sneak-peak at customisation options.
+
+There are two distinct ways to customise Salesforce UI -
+
+1. Lightning UI - will be used as default. You can use Lightning framework to create components by writing in code. These components can be assemble together by developers or administrators to create Lighting pages
+1. Visualforce - used to create pages for Salesforce Classic (but can also be useful to create Lightning UI in niche case - we will not go there for now)
+
+![salesforce-ui-customisation](./img/salesforce-ui-customisation.png)
+
+A few points to note about the two options -
+
+- Visualforce is page centric, while Lightning allows entire applications to be assembled
+- Ability to reuse Lightning components within org and from AppExchange is very powerful. This allows admin/designers to create advanced apps without developers
+- Convert Visualforce pages to Lightning with simple stylesheets (for OOB components)
+- It is possible to use Javascript or custom front-end frameworks and work with Salesforce.com APIs for very niche needs
+
 ## Workshop
 
 | No. | Type | Description                                | Time (hrs) |
