@@ -69,9 +69,11 @@ Community Cloud enables you to create external-facing client or partner websites
 
 ![salesforce-community-cloud](./img/salesforce-community-cloud.jpg) <br>_src: salesforce.com_
 
-Pricing for Community Cloud depends on volume of usage and the collaboration tools required.
+Pricing for Community Cloud depends on various editions (which provide different functionalities), volume of usage and the collaboration tools required.
 
-![salesforce-community-cloud-pricing](./img/salesforce-community-cloud-pricing.jpg)
+![community-cloud-self-service-edition](./img/community-cloud-self-service-edition.png)
+
+You can see the [Community pricing page](https://www.salesforce.com/in/editions-pricing/community-cloud/) for details and comparison of functions available in each flavour/edition.
 
 ### Enable Community Cloud
 
