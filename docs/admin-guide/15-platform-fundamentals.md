@@ -380,7 +380,7 @@ Profiles and permission sets control which screens/views you see. Roles control 
 
 Salesforce typically works by securing all data (making everything most restrictive) and opening view/write/both access only to specified entities. This is done at individual entity level and is mondo useful.
 
-The default access enabled at entity is called "Organisation-wide defaults" (or "OWD"). Roles and defined sharing rules enable accessing data secured by OWD to specific user groups or users.
+The default access enabled at entity is called "Organisation-Wide Defaults" (or "OWD"). Roles and defined sharing rules enable accessing data secured by OWD to specific user groups or users.
 
 ![salesforce-owd-roles-sharing](./img/salesforce-owd-roles-sharing.png)
 
