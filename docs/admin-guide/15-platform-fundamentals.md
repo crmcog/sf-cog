@@ -44,6 +44,8 @@ Salesforce supports multiple tenants on its platform - you and thousands of othe
 
 Almost all of salesforce is accessible and usable through a simple browser. The platform resides on servers available across different locations over the globe, but a tenant or user doesn't really care about the infrastructure and how all of it functions. A user just needs Internet to achieve nirvana.
 
+Also see what cloud computing description in the previous section.
+
 #### Pay as you go
 
 There are no costs affixed to "owning the platform", no costs to buy infrastructure and "set everything up".

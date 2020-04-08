@@ -27,7 +27,7 @@ With this guide / course structure, you get -
 1. Practical guide to understand Salesforce from scratch
 1. Real-world problems in workshops and case studies to apply your knowledge
 
-But, why certification did we hear you ask?
+But, why tag learning to "certification" did we hear you ask?
 
 1. We are more inclined to have a structure for our learning process
 1. Salesforce world is vast and growing. Preparing for certification will impart adequate knowledge about most of the significant topics that all admins should know
@@ -99,19 +99,80 @@ CRM systems started as monolithic systems that focused on a single job and direc
 
 On the other hand, modern CRM systems are cloud-based, modular, support a "plug-and-play" approach, and take the technology problem away from organisations.
 
-The objective is for organisations focus on their products / services and on processes to deliver customer excellence - not on maintaining technology systems and infrastructure, and certainly not on worrying about technology costs to change.
+The objective is for organisations focus on their products / services and on processes to deliver customer excellence - not on maintaining technology systems and infrastructure, and certainly not on worrying about impact of technology to change quickly and adapt to changing business needs.
 
-With all-pervasive internet, sophisticated user experiences that can be enabled in a simple browser, it is all but natural that modern CRM systems have moved to the cloud.
+Today, thanks to an all-pervasive internet , and to sophisticated user experiences that can be enabled in a simple browser - it is all but natural that modern CRM systems have moved to the cloud.
 
-![crm-cloud](./img/crm-cloud.png) <br>_src: Wikipedia_
+## Cloud Computing
 
-There are different levels of enabling technologies through the cloud.
+Wikipedia describes cloud computing as -
+
+> Cloud computing is the on-demand availability of computer system resources, especially data storage and computing power, without direct active management by the user.
+
+The reliability of the Internet and the direct effect of shifting more of business on Internet meant that-
+
+1. Organisations can also move components (or the entire) applications to be part of the same Internet
+1. Look at avenues for achieving better efficiencies (better computing, lower costs, serve customers faster, etc.)
+
+In order to meet these considerations head on, companies may then open up data centers and maintain their servers as well as applications everywhere on the planet. This will -
+
+1. Force the organisations to develop expertise on creating/maintaining infrastructure (buildings, servers, miles of cables, electricity backups, cooling solutions and so on) in addition to the actual computing hardware
+1. Collaborate with tens of hardware companies to maintain the computing infrastructure over months and years
+1. Deal with regulatory needs for data centers in each location
+1. Invest in all the expenses upfront and wait for years to get to profitabilitu
+
+Or, they could simply move to infrastructure maintained by a third party.
+
+Both of the above options signify that the company moved their computing resources to the cloud.
+
+With cloud computing, companies can -
+
+1. Have their own dedicated setup of connected server infrastructure - maintained by the said companies themselves or by third party - private cloud
+1. Rely on third parties who specialise in providing computing resources , which may also be shared with other companies and individuals - public cloud
+1. Chase the never-achievable goal of having the right mix of both - hybrid cloud
+
+### Flavours of Cloud Computing
+
+Now that we have some commitment to move to cloud, we may go more granular on the degree of movement.
+
+There are different levels of enabling technologies on the cloud.
 
 ![cloud-systems-flavours](./img/cloud-systems-flavours.png) <br>_src: Wikipedia_
 
+Further, when we move the applications to cloud, there can be various applications and application components that may move or stay back within the company IT realm.
+
+For e.g. -
+
+1. Identity management - authentication, authorisation, and more.
+1. Financial applications - Billing
+1. Enterprise resource planning - product management, order management
+1. Content management systems
+1. Collaboration
+1. Associated backend infrastructure including database systems, enterprise queuing systems and monitoring systems
+
+![crm-cloud](./img/crm-cloud.png) <br>_src: Wikipedia_
+
+You can see on the second pass that this also sits firmly within the PaaS, SaaS categorisation that we saw moments ago.
+
+### Features
+
+A few of the features that are associated with cloud computing today are listed below -
+
+- Accessible from anywhere — Move your applications nearer to users and make the accessible from anywhere (and dare we say, any device).
+- Scalable - tune up your infrastructure and computing resources up or down - FAST. Make additional computing available to handle peak loads and reduce resources to contain cost post the peak event. The best part - all this is done at the click of a button
+- Flexible — Deploy more than one type of cloud computing resource and mix-and-match them to suit your needs and budget. Do not be afraid to change - it is quick and painless.
+- Low maintenance
+
+  - Many of the problems with your own data centers - e.g. electricity, building and associated infrastructure are someone else's problem (and that someone else deals with only that)
+  - Maintenance of complex software and the various layers, along with the associated hardware may shift in part or whole to specialised third parties
+
+- Cost-effective — Pay for what you use. Pay only at the time of using the resource. No more upfront investment that force companies to wait for months or years for a positive ROI
+
 ## Where does Salesforce fit in?
 
-Salesforce.com or SFDC as it is dearly known, stands out as a leader in numerous enterprise functions.
+Salesforce.com, or SFDC as it is dearly known, stands out as a leader in numerous enterprise functions.
+
+Salesforce applications represent the cloud computing applications that provide a combination of sophisticated, easy-to-configure and simple to maintain applications on public cloud.
 
 Salesforce checks two of the above boxes -
 
@@ -126,7 +187,7 @@ Salesforce provides -
 1. horizontal functions - functions like sales, service, marketing etc. that exist across industries. Salesforce Sales Cloud, Service Cloud are examples of products in the salesforce ecosystem that provide horizontal functions
 1. vertical functions - support processes tailored to a particular 'vertical' or industry. This includes products like Salesforce Health Cloud, Financial Cloud and CRM for numerous other industries supported by different apps on AppExchange
 
-The unparalleled functionality enablers, ease of implementation and the 'cloud advantage' have propelled salesforce to the forefront, and has resulted in more & more organisations adopting the product. The increased adoption has led to more salesforce technology partners focusing on making it easier and quicker to implement products and services. All the positive feedback loop leads to a strong Salesforce-driven economy.
+The unparalleled functionality enablers, ease of implementation, and the 'cloud advantage' have propelled salesforce to the forefront, and has resulted in more & more organisations adopting the product. The increased adoption has led to more salesforce technology partners focusing on making it easier and quicker to implement products and services. All the positive feedback loop leads to a strong Salesforce-driven economy.
 
 ![salesforce-economy](./img/salesforce-economy.png) <br>_src:salesforce.com_
 
@@ -144,7 +205,11 @@ As part of this guide, we will be focusing more on the core platform, Sales Clou
 
 ## Salesforce Editions
 
-Salesforce.com comes to you in different editions that varies the available functions and available customisation options. As with anything in nature, the more you want -> the more you pay.
+Salesforce.com comes to you in different applications and flavours that provides different functions and customisation options.
+
+The applications are grouped under the core functions like Sales Cloud, Service Cloud, etc. like we saw in the previous paragraph. The different flavours of a product that provide varying levels of complexity are called "editions".
+
+As with anything in nature, the more you want -> the more you pay.
 
 Popular editions are below -
 
@@ -154,9 +219,34 @@ Popular editions are below -
 
 See [Sales Cloud pricing page](https://www.salesforce.com/in/editions-pricing/sales-cloud/) for an example of how this works.
 
+## Signing up for Salesforce
+
+Individuals or companies can sign up to a free developer edition. This allows a highly limited edition to try out salesforce functions.
+
+- Go to [https://developer.salesforce.com/signup](https://developer.salesforce.com/signup)
+- Enter some basic details and sign up. Note that your login name must be of the email address format. You may have different login names for the same email address, and can have different developer edition instances (we can be weird in a way)
+- And tada.. your own Salesforce instance is ready
+
+You can follow instructions in email to login, which amounts to -
+
+1. Go to [https://login.salesforce.com](https://login.salesforce.com)
+1. Enter your email id and password
+1. Click on 'Log In'
+
+Developer editions have limited users but a whole lot of functionalities enabled. Play around, evaluate, and customise your app.
+
+Customers can also sign up for "30-day trial" version of Salesforce. Just signup on the [home page of salesforce.com](https://www.salesforce.com/) - click on 'Try for Free' or something similar.
+
+Trial version will allow them to take Salesforce for a trial while they make their purchasing decisions. Any changes that they do in Trial editions get carried forward to their "real" production environment. (Trial environment is a production environment and may also supply with non-production environments to give you the full experience).
+
+Once you are a full-blown customer of salesforce -
+
+1. You get a production environment where you develop your "real" application for your users to use
+1. Depending on your edition, you may get development/test environments that you can spin up on demand. You may do changes here and test them, before deploying those changes to production
+
 ## Workshop
 
-Workshop section in a chapter/lesson provides a set of activities that the students need to do after the theory and practice classes for individual lessons in the Salesforce Admin course.
+The 'workshop' section in a chapter/lesson provides a set of activities that the students need to do after the theory and practice classes for individual lessons in the Salesforce Admin course.
 
 The intent is to provide -
 
