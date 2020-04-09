@@ -73,7 +73,8 @@ For example, Cases have a lookup relationship with Accounts.
 
 A few interesting points about lookups -
 
-- They don't support roll-up and automatic sharing
+- They don't support roll-up
+- Related records are not automatically shared (or 'unshared') based on parent
 - Deleting fields in a relationship is more tricky. You can choose how system should treat deletes -
   - `Clear the value of this field`: Deleting parent can clear parent from detail
   - `Don't allow deletion of the lookup record that's part of a lookup relationship`: Do not allow deletion of parent if detail is present
@@ -132,6 +133,39 @@ It is also important for you to understand the different possible relationships 
 | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
 | External object parent -> Custom or standard (or external) object detail                   | Custom or standard parent -> external object detail                                        |
 | Use external id field on parent external object mapped to details’ ext. relationship field | Custom, unique external id in parent maps against child indirect lookup relationship field |
+
+## Fields: Picklists
+
+You may have noted in the previous chapter that fields can be of type 'picklists'.
+
+Picklists all you to control what users enter against the field. Instead of typing away to glory, a picklist field presents a set of values that user can choose from (or they can start typing in and receive suggestions).
+
+In practice, you create a picklist field against the object and provide the values.
+
+![salesforce-field-picklist](./img/salesforce-field-picklist.jpg)
+
+.. and see it in action on the actual screen.
+
+![salesforce-picklist-in-action](./img/salesforce-picklist-in-action.jpg)
+
+You may also configure a 'multi-select picklist'. As the name suggests, the user can select more than one value against the field.
+
+Picklists can also depend on each other. For e.g. -
+
+1. The list of valid 'Account Sub Type' values may depend on which 'Account Type' value is selected
+1. A 'Case Sub Status' may show only specific values depending on whether 'Case Status' is 'In Progress' or 'Closed'
+
+In dependent picklists -
+
+1. The picklist that depends on another picklist field is called 'dependent picklist'
+1. The picklist (or a 'checkbox' which has finite valid values) on which the first field depends on is called 'controlling picklist'
+
+Note that the dependent and controlling picklist values will be for same record.
+
+There are rules that dependent and controlling picklists play by -
+
+- Controlling picklist can be any one of standard picklist, custom picklist, standard or custom checkbox
+- Dependent picklist can be one of custom picklist, multi-select picklist
 
 ## Workshop
 

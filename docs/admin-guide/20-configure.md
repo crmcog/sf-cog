@@ -32,14 +32,20 @@ While each of (2) - (4) can be done on entities provided by Salesforce, we often
 
 ## Objects
 
-As we have seen earlier - objects represent entities. Standard objects are those provided by Salesforce, while you (or package vendors) create custom ones.
+As we have seen earlier - objects represent entities.
 
 Objects can be roughly thought of as -
 
 - 'model' layer of a MVC pattern
-- ..and at the same time 'tables' of the app
+- ..and akin to 'database tables' of an app
 
-They themselves do not store data, but are the only window to access said data. User interfaces are built on top of the fields, validation, and automation added to objects.
+If that does not make sense to you, just ignore them - it was the developer in us doing the talking.
+
+Objects can also be imagined to be a container of a specific type of data. For e.g. a contact is an object in salesforce, so are opportunities, orders, tasks etc.
+
+Objects by themselves do not store data, but are the only window to access the said data. User interfaces are built on top of the fields, validation, and automation added to objects. Once you use objects to store data, that is persisted to a data store - where and how is that persisted is not super relevant to us as salesforce administrators and developers. But, what is relevant is that Salesforce provides performant, customisable storage that is consistent, scalable to a high number of users, and subject to validation and automation rules of your individual company.
+
+Salesforce provides a set of objects out of the box and those are known as 'standard objects'. You (or package vendors) create 'custom objects'.
 
 ### Standard Objects
 
@@ -63,6 +69,12 @@ Keep in mind while thinking about these entities -
 1. Keep scalability in mind. Don't over-engineer by creating entities that you may never need.
 1. Standard objects have their limitations on what you could customise (e.g. defining relationships that involve a Salesforce object)
 1. There are limits on the number of new entities you can add
+
+To see objects in your org, login to your salesforce.com instance.
+
+Go to **Set up** [ click on `cog` icon at the top right & select `Setup`] > **Object Manager** [click on `Object Manager` tab].
+
+![salesforce-object-manager](./img/salesforce-object-manager.jpg)
 
 ### Custom Objects
 
@@ -113,7 +125,7 @@ As the old jungle saying goes -
 
 So then, we have relationships between objects.
 
-As in the real real-world, relationships can be complex and simple at the same time. They can be one of one to one, one to many, many to many and many to one. We will look at each of these next.
+As in the real real-world, relationships can be complex and simple at the same time. In other words, they can be one of one to one, one to many, many to many and many to one. We will look at each of these next.
 
 ### Lookup
 
@@ -165,13 +177,33 @@ You can have interesting relationships between objects including -
 1. Specialised relationships like self (account is related to parent account), and hierarchical (the name says it all - only possible with User object)
 1. External lookup and Indirect lookup - relate object that represent integrated data structures with salesforce objects. For e.g. relate SAP Orders object (which can have data coming over from SAP through Salesforce provided / custom means ) to Salesforce Accounts
 
+### Schema Builder
+
+While we are talking about relationships, you would also want to know about this really cool tool called 'schema builder'. It provides -
+
+1. Easy visualisation of object relationships
+1. Create objects, fields and relationships in context of the relationship diagram (well, it shows the same screens for creating fields, but may greatly help visual designers!)
+
+Go to **Setup** > **Objects and Fields** > **Schema Builder**
+
+> Side note: While we say "go to _so_and_so_ item in 'Setup'" - it typically does not work that way. Just go to 'Setup' and use the search box located at the top to find the specific setup item. For e.g. just type in 'Schema Builder' in the setup find box.
+
+![salesforce-schema-builder](./img/salesforce-schema-builder.jpg)
+
 We will get back to relationships while doing a further deep-dive.
 
 ## Fields
 
+Objects in Salesforce have their own properties. These may be -
+
+1. Validation rules defined for the object
+1. Fields : fields to store data, calculated fields
+1. Relationships
+1. Pages and layouts that define how object data is displayed on user interface
+
 Now that we have seen something of objects and fields that define relationships, you might have already taken a look at other types of fields that you can create against an object. But, let's do that again together - we simply don't like people to get smart too quickly.
 
-Fields are just attributes.
+Fields of an object are just attributes of the entity.
 
 For e.g., account can have attributes like Name, Location, Address, Total Revenue, etc., each of which are fields in Account object. Salesforce provides its own, rich typing for its fields – thanks to its abstraction of the data layer.
 
@@ -181,7 +213,7 @@ You would have seen the type of fields in full glory while trying to create a fi
 | --------------------- | ------------------------------- | ------------------------------------------------------------ |
 | Text                  | Letters, numbers, symbols       | Max 255 char.                                                |
 | Number                | Integers and decimals           | Significant digits specified in definition.                  |
-|                       |                                 | Rounds off to higher number in case of “tie”                 |
+|                       |                                 | Rounds off to higher number in case of "tie"                 |
 | Date, Date-time, Time | Valid date or time              | Enables easier date calculations                             |
 | Currency              | Valid currency                  | Uses even number tie breaking rule                           |
 | Checkbox              | Boolean                         |                                                              |
