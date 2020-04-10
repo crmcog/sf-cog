@@ -67,15 +67,99 @@ A common structure followed to configure UI will include following steps -
 
 ### Create Quick Action / OOB buttons
 
+### Use Lightning App Builder
+
+Lightning app builder is used to create three different types of pages -
+
+- App page - home page for the app
+- Home page - provide a home page for a specific entity 
+- Record page - provide a detail page. Reuses layouts of the entities
+
+Whenever we say "detail pages", we indeed refer to "record page". App and home pages provide a dashboard in the context of the app or entity type, which can have charts, quick navigation links, etc.
+
+You can invoke the Lightning page builder in more than one context.
+
+#### Setup > Lightning App Builder
+
+Invoke Lightning app builder from **Setup** > **Home** > **User Interface** > **Lightning App Builder**.
+
+Click **New** in the Lightning Pages list and click away to create a new page.
+
 ### Show and hide related lists
 
-### Use Lightning App Builder
+Salesforce data model is made up of many specific entity types and tens of related entities to the said entity.
+
+We have seen that related lists can show the records that are tagged to the parent record in a 1:M or M:M fashion. This enables the user to get a quick overview of the parent record (for e.g. account ) and the many related records (for e.g. Account's opportunities, orders, activities, etc.).
+
+There are a couple of ways to control related lists -
+
+#### Layouts
+
+While defining the layout for the parent record, you may view/hide the related lists in the same layout. 
+
+![salesforce-related-list-layout](./img/salesforce-related-list-layout.gif)
+
+#### Lightning page builder
+
+Using Lightning page builder you can -
+
+- add / remove standard related lists 
+- include Lightning components that display related entities
+
+You can conditionally display any component in Lightning page builder - the same applies for related lists as well. For e.g. you may display the related list only when the account goes to 'Approved' status. 
+
+#### Custom UI
+
+Use Lightning framework or Visualforce to show detail page along with custom related entities.
+
+#### Setup > Object Record Pages
+
+You can create Record pages by navigating to **Setup** > **Object Manager** > Drilldown on an object > Click on **Lightning Record Pages** in the left navbar > Click **New** and go crazy. (technically you can create any page once the page builder wizard starts up)
+
+![lightning-page-builder-record-page](./img/lightning-page-builder-record-page.jpg)
+
+#### Setup > Edit Page
+
+If you are on a page that needs editing here and now -
+
+1. Make sure you are on the right page
+1. Click on the `cog` icon on the right, click on **Edit Page** to edit the page in Lightning App Builder
 
 ### Data-driven behaviour for UI
 
 #### UI security rules
 
 #### Record types
+
+Record types have far reaching implications than mere UI - read on to delve into their exciting world.
+
+Record types make it possible to provide super powers to an object and personalise itself based on data.
+
+You can create record types by going to **Setup** > **Object Manager** tab > select an object and drilldown > Select **Record Types** in the left navbar.
+
+![salesforce-create-record-type](./img/salesforce-create-record-type.gif)
+
+1. Click on **New** to create a new record type
+1. Provide a label, description
+1. Provide access to the new record type to one or more profiles
+1. You can select a default layout for record type for all profiles, or provide distinct layouts 
+1. Save!
+
+You can now change the record type for any specific record.
+
+![salesforce-change-record-type](./img/salesforce-change-record-type.gif)
+
+Record types change behaviour in multiple ways-
+
+1. Display distinct UI layouts: You can specify the same or different layouts for profiles when records belong to a specific record type
+1. Display distinct picklist values (if selected)
+1. Enable different business processes to be applied to a record
+
+Record types provide a powerful way to enable personalised UI for records based on the value. For e.g. -
+
+1. Sales reps may need to focus on different fields when the account record type is 'wholesale' as compared to a more boring 'retail' customer
+1. Sales managers and sales reps may need to see different fields for the same 'wholesale' customer
+1. Provide different sales processes for retail and wholesale customers in opportunity functionality
 
 ## Reports
 

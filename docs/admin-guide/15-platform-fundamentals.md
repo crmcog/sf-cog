@@ -133,19 +133,46 @@ Salesforce apps can be seen as a bunch of screens that provides a nice boxed lay
 
 The app consists of -
 
-1. One or more tabs
+1. One or more tabs 
 1. A logo
 1. Little else
 
 An "app" is just a starting point of your amazing application. Salesforce gives you apps based on what you purchased and you can create your own apps.
 
-You access the app through the navigation bar.
+You access the app through the navigation bar - by clicking on 'app launcher' button.
 
 ![salesforce-what-is-app](./img/salesforce-what-is-app.gif)
 
-While the product you licensed determine which app you get - you could always create more apps on existing functionality.
+While the product you licensed determine which app you have access to - you could always create more apps on existing functionality.
 
 For e.g. if you have Sales Cloud, nothing will prevent you from having 'Sales - Retail', 'Sales - Wholesale' apps targeting two different groups and having two distinct set of tabs.
+
+To see available apps in your "org" or salesforce instance -
+
+1. Go to **Setup** > **Platform Tools** > **Apps** > **App Manager** [once again, though we outline navigation for completeness, you should be using **Quick Find** box in **Setup** to directly go to **App Manager**]
+1. You can click on the drop-down button and select **Edit** to edit an app. You cannot change the logo or label for standard apps
+
+You can modify a few properties by editing an app -
+
+1. Modify app to be a 'Custom App' or 'Console' app. We will deal with custom only for now
+1. Change basic attributes like name, label. Change logo
+1. You can Select tabs visible in the app. Note that the tabs provide a way for users to easily navigate to the functionality. Users can search for a tab even when they are "hidden" in app and access the tab
+1. Assign tab to profiles - you can also make different tabs as default against individual profiles
+1. Click **Save** to finally save the app
+
+The above behaviour is the default behaviour for creating new apps in Salesforce Classic. 
+
+In Salesforce Lightning Experience, which should be the default for all new orgs, we have a new improved functionality. To create a new app, just click on **New Lightning App** button from the same App configuration screen -
+
+1. Select App Name, Label and Logo
+1. Select supported navigation style (again - standard or console) and form factors
+1. Add 'Utility Items' - quick ways to perform an action (e.g. publish something to Chatter)
+1. Select tabs and select user profiles for which the application is visible
+1. Click on **Save & Finish** to save the new app
+
+You will start seeing the new app from the 'App Launcher'. 
+
+Confused on the outlined UI experience differences for editing apps/creating new apps? See [Lightning experience vs. classic UI in Salesforce](/admin-guide/configure-custom-functionality/#revisiting-user-interface).
 
 ### Tabs
 
@@ -162,6 +189,19 @@ Tabs are directly mapped to business object in the business layer - however, the
 
 Any page reached by clicking through a tab is typically based on the root business object that the tab is based on or a related entity. This makes sense since we (pretend to ) learn our organizational skills from 'day 0'.
 
+You can create tabs for -
+
+1. Any objects that you create
+1. Any Lightning or Visualforce pages that you create
+1. Lightning Components can be housed in a tab as well
+1. Any external web pages that need to be displayed in a separate tab
+
+To create a tab -
+
+1. Navigate to **Setup**
+1. Find for **Tabs**
+1. Create away them tabs
+
 ### Pages and Views
 
 You click on tabs to go to pages that contain list or detail views. These typically show UI elements like labels, fields, buttons or more complex elements like graphs, tables, etc.
@@ -173,11 +213,55 @@ Here's an example from salesforce that depicts tabs and detail page along with t
 
 List views on pages are similar to detail views, but may show more than one record in a list that is subject to filters or sort order from the org rules and/or from users.
 
+You can create a new page layout against an object -
+
+1. Go to **Setup** > Click on **Object Manager** tab
+1. Click on **Page Layouts** in the left navigation bar
+1. Click **New**
+1. You can then create the new layout from scratch. Or, do the smart thing - and copy over an existing layout that you can modify
+1. Drag and drop away fields and buttons
+1. Add or remove related lists (the child tabs that you see in a detail page)
+1. You can add more complex UI elements too
+1. Preview your work (you can do that for different profiles too!)
+1. Save your work by clicking on **Save**
+
+![salesforce-create-page-layout](./img/salesforce-create-page-layout.jpg)
+
+You have to assign the layout to a profile / permission set before seeing it on your page.
+
+There are other specialised types of layouts that you can see in the Object Manager -
+
+1. Compact layouts - the layout of fields and controls (buttons etc.) that you see when you click on a popup to view details or when displaying only key fields in the top parent record in a detail view
+1. Search layout - the name says it all
+1. Mini page layout - create a mini page layout against each layout by clicking on the **Mini page layout** button in layout editor. You can select few fields and limited related lists for displaying key information for an object
+
+You create list views by directly going to the object tab > default list view.
+
+1. Click on the `gear` icon
+1. Click **New** to create new list
+1. You can keep the list private (any user can do this), share the view with select users
+1. Add or remove fields [`gear` icon > **Select Fields to Display**], change filter criteria [`gear` icon > **Edit List Filters**]
+1. Click **Save** to save your work
+
+In list views - you can not only see records in a list (ha!), but also -
+
+1. See reports (create your own reports and select them here)
+1. Show records grouped under a field value and visualise records in a Kanban view
+1. Carry out bulk operations. For e.g. you can select and add multiple contacts to a campaign, or send emails to multiple people in one go
+
+We will come back to layouts in a bit.
+
 ### Related List
 
 A related list depicts data in context of a related entity.
 
 For e.g. in the Account page (a detail view to be specific), you can have contacts listed for the account, a list of activities done for the account, and so on.
+
+You can view related lists when defining the detail layout of an object. You can add new related lists in the same place.
+
+![salesforce-related-list](./img/salesforce-related-list.jpg)
+
+You cannot change the fields that appear in the related list from here. You can also add/remove fields from the related lists while defining the layout.
 
 ### So yes - UI layer in salesforce is awesome
 
@@ -307,7 +391,7 @@ You can checkout applications and install them on your salesforce org - check ou
 
 #### Choosing Salesforce Apps
 
-Selecting an app is an involved process. Companies do this 'buy' vs 'build' decision considering the following -
+Selecting an app from AppExchange is an involved process. Companies do this 'buy' vs 'build' decision considering the following -
 
 1. Evaluate apps on AppExchange and carry out cost/benefit analysis **before** agreeing to any complex configuration or customization
 1. Evaluate risks of using third party apps

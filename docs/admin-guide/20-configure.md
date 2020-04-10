@@ -99,6 +99,14 @@ The typical cycle to create new custom objects is -
 1. Deploy the changes for testing. Test and fix things that may not be working as expected
 1. Deploy changes to production as part of the project roll-out
 
+The starting point to develop the new entity starts from custom object. To create a custom object - 
+
+1. Go to **Setup** > Click on **Object Manager** tab
+1. Click on **Create** button dropdown > Select **Custom Object**
+1. Select "stuff" from the wizard - most of the items are self-explanatory. Hit "Help" if you want to lean more.
+1. Finally, click **Save** to create the object
+
+
 ### Limits
 
 Custom objects are not infinite - as is anything on this planet. Remember that Salesforce is a shared ecosystem and, even with all good intentions, Salesforce cannot provide anyone infinite resources.
@@ -231,6 +239,20 @@ Some interesting points -
 - Encryption of data is supported on only specific field types
 
 See more of this on the [Salesforce help page for fields](https://help.salesforce.com/articleView?id=custom_field_types.htm&language=en&type=5).
+
+To create fields -
+1. Navigate to **Setup** > Click on **Object Manager** tab
+1. Find the standard or custom object for which you want to create fields. Drilldown on the object
+1. Click on **Fields and Relationships** tab at the left
+1. Click **New**
+1. Select type of field, field label
+1. Select which user types will have access to the field - to view/edit (see 'field level security' section below)
+1. Select to which layouts this field needs to be added (layouts are part of UI discussion - they just provide different user interfaces to different types of users)
+1. Click on **Save** button and you are done - congratulations on the new field
+
+Fields can be added to a page layouts (edit/view record) or to a search layout (well, used for searching records) at a later time as well.
+
+This is a simple yet common way of creating new fields. You can also use Salesforce CLI and your favourite editor to create fields and many more supported configuration.
 
 ## Data Security - Part Deux
 
