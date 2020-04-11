@@ -7,8 +7,8 @@ module.exports = [
     text: "Tutorials",
     items: [
       { text: "Admin Certification", link: "/admin-guide/" },
-      { text: "PD1 Certification", link: "/pd1-guide/" }
-      { text: "Salesforce for Students", link: "/salesforce-for-students/" },
+      { text: "PD1 Certification", link: "/pd1-guide/" },
+      { text: "Salesforce for Students", link: "/salesforce-for-students/" }
     ]
   }
 ];
