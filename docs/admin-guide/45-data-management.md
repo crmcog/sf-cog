@@ -13,9 +13,13 @@ meta:
 
 # Data Management
 
-The typical way to get data in your salesforce org is for the users to type them in :).
+We deal with a few things about data in Salesforce in this chapter.
 
-Unfortunately, that is not always possible -
+> We love to deal with complex data. <br> -- No One
+
+## Batch Data Processing
+
+The typical way to get data in your salesforce org is for the users to type them in :). Unfortunately that is not always possible -
 
 1. There are other systems in the enterprise which collect data in hundreds or thousands of records
 1. You may be setting up Salesforce for the first time and importing data from an existing system
@@ -38,7 +42,7 @@ Data loader is a desktop tool to batch import, update or export data to/from sal
 
 ![salesforce-data-loader-1](./img/salesforce-data-loader-1.png)
 
-## Considerations for using Data Loader
+### Considerations for using Data Loader
 
 Here are the typical considerations while doing any export/import of data-
 
@@ -122,7 +126,7 @@ On the other hand -
 1. You cannot delete records
 1. No export facility available (Data Loader supports exports)
 
-## Third Party Data Utilities
+## Third Party Data Processing Utilities
 
 Data loader provides an easy solution to import data, but is not always effective for all use cases. For example -
 
@@ -149,6 +153,44 @@ Examples -
 - Informatica Cloud / On Premise solution with Salesforce Connector
 - Salesforce Connector in Heroku
 - Talend & other solutions that manipulate data structure and values before files are processed by Salesforce Data Loader
+
+## More on Data Management
+
+### Duplicate Rules
+
+Duplicate rules enable you to define criteria that will signal potential duplicates.
+
+Using duplicate rules, you can -
+
+1. Provide guidance to user viewing information when there are duplicates
+1. Define possible actions when the record being created is a potential duplicate
+1. Can limit searching for duplicates in the records that user has access to or can span the entire data set
+
+Duplicate rules play together with 'matching rules' to do their work. Salesforce provides standard rules for accounts, person accounts, contacts and leads.
+
+To create a duplication rule -
+
+1. Go to **Setup** > **Home** tab
+1. Find for **Duplicate Rules** or locate that under **Data** > **Duplicate Management**
+1. Click on **New** drop-down and select the object where you want the rule to be created
+1. Allow or block creation of potential duplicates by selecting values from picklist
+1. Enforce or bypass sharing rules by selecting the relevant options
+1. Select a matching rule against the object (it is a good time to remind you to create one & activate it if you don't have that yet)
+1. Select additional filter criteria to apply to matching rules (for e.g. do not consider accounts of status 'Long Dead')
+
+Matching rules provide you a way to select one or more fields to compare in order to identify duplicates.
+
+Note that -
+
+1. There can be more than one duplicate rule. If a potential duplicate rule is triggered by a rule, subsequent rules are skipped
+1. Max 5 duplicate rules can be created against an object
+1. Duplicate rules are not triggered in special circumstances -
+   - when records are being created in 'weird ways' customer self-registration, or when using quick create
+   - when restoring record from recycle bin
+   - when record is being manually merged
+1. Data being created/updated through APIs or from batch routines can ignore duplicate rules and trigger their own logic
+
+Duplicate rules enable a simple but powerful data control in organisations that allow anyone to create accounts/contacts/leads or believe in The Chaos Theory.
 
 ## Workshop
 

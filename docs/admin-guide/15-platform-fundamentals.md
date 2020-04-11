@@ -133,7 +133,7 @@ Salesforce apps can be seen as a bunch of screens that provides a nice boxed lay
 
 The app consists of -
 
-1. One or more tabs 
+1. One or more tabs
 1. A logo
 1. Little else
 
@@ -143,7 +143,7 @@ You access the app through the navigation bar - by clicking on 'app launcher' bu
 
 ![salesforce-what-is-app](./img/salesforce-what-is-app.gif)
 
-While the product you licensed determine which app you have access to - you could always create more apps on existing functionality.
+The product you license from salesforce (like sales cloud) determine which app you have access to. But, guess what - you could always create more apps on existing functionality. Yay!
 
 For e.g. if you have Sales Cloud, nothing will prevent you from having 'Sales - Retail', 'Sales - Wholesale' apps targeting two different groups and having two distinct set of tabs.
 
@@ -160,7 +160,7 @@ You can modify a few properties by editing an app -
 1. Assign tab to profiles - you can also make different tabs as default against individual profiles
 1. Click **Save** to finally save the app
 
-The above behaviour is the default behaviour for creating new apps in Salesforce Classic. 
+The above behaviour is the default behaviour for creating new apps in Salesforce Classic.
 
 In Salesforce Lightning Experience, which should be the default for all new orgs, we have a new improved functionality. To create a new app, just click on **New Lightning App** button from the same App configuration screen -
 
@@ -170,7 +170,7 @@ In Salesforce Lightning Experience, which should be the default for all new orgs
 1. Select tabs and select user profiles for which the application is visible
 1. Click on **Save & Finish** to save the new app
 
-You will start seeing the new app from the 'App Launcher'. 
+You will start seeing the new app from the 'App Launcher'.
 
 Confused on the outlined UI experience differences for editing apps/creating new apps? See [Lightning experience vs. classic UI in Salesforce](/admin-guide/configure-custom-functionality/#revisiting-user-interface).
 

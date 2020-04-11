@@ -134,7 +134,15 @@ It is also important for you to understand the different possible relationships 
 | External object parent -> Custom or standard (or external) object detail                   | Custom or standard parent -> external object detail                                        |
 | Use external id field on parent external object mapped to details’ ext. relationship field | Custom, unique external id in parent maps against child indirect lookup relationship field |
 
-## Fields: Picklists
+## More on Fields
+
+> How many fields does a man need? <br> -- Totally not Tolstoy
+
+We have seen how fields functions as attributes of an entity. But there are way more enchanting properties to them attributes than meets the common eye.
+
+So.. here we're discussing the deeper philosophy of fields in Salesforce.
+
+### Picklists
 
 You may have noted in the previous chapter that fields can be of type 'picklists'.
 
@@ -166,6 +174,147 @@ There are rules that dependent and controlling picklists play by -
 
 - Controlling picklist can be any one of standard picklist, custom picklist, standard or custom checkbox
 - Dependent picklist can be one of custom picklist, multi-select picklist
+
+### Formula Fields
+
+In Salesforce any and every "value" for an attribute has to come from the business layer. i.e., from fields.
+
+Fields are like columns in a table - they store data and do stuff around storing data. But, what if you want values that need to dynamically respond to other values or external factors?
+
+Enter formula fields.
+
+Formula fields are just a type of fields that calculate values at runtime and at the specific instant (well, when fields are being retrieved from backend business layer).
+
+For e.g. formula fields can be used to -
+
+- Color coding an Account depending on annual revenue (if revenue > 1M: show GOLD, if revenue < 1000: show RED )
+- Depending on time of the day show `How am I?` as 😀 or 😴
+
+Note that we are talking about "actual" fields here, we can use something called "bucket" fields in reports and that's an entire new discussion topic.
+
+Formula fields support calculations using common operators (math/logical) and powerful functions (text, math, date/time, logical and advanced).
+
+To create a formula field -
+
+1. Go to **Setup** > **Object Manager** tab > Drill down on object of interest
+1. Go to **Fields** in left navbar
+1. Click on **New** to create a new field
+1. Select **Formula** as field type, and hit next
+1. Select type of formula field. It can be one of Checkbox, Currency, Date, Date/Time, Number, Percent, Text or Time
+1. Enter your beautiful formula that can include operators, functions and Salesforce fields (current entity and related entities)
+
+![salesforce-formula-fields](./img/salesforce-formula-fields.gif)
+
+Fields used in formula fields are often called "merge fields". Although merge fields can be fields that can be included in mails (when doing "mail merge") or on reports, "merge fields" in formula context are just fields which can be included in the formula.
+
+Include the field in any UI, provide "proper" visibility rules for field, and you are good to go. Formula fields are read-only and are not visible on 'edit' views - you view them, not change them. Just use the **Insert Field** dropdown in the formula editor to start using merge fields.
+
+The visibility of formula fields is distinct from those of any underlying fields. You can, in fact, better manage sensitive information by a deploying a powerful cocktail (wrong choice of word?) of field-level security rules + formula fields.
+
+You can include comments in your formula. Following is a valid formula..
+
+```
+AND(
+/* enforce rule only when you hit revenue limit */
+TotalRevenue > 1000000,
+/* partner flag must be checked */
+Partner_Flag_c = true
+)
+```
+
+You can't nest comments though.
+
+Take note -
+
+- Formula fields can only contain 3900 characters including everything in the field (incl. comments, operators, et. al.)
+- "Type of field" should represent the actual type. And, these are subject to business layer limitations - for e.g. Number field cannot have more than 18 digits
+- You can 'escape' stuff using `\`. For e.g. `Revenue \+ Tax` will certainly not sum revenue and tax
+- Any time there is an error - e.g. division by zero, abnormal type, or any other errors, will display the super helpful `#Error!` message against the field in runtime
+- Check `Treat blank fields as zeros` or `Treat blank fields as blanks` as appropriate to manage blanks in odd places
+
+A formula formula in formula field that includes more objects than the current object is called 'cross-object formula'.
+
+- Cross object formula can reference master object if the current object is on detail side of the relationship (well, the name is 'master-detail'. So, not many choices in that relationship. _PS: we will stop with dad jokes now_)
+- Cross object formula can be used in lookup relationships
+- You can refer to fields of an object that is 10 relationships away (for e.g. the parent account of the account of the contact in consideration)
+- There can be a max of 10 unique relationships used across the fields in a single object at any given time
+
+There are a few more interesting details there too -
+
+1. Formula fields convert currencies (bigger topic) to locale currency. However, if you refer to something in custom settings, there is no automatic conversion
+1. Roll-up summary fields cannot reference cross-object formula fields
+
+And, before we forget - do not miss
+
+- the [salesforce.com formula cheat-sheet](https://developer.salesforce.com/docs/atlas.en-us.salesforce_formulas_cheatsheet.meta/salesforce_formulas_cheatsheet/) even if you are a committed anti-cheat enthusiast in real life.
+- [Tips for reducing formula size](https://developer.salesforce.com/docs/atlas.en-us.salesforce_formula_size_tipsheet.meta/salesforce_formula_size_tipsheet/)
+- [Advanced sample formulae](https://developer.salesforce.com/docs/atlas.en-us.usefulFormulaFields.meta/usefulFormulaFields/)
+
+## Roll-up Summary
+
+When we discuss formula fields we cannot quite miss 'roll-up summary fields' in the same breath.
+
+Roll-up summary fields can be used on the master object in a master-detail relationship to calculate and display an aggregate (sum, count, minimum, and maximum) of the fields on detail object.
+
+To create a formula field -
+
+1. Go to **Setup** > **Object Manager** tab > Drill down on object of interest
+1. Go to **Fields** in left navbar
+1. Click on **New** to create a new field
+1. Select **Roll-up Summary** as field type, and hit next
+1. Fill up further details depending on which type of roll-up summary you select
+
+When including the child object, you may choose to input a filter criteria so that only child records that meet the criteria will be considered to do the roll-up summary.
+
+Similar to their formula field counterparts, roll-up summaries include records / fields in their calculation even if those records/fields are not accessible to user.
+
+Note that the roll-up summary field does not quite do them calculations at the specific instant, but can be considered 'pre-calculated' and stored in a transparent way. It does not quite appear that way since Salesforce manages those calculations dynamically, but those need to be accounted for in some tricky situations.
+
+Once you create a roll-up summary, you cannot convert master-detail relationship used by the field to look-up relationship.
+
+Field types of roll-up summary fields can be -
+
+1. Number, currency, and percent fields for SUM roll-up type
+1. Number, currency, percent, date, and date/time for date/time roll-up type
+
+More interesting tidbits -
+
+1. Since you create roll-up summary on master object, it can be created on both custom or standard object as long as they are the master (sigh!). For e.g. accounts may have "Opportunity Revenue" roll up summary as the sum of revenue expected from all opportunities tagged against the account
+1. You can include other formula fields (not cross-object formula fields) in roll-up summary. If the formula fields result in an error, they are just ignored in roll-up summary value. Formula fields included in roll-up summaries cannot contain super-dynamic values like `TODAY` or `NOW`
+1. Roll up summary fields cannot reference long text area, multi-select picklists, system fields and look-up fields
+1. Roll-up summaries are not recalculated automatically when child records are deleted. You can force recalculation against a field by selecting **Force a mass recalculation of this field** in **Edit** view of master
+1. Roll-up summary errors can stop calculation that field altogether until you force a recalculation or change values being summarised
+1. Roll-up summaries may trigger workflows etc. on value change, but there are exceptions
+
+Head over to [Salesforce roll-up summary help page](https://help.salesforce.com/articleView?id=fields_about_roll_up_summary_fields.htm&type=5) to know the possibilities and excitement of using roll-up summary fields.
+
+## Validation Rules
+
+We have been shouting on roof-tops about validation - until now. We now get promoted to 'shouting on mountain-tops' about them rules.
+
+Validation rules do just that - they validate data entered by user. They prevent saving the record until the right data is entered and users comply. You create validation rules against the object.
+
+To create a rule -
+
+1. Go to **Setup** > **Object Manager** tab > Drill down on object of interest
+1. Go to **Validation Rules** in left navbar
+1. Click on **New** to create a new rule
+1. Enter formula and make merry
+
+In the below example, we used a validation rule on a field that is being summed up at account level by custom logic on account/opportunities.
+
+![salesforce-validation-rules](./img/salesforce-validation-rules.gif)
+
+Now.. for the result.
+
+![salesforce-validation-rules-in-action](./img/salesforce-validation-rules-in-action.gif)
+
+Validation rules -
+
+1. Allow you to define expressions / formula to enforce validations
+1. They can include error messages that get displayed to users - either near the field that causes error or at the top
+1. Get triggered and complain about things wrong with the world even when user does not have access to the fields used within the rule
+1. Contradicting validation rules may never allow you to save record
 
 ## Workshop
 
