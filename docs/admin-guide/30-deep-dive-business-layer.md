@@ -47,10 +47,10 @@ So how about on the 'attachment' side of things? Should it relate back to accoun
 In Master-Detail relationships -
 
 - Parent controls detail and sub-detail record behaviour
-- Deleting parent will delete child
+- Deleting master record will delete detail record
 - Detail will inherit and follow master’s visibility/sharing rules
 
-When you are designing the Child record layout, you will see that the Master field is required on record layout.
+When you are designing the detail record layout you will see that the Master field is required on record layout - you cannot quite remove the field from 'edit' layout.
 
 Unique capabilities to master-detail relationships -
 
@@ -250,7 +250,7 @@ And, before we forget - do not miss
 - [Tips for reducing formula size](https://developer.salesforce.com/docs/atlas.en-us.salesforce_formula_size_tipsheet.meta/salesforce_formula_size_tipsheet/)
 - [Advanced sample formulae](https://developer.salesforce.com/docs/atlas.en-us.usefulFormulaFields.meta/usefulFormulaFields/)
 
-## Roll-up Summary
+### Roll-up Summary Fields
 
 When we discuss formula fields we cannot quite miss 'roll-up summary fields' in the same breath.
 
@@ -316,6 +316,161 @@ Validation rules -
 1. Get triggered and complain about things wrong with the world even when user does not have access to the fields used within the rule
 1. Contradicting validation rules may never allow you to save record
 
+## Business Automation
+
+Business automation refers to to automated tasks that the system can execute without human intervention :). They may be -
+
+1. Updating field values based on rule
+1. Assigning ownership of records
+1. Process approval flows
+1. Escalation rules
+
+You will hear the term "business process" thrown around a lot here and everywhere else. That just refers to the process followed by a business to accomplish an objective. It runs independent of technology systems, but technology systems should be built around/supporting it. A business process can span multiple people, systems and tools in its life cycle.
+
+A business process can be -
+
+1. Acquiring new leads
+1. Opportunity management
+1. Order management process
+1. Service management
+
+Salesforce provides abilities to automate many distinct parts of the system. For purposes of visualisation (if nothing else) we categorise the main engines of running automation as follows -
+
+1. Workflows
+1. Process builder processes
+1. Flows
+1. Automation using Apex
+
+In addition we also have -
+
+1. Approval rules
+1. Assignment rules
+1. Escalation rules for entities like Cases
+
+There are other components too - e.g. updating "stuff" on UI based on user actions, automated report generation and delivery, etc. - but we tend to focus on the forest than trees. (we had to use that sentence even though it's not super relevant in this context and we can be stubborn like that). We also do not discuss more on Apex solutions - they are part of the [salesforce developer learning series](/pd1-guide/).
+
+Let us go over more details on the automation components in salesforce.
+
+## Workflow
+
+Workflows were the main engine for process automation for a while, before being overtaken by more powerful tools.
+
+Workflows are relevant today for keeping things simple and straight forward. Also, outbound messages are great. But, we secretly believe they will go away in a while and be completely replaced by process flows.
+
+The main parts of the workflow are -
+
+1. Workflow rules: Conditions to trigger a workflow
+1. Workflow actions: Action to take when workflow is executed. There are four types of actions -
+   - Field updates: update a field based on update to some other field/record
+   - Outbound messages: send messages to external systems based on updates
+   - Email alerts: send email alerts
+   - Tasks: create a task
+
+To create a new workflow -
+
+1. Go to **Setup** > Select **Home** tab
+1. Find for **Workflow** and select **Workflow Rules**. Fill in information
+1. Click on **New** button to create new workflow
+1. Select object on which workflow should run
+1. Select evaluation and rule criteria (see below)
+1. Create new workflow actions or reuse existing workflow actions. You can also find for **Workflow** and select **Workflow Actions** to see existing workflow actions (see below)
+
+![salesforce-workflow-criteria](./img/salesforce-workflow-criteria.jpg)
+
+### Evaluation Criteria
+
+Workflows can be triggered when -
+
+1. a record is created
+1. a record is created or edited (i.e., every time it is saved)
+1. a record is created and anytime it is edited - when it fulfils the workflow criteria after the said edit (but it was not fulfilling the criteria before)
+
+### Rule Criteria
+
+Rule criteria define the conditions to be satisfied for the workflow to execute against a record. A record has to fulfill evaluation criteria and must meet the conditions set in rule criteria.
+
+Rule criteria can be -
+
+1. created as a set of fields and field values. For e.g. execute workflow only when 'Account Type' field = 'Retail'
+1. created as a formula that needs to evaluate to `true`. For e.g. `Account Type == true && Status != 'Closed'`.
+
+### Workflow Actions
+
+Workflow actions specify the action that is taken on the record.
+
+Workflow actions specified against a workflow will belong to the same object + record that the workflow belongs to. In other words: workflows can act only on the same record that triggers the workflow.
+
+Actions can be executed in two ways -
+
+1. immediate: at the same instant in time when the workflow is executed
+1. time-trigger: Execute workflow after/before specified criteria.
+   - x hours or days after workflow is triggered
+   - x hours or days before /after a field specified in the time-trigger action
+
+Use cases for time-triggered actions can be -
+
+1. Trigger reminder email to customers for timely payment 1 day before due-date
+1. Update account status to 'Retired - Closed' one month after status is updated to 'Retired'
+1. Create follow-up task and assign it to quote owner one week after the quote was sent if quote status continues to be 'Quote Sent'
+
+When we are on the subject of actions, we have to speak more on email alerts. Emails that are sent as part of email alerts use "email templates" in salesforce.
+
+Email templates specify a template message and may have one or more placeholders to contain data. For e.g.:
+
+```
+Dear {!Contact.FirstName},
+
+All of us at Awesome Company are glad to have {!Account.Name} as a customer.
+
+I would like to introduce myself as your Account Manager. Should you have any questions, please feel free to call me at {!User.Phone} or email me at {!User.Email}.
+
+You can also contact us on the following numbers:
+
+Sales: 12345 67890
+Customer Service & Support: 12345 67890
+Fax: 12345 67890
+
+Best Regards,
+{!User.Name}
+```
+
+When you use an email template, salesforce replaces the placeholders with data from the record in context and send the email. The email templates have a number of customisation options to use your own branding, letterhead etc.
+
+You can also enable your users to choose email templates (created as Lightning Email Templates) in your standard views. For e.g. go to **Contact** tab > Drill-down on a contact > Go to **Activity** tab in the detail page (to the right) > You see an option to send email where you can select a template to use.
+
+Email alerts are used in multiple places in Salesforce. We don't quite talk about them since they are fairly self-explanatory but they are fun to explore - try them out!
+
+## Process Builder
+
+Processes are powerful tools to provide a (good looking) visual way to create process automation flows. They are created using Process Builder.
+
+We have seen workflows already and understand their limitations -
+
+1. They can act on the record that fulfills the workflow criteria (or the parent)
+1. Workflows can do only a set of limited actions
+1. Anything more complex needed customisation using Apex
+
+Processes created on process builder enable enhanced tools to carry out automation using clicks. For e.g. you can easily configure process flow to -
+
+1. Update multiple records (related or otherwise) when a record is updated
+1. Trigger customised functionality written in Apex along with configured functions provided by Salesforce
+1. Create processes in a modular fashion and call processes from other processes - manage complexity and reuse logic!
+1. Carry out the same actions that a workflow can do :)
+
+To create a new process -
+
+1. Navigate to **Setup** > Select **Home** tab
+1. Find for **Process**. Select **Process Automation** > **Process Builder**
+1. Click on **New**
+   - Provide name and description
+   - Provide trigger condition that can specify when this workflow will start - when record is changed, a platform event is received or when invoked by other process
+1. Visually develop workflow
+   - specify object trigger
+   - add one or more sets of criteria and specify immediate & scheduled options
+1. Activate workflow and see it in action
+
+![salesforce-process-builder](./img/salesforce-process-builder.jpg)<br>_src: salesforce.com_
+
 ## Workshop
 
 | No. | Type | Description                                    | Time (hrs) |
@@ -324,6 +479,7 @@ Validation rules -
 | 2   | Do   | Create validation rules for visits             | 1          |
 | 3   | Do   | Create automation for visits                   | 3          |
 | 4   | Do   | Create formula fields / roll-up summary fields | 1          |
+| 5   | Do   | Create process using process builder           | 1          |
 
 ### Establish entity relationships
 
@@ -338,6 +494,8 @@ Validation rules -
 
 ### Create automation for visits
 
+Choose any technology option for the following automation requirements.
+
 1. Visits should be cancelled with reason code as “No Show” if there is no visit on the scheduled time (only for scheduled visits)
 2. Allow CC to “check-in” scheduled visits
 3. Send reminder for scheduled visits one day prior to the visit
@@ -349,6 +507,14 @@ Validation rules -
 1. Show the last ‘no show’ date when patient calls up for an appointment
 2. Create formula field to sum up total fees for today against doctors
 3. Roll up fees for individual items against the visit
+
+### Create process using process builder
+
+1. Create an invoice with sample invoice items when visit status is changed to 'Done'. Send invoice in email to patient.
+1. Create post visit tasks - only if visit has been successfully concluded -
+
+- Send thank you email (content of your choice - refer registration email template for inspiration) and solicit feedback one week after a visit is concluded
+- Create a follow-up task three weeks post visit. Task should be scheduled to be four weeks after visit
 
 ## Teaching Aids
 
