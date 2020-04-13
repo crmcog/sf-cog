@@ -453,7 +453,7 @@ We have seen workflows already and understand their limitations -
 Processes created on process builder enable enhanced tools to carry out automation using clicks. For e.g. you can easily configure process flow to -
 
 1. Update multiple records (related or otherwise) when a record is updated
-1. Trigger customised functionality written in Apex along with configured functions provided by Salesforce
+1. Trigger custom functions written in Apex along with configured functions provided by Salesforce
 1. Create processes in a modular fashion and call processes from other processes - manage complexity and reuse logic!
 1. Carry out the same actions that a workflow can do :)
 
@@ -470,6 +470,63 @@ To create a new process -
 1. Activate workflow and see it in action
 
 ![salesforce-process-builder](./img/salesforce-process-builder.jpg)<br>_src: salesforce.com_
+
+## Flows
+
+Flows, or Lightning flows, do much more than simple decision trees - they can implement a completely interactive workflow that the users can follow through to capture data or make business decisions.
+
+Of course, you could also run a flow in the background and do powerful things beyond what a process builder or workflow can do too.
+
+For e.g. -
+
+1. Order capture process: ask a bunch of questions, qualify customers/products for discounts, capture products/special instructions, ensure stock availability in the nearest warehouse, and submit orders
+1. Service call: collect product and customer details, provide pricing based on customer service plan and warranties, and schedule service based on personnel availability
+1. Quote pricing: Invoke approval processes, create follow up activities once a quote is tailored for customer
+
+As you an easily imagine, these processes span across different entities and can be quite complex.
+
+The user interactivity is super advantageous in flows that direct information capture and streamline process -
+
+1. Just the right data: Inefficient service due to lack of information and/or data not captured at the right time = customer frustration
+1. Easier onboarding: New employees find it difficult to get up to speed on working efficiently
+1. Better consistency in processes
+1. Make sense out of data: Availability of consistent, right data to leverage system better
+
+You use a 'Lightning Flow Builder' to create a new flow -
+
+1. Navigate to **Setup** > Select **Home** tab
+1. Find for **Flows**. Select **Process Automation** > **Flows**
+1. Click on **New**
+   - Select **Screen Flow** (interactive) or **Autolaunched Flow**
+1. Provide trigger against start step (if applicable) and start drag-drop'ping away actions for your flow
+
+![salesforce-flow-builder](./img/salesforce-flow-builder.jpg)<br>_src: salesforce.com_
+
+When users launch a flow, they launch an 'interview'. The interview is an instance of flow execution that captures data (if applicable), makes decisions, and invokes actions.
+
+You can include flows that have user interactivity on your Lightning UI using Lightning Page Builder. See a sample 'Quick Account' flow in action below.
+
+![salesforce-flow-quick-account](./img/salesforce-flow-quick-account.jpg)<br>_src: salesforce.com_
+
+## Flows vs. Workflows vs. Lightning Flows
+
+Here's a summary of what we learnt from the configurable automation and when to use what -
+
+| Description                                                                                | Workflow                                                           | Process Builder                                                                                                                                                                                            | Lightning Flow                                                                                         |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| What it can do?                                                                            | Update fields on same record, create tasks, send outbound messages | Update fields on same or different records/entities, create records, invoke Salesforce functions like publishing to Chatter, approval processes, & invoke other processes, flows or complex Apex functions | Create/update/delete records/other entities, support all functions supported by process builder        |
+| When to use this functionality?                                                            | Simple use cases                                                   | Simple to complex use cases that do not need any user action during execution                                                                                                                              | Guided processes                                                                                       |
+| Typical development complexity                                                             | Low                                                                | Simple - Medium                                                                                                                                                                                            | Medium - High                                                                                          |
+| Usage complexity                                                                           | Simple & transparent to user                                       | Simple & transparent to user                                                                                                                                                                               | Makes complex processes simple for use                                                                 |
+| Suitable for high-traffic processes?\*                                                     | Yes                                                                | Yes                                                                                                                                                                                                        | No (constant user interaction and guided processes make it not-so-endearing for highly used processes) |
+| Interactivity (e.g. can user click buttons, change behaviour mid-process during execution) | No                                                                 | No                                                                                                                                                                                                         | Yes                                                                                                    |
+| Immediate / timed actions                                                                  | Both                                                               | Both                                                                                                                                                                                                       | Immediate, Batch job                                                                                   |
+| Can be triggered by                                                                        | Record save after create or edit                                   | Record save after create or edit, other processes                                                                                                                                                          | User action, create records, update records, processes, other flows                                    |
+| Send data to external systems                                                              | Yes                                                                | Yes                                                                                                                                                                                                        | Yes                                                                                                    |
+| Respond to platform events                                                                 | No                                                                 | Yes                                                                                                                                                                                                        | Yes                                                                                                    |
+| Retrieve data from external systems                                                        | No                                                                 | No                                                                                                                                                                                                         | Yes                                                                                                    |
+
+_\* Highly opinionated views_
 
 ## Workshop
 
