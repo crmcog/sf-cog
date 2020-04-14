@@ -528,6 +528,61 @@ Here's a summary of what we learnt from the configurable automation and when to 
 
 _\* Highly opinionated views_
 
+## Approvals in Salesforce
+
+Approval flows at the outset do not seem to be all that important.
+
+But, once you get deep into an organisation mind-set, you start seeing it in a constant embattled state-
+
+- ever-increasing need to serve customers right
+- a huge pool of sales & service personnel who need their priorities set right
+- the need to get timely data to make right decisions
+- an ever-present need for compliance - regulatory and organisation-driven
+
+These and many more factors necessitate everyone in the organisation to work as a team, make decisions based on data, involve the set of right people in decision-making process, and do all that in a seamless fashion that does not restrict ability to serve customers better.
+
+Enter approval flows (you are permitted to imagine the sound of drum-rolls at this time). Approval flows may be used to approve -
+
+1. Deals beyond a certain value, or deals that need to incorporate special terms of a client
+1. Qualify an account type or account category
+1. Pricing discounts
+1. High-value orders
+   ..etc.
+
+An approval flow contains three major components -
+
+- Triggers - rules that qualify entities/records for approvals, ability to enforce compliance needs
+- People: direct approvals to the right set of people, visibility of processes to all stakeholders
+- Process - ensure approvals sequentially or in parallel, standard communication protocols, decide the next course of action when approvals are completed or rejected
+
+### Creating Approval Process
+
+Approval processes are easy to get started on.
+
+1. Go to **Setup** > **Home** tab
+1. Find for **Approval Processes**. Select **Process Automation** > **Approval Processes**
+1. Select entity for which approval processes need to be created against **Manage Approval Processes For:**
+1. Click on **Create New Approval Process** drop-down and select one of the options
+
+   - A jump start is good enough to quickly get started and worry about complexity later
+   - Wizard takes you through all the required steps in a methodical fashion
+
+You will be applying the same standards no matter which option you go through to create an approval process -
+
+- Specify criteria for triggering approval process
+- Select approver - either allow user to choose approver, use user hierarchy to determine next approver, assign to pre-defined queues or groups of users. You can specify a multi-step approval mechanism and also specify whether approvals happen sequentially or in parallel
+- Select email templates and layouts to be used to show data to approvers
+
+Once the approval processes are designed and deployed -
+
+1. Approval requests are triggered manually by a "submit for approval" action (which is visible button in the detail layout), or automatically based on selected criteria when initiated through workflows
+1. Emails / Chatter posts are directed at approvers
+1. Approvers review data and approve / reject requests
+1. Submitters decide next course of action based on approval outcome
+1. Approvals are tracked in the **Approval history** related list
+
+Each of these steps have inbuild data security rules applicable to overall salesforce application. You can make records read-only at the "check of a box" and protect data being approved at all stages.
+
 ## Workshop
 
 | No. | Type | Description                                    | Time (hrs) |
