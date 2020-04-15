@@ -99,13 +99,12 @@ The typical cycle to create new custom objects is -
 1. Deploy the changes for testing. Test and fix things that may not be working as expected
 1. Deploy changes to production as part of the project roll-out
 
-The starting point to develop the new entity starts from custom object. To create a custom object - 
+The starting point to develop the new entity starts from custom object. To create a custom object -
 
 1. Go to **Setup** > Click on **Object Manager** tab
 1. Click on **Create** button dropdown > Select **Custom Object**
 1. Select "stuff" from the wizard - most of the items are self-explanatory. Hit "Help" if you want to lean more.
 1. Finally, click **Save** to create the object
-
 
 ### Limits
 
@@ -241,6 +240,7 @@ Some interesting points -
 See more of this on the [Salesforce help page for fields](https://help.salesforce.com/articleView?id=custom_field_types.htm&language=en&type=5).
 
 To create fields -
+
 1. Navigate to **Setup** > Click on **Object Manager** tab
 1. Find the standard or custom object for which you want to create fields. Drilldown on the object
 1. Click on **Fields and Relationships** tab at the left
@@ -260,17 +260,37 @@ Now that we know more about objects and fields, it is time to see bit more on se
 
 ### Field Level Security
 
-Field-level security enables controlling visibility and read-only behaviour at business layer level.
+Field-level security enables controlling visibility at business layer level -
 
-To set field level security, go to **Setup** > **Object Manager** > **Fields** > Click on button 'Set Field Level Security'.
+- view fields (and therefore the values in them)
+- edit fields
+
+You assign permission sets or profiles to secure fields.
+
+To set field level security -
+
+1. Go to **Setup** > **Object Manager** tab
+1. Drilldown on an object
+1. Select **Fields** > Click on button 'Set Field Level Security'.
 
 ![object-field-security](./img/object-field-security.png)
 
-You can check access to different profiles/permission sets by going to **Setup** > **Object Manager** > **Fields** > Click on button 'View Field Accessibility'.
+You can check access to different profiles/permission sets by -
+
+1. Go to **Setup** > **Object Manager** > **Fields**
+1. Click on button 'View Field Accessibility'.
 
 ![check-field-level-security](./img/check-field-level-security.png)
 
+You can also set field level security through the profile / permission set screen.
+
 The permissions set at business layer are applicable to all aspects of the application - may it be UI, reports, data coming through API calls from external applications, or anywhere else. Security rules here override everything else.
+
+But do note some quirks -
+
+1. Roll-up summary or formula fields can reference other fields. Users can gain access to the calculated fields despite not having access to source fields. In fact, this is one of the ways of presenting the protected information in raw or processed form to users who generally do not have access to the said fields
+1. You cannot set 'Edit' permissions to system fields or to calculated fields like roll-up summary fields
+1. Profiles and permission sets respect data access rules (through roles/sharing rules) unless you have set 'View All' or 'Modify All' permissions
 
 ### Record-level Security
 

@@ -48,7 +48,7 @@ You design and implement sharing rules to allow or deny users to data depending 
 
 ### Profiles
 
-Each user in salesforce has one and exactly one profile.
+As we have seen earlier - each user in salesforce has one and exactly one profile.
 
 There are two parts to profile -
 
@@ -64,7 +64,7 @@ We refer to profiles supplied by Salesforce as 'Standard profiles'. These are -
 
 You cannot modify standard profiles, but can create other profiles by cloning them. You can also create profiles from scratch. The profiles you create are known as 'Custom profiles'.
 
-User License has its role to play in profiles.
+App license has its role to play in profiles. The license specifies the views/functionality that the user will have access to. The licenses you see in Salesforce are licenses you have paid for - this acts as the control layer based on the Salesforce plan you are on.
 
 You can specify two powerful properties against profiles -
 
@@ -73,15 +73,68 @@ You can specify two powerful properties against profiles -
 
 As the names suggest, these properties override all sharing settings. Users tagged to the profile will get access to read or manipulate data regardless of their role.
 
+In essence, you can assign following privileges using profiles -
+
+- Read: permission to view
+- Create
+- Edit
+- Delete
+- View All
+- Modify All
+
+Except for the last two privileges, rest of them respect the data access rules enabled against role + sharing rules.
+
+You would have already created profiles while going through previous chapters -
+
+1. Navigate to **Setup** > **Home** tab
+1. Find for **Profiles**. Select **Users** > **Profiles**
+1. Click on **New**. Select a profile that will be cloned to create this new profile. Select the profile that is "near" to the permissions you want to enable with the new profile. Assign a license
+1. Provide app permissions for new profile
+   - object settings - provide read/edit/delete access to objects and fields, assign page layouts
+   - apps, connected apps
+   - Visualforce page
+   - execute Apex classes
+   - access external data source
+1. Provide system permissions for new profile
+   - system-wide permissions like 'Modify All Data'
+   - specify login hours
+   - define password policies
+   - specify default Community
+1. Assign one or more users to the profile by clicking on the button at the top
+
 ### Permission Sets
 
-Use permission sets to grant permissions to users or groups on top of existing profile permissions.
+Use permission sets to grant permissions to users or groups.
 
 ![salesforce-permission-sets](./img/salesforce-permission-sets.jpg)
 
-Permission sets are the preferred way of granting permissions. They are especially useful in packages, but can be thought of as "modern version of profiles". They provide granular access to opening up access and can be stacked up to combine rules.
+Permission sets have same function as profiles, but different. They provide privileges to users without changing their profiles.
 
-Permission sets also have licenses set against them, and the license cannot be modified once set (carries forward when cloned).
+- Users can have zero or more permission sets while they can have only one profile at any time
+- Permission sets can only provide additional permissions - not remove them. To remove permissions from user, you have to remove the permission set from user (and also change profile if required)
+- Due to their nature of adding permissions and the ease of managing permission sets, they are also extensively used to grant permissions on demand for a limited time-period
+
+Permission sets are our preferred way of granting permissions. They can be thought of as "modern version of profiles" and also are invaluable in packages due to their flexible nature.
+
+To create new permission sets -
+
+1. Navigate to **Setup** > **Home** tab
+1. Find for **Permission Sets**. Select **Users** > **Permission Sets**
+1. Click on **New**. Select a license
+1. Provide app permissions for the new permission set (similar to profiles)
+1. Provide system permissions for the new permission set (similar to profiles)
+
+Permission sets provide granular access to opening up access and can be stacked up to combine rules. It is so much more easy and manageable to -
+
+1. Create baseline profile with minimum required permissions
+1. Incrementally add permissions using permission sets based on granted privileges
+
+For e.g.
+
+- all personnel in sales organisation can be provided read-only access to Accounts, Contacts, Opportunities
+- and then.. assign edit privileges, and access to Orders, Cases, and Quotes depending on their job role
+
+As you have seen - permission sets also have licenses set against them, and the license cannot be modified once set.
 
 In addition to the permissions that can be set through profiles, permission sets can also control who has access to run Apex classes – web services & Visualforce controllers. You cannot control who has access to triggers though.
 
@@ -114,9 +167,9 @@ Note that even when access is restricted through OWD, 'View All', 'Modify All', 
 
 ## Other Data Access Considerations
 
-### Role Hierarchy
+### Roles & Role Hierarchy
 
-Role hierarchy is represented in Salesforce by providing how roles stack up and report to each other in the salesforce org.
+Role hierarchy is represented in Salesforce by providing how roles stack up and report to each other in the salesforce org. Role hierarchy plays along with sharing rules to determine the access of data to users.
 
 Role hierarchy may not reflect the actual org hierarchy but also depends on other factors. For e.g. -
 
@@ -129,7 +182,7 @@ A user can have zero or one role. Any role may or may not be part of the role-hi
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Always have access <br><ul><li> Group Member</li><li> Queue Member</li><li> Role Member</li><li> Member of Subordinate Role</li><li> Territory Member</li><li> Member of Subordinate Territory</li></ul> | Access through hierarchy <br><ul><li> Manager of Group Member</li><li> Manager of Queue Member</li><li> Manager of Role</li><li> Manager of Territory</li><li> User Role Manager of Territory</li></ul> |
 
-Manager always sees subordinates' data and has same privileges as the subordinate. However, you can override this default behaviour using 'Grant Access using Hierarchy' flag and disable data access to managers in custom objects. There are limitations to this behaviour - see [security sharing considerations](https://help.salesforce.com/articleView?id=security_sharing_considerations.htm&type=5) and [manager role help page](https://help.salesforce.com/articleView?id=users_managers_only.htm&type=5) for details.
+A manager has same privileges to data as the direct subordinate. However, you can override this default behaviour using 'Grant Access using Hierarchy' flag and disable data access to managers in custom objects. There are limitations to this behaviour - see [security sharing considerations](https://help.salesforce.com/articleView?id=security_sharing_considerations.htm&type=5) and [manager role help page](https://help.salesforce.com/articleView?id=users_managers_only.htm&type=5) for details.
 
 If a user is have more than 10K records assigned, it is advisable to keep user out of the role hierarchy for performance reasons
 

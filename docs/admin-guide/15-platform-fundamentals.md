@@ -510,11 +510,13 @@ Profile is a group of permissions and settings -
 - provide access to external data sources
 - provide access to call Apex automation routines
 
-You will see this pattern repeated multiple times - you cannot modify more than few properties in profiles provided by salesforce ("standard profiles"), but you can clone existing profiles or create your own profiles (also called "custom profiles"). You assign exactly one profile to each Salesforce user.
+Administrators create profiles in alignment to the application security constraints. Developers create custom UI keeping in mind the same security constraints.
 
 Navigate to **Setup** > **Users** > **Profiles** to view, edit or create profiles.
 
 ![user-profile-assign](./img/user-profile-assign.png)
+
+Also take note that you cannot modify any "important" properties in profiles provided by salesforce ("standard profiles"), but you can clone existing profiles or create your own profiles (also called "custom profiles"). You assign exactly one profile to each Salesforce user. You will see this pattern of "standard/salesforce-supplied stuff being read-only" repeated multiple times in salesforce app.
 
 #### Permission Sets
 
