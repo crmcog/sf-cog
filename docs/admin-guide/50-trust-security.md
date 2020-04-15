@@ -239,10 +239,35 @@ Audit trails ensure a fail-safe system to track access (read or write) to a syst
 
 Salesforce enables audit trails on multiple levels -
 
+- Field value update history is tracked using history tracking
 - Track login history
 - Modifications are tracked in Modified by and Modified Date
-- Field value update history is tracked using Field audit trail
 - Setup audit trail to track administration changes (for e.g. who enabled or disabled field audit trail and at what time)
+
+We will see more details to enable these audit trails here and in other sections in this chapter.
+
+### Field History Tracking
+
+Field history tracking provides the audit trail for field value changes. This audit trail tracks users who changed values, date/time of the transaction and old /new values.
+
+Field history tracking is used in many organisations to comply to regulatory or organisational compliance requirements.
+
+Enable field history -
+
+1. Go to **Setup** > **Object Manager** tab
+1. Drilldown on an object
+1. Select **Fields and Relationships**. Click **Set History Tracking**. If you are unable to see this button, just ensure you have "Track Field History" enabled against object in **Object Manager** > Drilldown on object > **Details** tab
+1. Enable object for history tracking and select fields of interest. Note that for long fields, you can only track changes (know that change has occurred) and not the old/new values
+
+![field-history-tracking](./img/field-history-tracking.jpg)
+
+You see the trail of changes through a related list against the record.
+
+1. Go to the page layout of the object that needs to reflect history tracking
+1. Add the _Object_ Field History related list to the related list section
+1. .. and voila you can now see any recorded changes from field history tracking
+
+Alternatively, you can add the related list through Lightning Page Builder.
 
 ## Transaction Security
 
@@ -269,7 +294,40 @@ Salesforce provides multiple levels of access controls to secure your applicatio
 
 ### Login policies & restrictions
 
+You provide additional security measures by restricting access to the application -
+
+- specify login hours against profiles and permission sets
+- specify IP ranges from which users can login
+
+These are highly effective in protecting your application from malignant attacks - even if user authentication details fall into wrong hands.
+
+You have already seen how you can setup system permissions against profile or permission sets. Consider revisiting the functionality if that has turned hazy :p
+
+You could also specify trusted IP range for the entire application -
+
+1. Go to **Setup** > **Home** tab
+1. Find for **Network Access**. Select **Security** > **Network Access**
+1. Click on **New** and specify IP range
+
+You can monitor login history of users through -
+
+1. Go to **Setup** > **Home** tab
+1. Find for **Login History** > Select **Identity** > **Login History**
+1. View or download data
+
+Login history shows -
+
+1. Login user
+1. Login time, IP from which user logged in
+1. Environment details like platform OS and browser
+
 ### Password policies & changes
+
+You specify password policies against profiles/permission sets -
+
+1. Password length
+1. Password complexity
+1. Mandate passwords to be changed periodically
 
 ### Session management
 
@@ -282,6 +340,8 @@ Salesforce provides multiple levels of access controls to secure your applicatio
 ### Setup Audit Trail
 
 As seen earlier in this section, Salesforce enables you to track changes to its configuration setup. This assumes significance to ensure full accountability and traceability of changes carried out to audit trail setup (amongst other things) for all administrators and power users.
+
+You can imagine setup audit trail as "history tracking for administrative actions".
 
 Key setup functions traceable through setup audit trail are below -
 
@@ -297,12 +357,18 @@ See the full list of trackable options in [Security Guide](Full list at https://
 
 Setup audit trail enables you to -
 
-- Track 20 recent changes to setup listed in UI
-- Audit trail data for 180 days available for export (data deleted post 180 days)
+- Track up to 20 recent changes to setup listed in UI
+- Audit trail data for 180 days available for export in CSV format (data deleted post 180 days)
+
+To access setup audit trail -
+
+1. Go to **Setup** > **Home** tab
+1. Find for **Setup Audit Trail**. Select **Security** > **Setup Audit Trail**
+1. View entries / download file
 
 ## Debug Logs
 
-Debug logs by definition log salesforce-generated and custom events. Using these logs Salesforce application developers and maintainers can collate valuable information about application usage and track errors in any environment.
+Debug logs are used to track salesforce-generated and custom events. Using these logs Salesforce application developers and maintainers can collate valuable information about application usage and track errors in any environment.
 
 ![salesforce-debug-logs](./img/salesforce-debug-logs.jpg)
 
@@ -324,9 +390,7 @@ Debug logs consist of the following components -
 | Log Lines     | Time stamp, event identifier <br> ![salesforce-debug-log-log-line](./img/salesforce-debug-log-log-line.png)                                                            |
 | More Log Data | Cumulative resource usage at end of many code units, cumulative profiling info.                                                                                        |
 
-Any application can generate a ton of logs. This can result in important information being buried and hard to locate in the logs.
-
-The problem of "too little" or "too much" logging is more pronounced for a large system like salesforce. Salesforce provides easy-to-control debugging filters to control logging levels at various levels -
+Any application can generate a ton of logs. This can result in important information being buried and hard to locate in the logs. The problem of "too little" or "too much" logging is more pronounced for a large system like salesforce. Salesforce provides easy-to-control debugging filters to control logging levels at various levels -
 
 - Control verbosity for triggers/classes
 - Log order of precedence
@@ -337,6 +401,31 @@ The problem of "too little" or "too much" logging is more pronounced for a large
 See the below illustration to understand how logging levels work.
 
 ![salesforce-debug-log-level-predence](./img/salesforce-debug-log-level-predence.jpg)<br>_src: salesforce.com_
+
+Debug logs can be enabled quite easily against an entity or user -
+
+1. Go to **Setup** > **Home** tab
+1. Find for **Debug Logs**. Select **Environments** > **Logs** > **Debug Logs**
+1. Click on **New**
+1. Select **Traced Entity Type** as `Apex Class`, `Apex Trigger`, `Process` or `User`. Specify the **Traced Entity Name** as the specific entity - class, trigger, process or user
+1. Specify start/end times to trace activity for creating the log, and also specify the log level
+
+You can view the log entries through salesforce app or download the log file.
+
+### Email logs
+
+Email logs provide details on emails sent from salesforce and their delivery status.
+
+You can download log files in CSV format to view the target email addresses, date/time email was sent (automated/manual) and the status.
+
+You get email logs from -
+
+1. Go to **Setup** > **Home** tab
+1. Find for **Email Log Files**. Select **Environments** > **Logs** > **Email Log Files**
+1. Specify start/end times between which you need logs (allows a max difference of one week)
+1. Specify who will receive the log and submit request
+
+Email logs are available for the past 30 days.
 
 ## Job Scheduling and Monitoring
 
