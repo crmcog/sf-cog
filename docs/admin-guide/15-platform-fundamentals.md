@@ -464,7 +464,7 @@ Profiles and permission sets control which screens/views you see. Roles control 
 
 #### Data Security Layers
 
-Salesforce typically works by securing all data (making everything most restrictive) and opening view/write/both access only to specified entities. This is done at individual entity level and is mondo useful.
+Salesforce typically works by securing all data (making everything most restrictive) and opening view/write/both access only to specified entities. This is done at individual entity level and is super useful.
 
 The default access enabled at entity is called "Organisation-Wide Defaults" (or "OWD"). Roles and defined sharing rules enable accessing data secured by OWD to specific user groups or users.
 

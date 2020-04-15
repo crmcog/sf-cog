@@ -142,7 +142,7 @@ Note that permission set licenses are different from permission sets. They exten
 
 ### OWDs
 
-Organisation or org-wide defaults provide the default restrictions that need to be applied against a given object in the org.
+Organisation-wide or organization-wide or org-wide defaults provide the default restrictions that are applied against a given object in the org.
 
 Objects are tagged to an OWD in the Salesforce out of the box application, but that can be modified to suit your company needs.
 
@@ -150,16 +150,23 @@ You can set OWD in **Setup** > **Security** > **Sharing Settings**.
 
 ![salesforce-set-owd](./img/salesforce-set-owd.jpg)<br>_src: salesforce.com_
 
-There are four types of OWD -
+There are four types of restrictions that you can place using OWD -
 
 - Private: Record owner and manager can see
 - Public read-only: All users can see; owner & manager can edit
 - Public read/write: free for all – read, edit, reports
 - Controlled by parent
 
-You can decide OWDs methodically as depicted below -
+You can decide OWDs quite methodically as depicted below -
 
 ![salesforce-decide-owd](./img/salesforce-decide-owd.jpg)<br>_src: salesforce.com_
+
+The data protection decision for an object goes like this -
+
+1. Decide which OWD to provide baseline security for any object - read-only or edit
+1. Access for 'private' object data are decided by roles & role hierarchies
+1. Access to records are also decided by sharing rules
+1. Access to fields and views are decided by profiles and permission sets
 
 Typically you end up using 'private' or 'controlled by parent' for new custom objects.
 
