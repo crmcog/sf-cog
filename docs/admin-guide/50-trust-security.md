@@ -331,9 +331,12 @@ You specify password policies against profiles/permission sets -
 
 ### Session management
 
-### Certificates
+You can view sessions (through browser or API) of users logged on to salesforce -
 
-### Remote settings
+1. Go to **Setup** > **Home** tab
+1. Find for **Session Management**. Select **Security** > **Session Management**
+
+You can view and remove sessions from here.
 
 ## Application Monitoring
 
