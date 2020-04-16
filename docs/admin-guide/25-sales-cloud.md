@@ -91,7 +91,7 @@ The below diagram depicts the relationship between key entities.
 
 Next up: we look at the details of few key entities.
 
-## A bit on what "customer" means in Salesforce
+## What "customer" means in Salesforce?
 
 A customer management system revolves around, well, a "customer" record. A customer record shares all relevant information of the organisation's customer, but there are different ways of handling that information depending on the target audience.
 
