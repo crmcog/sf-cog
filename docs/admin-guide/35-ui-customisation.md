@@ -61,18 +61,73 @@ A common structure followed to configure UI will include following steps -
 
 ## UI Configuration
 
+While we have configured UI as part of creating fields, we will delve into the UI customisation a bit more in this section.
+
 ### Create Page Layouts
 
-### Create List and Detail Views
+Page layouts bring the basic building blocks of fields and other controls together to form cohesive user interfaces for displaying record detail.
 
-### Create Quick Action / OOB buttons
+- Layouts consist of fields, buttons, related record list, and any other element and are based on a single object
+- Layouts are typical 2-column structure to show record details. You have to build custom UI using Lightning framework or Visualforce to create a different structure
+- You can have one or more layouts against any object
+- You assign layouts to a profile/permission set, which in-turn are tagged to a user. Salesforce devices the layout to be shown to user based on the permissions in runtime
+
+To create a page layout -
+
+1. Navigate to **Setup** > **Object Manager** tab > Drilldown on an object > **Page Layouts**. Click on **New** button
+1. Create the new layout from scratch or clone an existing layout (latter is the preferable option)
+1. Drag and drop -
+   - fields
+   - related lists
+   - quick actions/ buttons / links
+   - reports and Visualforce components (this is not "the way" - use Lightning Page Builder instead)
+1. Make fields read-only or edit enable them. Note that you cannot show read-only fields like system fields or calculation fields (e.g. roll-up summary). Similarly "mandatory fields" cannot be removed from "edit" layout
+1. Related lists can be customised to show specific fields. The fields available in related lists depend on which fields are available to a list on the related object
+
+![salesforce-new-pagelayout](./img/salesforce-new-pagelayout.jpg)
+
+Once created, you can assign page layouts to profiles/permission sets/record types.
+
+You can use layouts in Lightning Page Builder for a record page. Lightning page builders are, of course, assigned to tabs of an app.
+
+### List
+
+You work with lists directly on the app. An administrator can create lists that comprise of -
+
+1. One or more fields
+1. Filters
+
+Users can create their own lists with fields that they are permitted to view, and apply filter criteria.
+
+![salesforce-list-view](./img/salesforce-list-view.jpg)
+
+### Other Layouts
+
+When you go to **Setup** > **Object Manager** tab > Drilldown on an object, you will also see layouts other than page layouts.
+
+#### Compact Layout
+
+You can create one or more compact layouts for an object. The compact layouts are used to display record details when viewing in Chatter or in mobile app.
+
+![salesforce-compact-layout](./img/salesforce-compact-layout.jpg)
+
+You can select up to 10 fields in compact layout - the fields cannot be of these types - text area
+long text area, rich text area and multi-select picklist.
+
+You assign compact layouts against record types to display distinct fields based on different record type values.
+
+#### Search Layout
+
+Search layout specify the fields that are displayed not only while the user searches for a record (search results, search filter fields,), but also for lookup dialogs, and 'recent record' lists on tab home pages in Salesforce Classic.
+
+Search layouts retain the fields specified in default list of object. You may modify the default layout for specific profiles.
 
 ### Use Lightning App Builder
 
 Lightning app builder is used to create three different types of pages -
 
 - App page - home page for the app
-- Home page - provide a home page for a specific entity 
+- Home page - provide a home page for a specific entity
 - Record page - provide a detail page. Reuses layouts of the entities
 
 Whenever we say "detail pages", we indeed refer to "record page". App and home pages provide a dashboard in the context of the app or entity type, which can have charts, quick navigation links, etc.
@@ -95,7 +150,7 @@ There are a couple of ways to control related lists -
 
 #### Layouts
 
-While defining the layout for the parent record, you may view/hide the related lists in the same layout. 
+While defining the layout for the parent record, you may view/hide the related lists in the same layout.
 
 ![salesforce-related-list-layout](./img/salesforce-related-list-layout.gif)
 
@@ -103,10 +158,10 @@ While defining the layout for the parent record, you may view/hide the related l
 
 Using Lightning page builder you can -
 
-- add / remove standard related lists 
+- add / remove standard related lists
 - include Lightning components that display related entities
 
-You can conditionally display any component in Lightning page builder - the same applies for related lists as well. For e.g. you may display the related list only when the account goes to 'Approved' status. 
+You can conditionally display any component in Lightning page builder - the same applies for related lists as well. For e.g. you may display the related list only when the account goes to 'Approved' status.
 
 #### Custom UI
 
@@ -127,7 +182,32 @@ If you are on a page that needs editing here and now -
 
 ### Data-driven behaviour for UI
 
+There are two fundamental truths for "what data will I see" -
+
+- Profiles/permission sets allow one to streamline which fields and views does a user see in salesforce app.
+- Data security rules - role, role hierarchy, sharing rules decide which data a specific role will see in a salesforce tab. This behaviour can be overridden by profile/permission set attributes - View All, Modify All, View All Data and Modify All Data
+
+The elegance of building a complex app does not quite stop here.
+
+Data other than the security information can influence how and what information does a user see in the application.
+
+There are three ways in which UI is influenced by data -
+
+1. Record types: You can define different record types that can show different layouts to different profiles. Record types can also influence which dropdown values are seen in a picklist field. See below sections for more information.
+1. You could also use Lightning component conditional display to display or hide Lightning component using Lightning Page Builder. See Lightning Page Builder section for more information
+1. You can use customisation using Lightning Framework or Visualforce to enforce dynamic behaviour based on data
+
 #### UI security rules
+
+UI security rules refer to -
+
+1. Profiles and permission sets that decide which UI can a user has access to. See [profiles and permission sets](/admin-guide/trust-security/#profiles)
+1. Layouts (as explained in this chapter)
+   - Selectively make fields visible or editable on distinct layouts
+   - provide different UI (fields and actions) based on profiles/permission sets
+1. Record types (as explained in this chapter)
+
+Other than these options, developers can customise UI using Visualforce and Lightning Framework.
 
 #### Record types
 
@@ -142,7 +222,7 @@ You can create record types by going to **Setup** > **Object Manager** tab > sel
 1. Click on **New** to create a new record type
 1. Provide a label, description
 1. Provide access to the new record type to one or more profiles
-1. You can select a default layout for record type for all profiles, or provide distinct layouts 
+1. You can select a default layout for record type for all profiles, or provide distinct layouts
 1. Save!
 
 You can now change the record type for any specific record.
@@ -165,26 +245,133 @@ Record types provide a powerful way to enable personalised UI for records based 
 
 No UI discussion is complete without reports.
 
-Reports and dashboards (a collection of related or independent reports) are easily configured in Salesforce.
+Reports typically provide valuable insights to an organisation -
+
+1. Overview of state of business
+1. Trends across time and other factors
+1. Visualise co-relation between business and environmental factors
+
+A report can be or contain -
+
+1. list of records - filtered by conditions specified by you (e.g. get opportunities created in the last week)
+1. grouped by a field specified by you (e.g. get me month-wise opportunity count for this year)
+1. visual representation of data (e.g. a pie chart of revenue by sales rep, a bar chart of sale trends for the entire year)
+
+_/j_
+Although reports were super popularised by a small subset known to the world as "TPS Reports", they have been known to exist in some shape and form since humanity existed. It is a lesser known fact that old stone age paintings in Asia also depict an early form of pie chart.
+
+A dashboard is a collection of related or independent reports. It can have -
+
+- a list report showing record list
+- a visual display of metrics and trends
+
+You can use dashboards to show an overview of "where we are". Users can drilldown on individual reports to find more details.
+
+Reports and dashboards can be easily configured in Salesforce.
 
 The typical life cycle for creation of reports -
 
-1. Create report types
+1. Identify report type to use / create report types
 1. Create reports
 1. Create dashboards
-1. Include reports in customised UI (if relevant)
+1. Include reports on your own UI (if relevant)
 
 ### Create Report Types
 
+Report types refer to "report templates" in Salesforce. They provide the ability to create report from a set of fields included in the type and in pre-defined formats.
+
+Salesforce provides standard report types out of the box and you can create awesome report types of your own.
+
+You can see available report types in -
+
+1. Navigate to **Setup** > **Home** tab
+1. Find for **Report Types**. Select **Feature Settings** > **Analytics** > **Reports and Dashboards** > **Report Types**
+
+You would want to select the report type that includes the fields and relationships to other objects that you want to use in your reports.
+
+To create a new report type -
+
+1. Navigate to **Setup** > **Home** tab
+1. Find for **Report Types**. Select **Feature Settings** > **Analytics** > **Reports and Dashboards** > **Report Types** (Click on **Continue** on the first info screen if this is the first time you are accessing report types)
+1. Click on **New Custom Report Type**
+1. Select **Primary Object**, the name of report type, description and a category (you will see these categories in the navbar in reports view). Any custom object that has `Allow Reports` option checked in object detail and is not part of master-detail relationship will be available for report type creation
+1. Select related objects and related-related objects in a hierarchy. You can specify whether the relationship can include parent records that may have zero related records or must have at least one record to display in report
+1. Once you save, you can go back to the layout and specify different labels for fields (if that is your thing)
+
+Your report type is now fit and ready to save the world.
+
 ### Create reports
 
-#### Report filtering and bucket fields
+You can view reports or create/edit them in a distinct **Reports** tab in an app. Search for the tab in additional tabs if you don't see them by default.
 
-### Dashboard and Related reports
+![salesforce-reports](./img/salesforce-reports.gif)
 
-### Inline/in-view reports in Lightning vs Classic
+To create the report -
 
-## Security for reports and dashboards
+1. Navigate to **Reports** tab
+1. Click on **New Report** button
+1. Select report type on which this report will be based
+1. Add/remove fields or add group fields from the **Outline** tab. Group records by column or by row - also see "bucket fields" below
+1. Create formula fields that can derive values from actual fields. For e.g. use a formula to look up state values and show them in an abbreviated form on reports
+1. Specify sort order by directly clicking on the fields dragged on to the report layout
+1. Specify filters to use (e.g. My accounts, All accounts), etc. in the **Filters** tab
+1. Add charts by clicking on **Add Chart** button at the top. This is available only when data is grouped on report
+1. Save report - pay attention to the "folder" in which you share reports. The folder drives visibility
+
+Note that -
+
+1. Data security rules in salesforce do not have a play here - users see all fields on reports as long as users have access to reports. You have to control report visibility by creating folders for different groups of personnel and store reports targeted at them
+1. While users can drilldown on a record displayed on report, they will get an error if they don't have access to the record
+1. Reports show limited records on the screen. You can export to CSV, Excel or any available formats to get up to 20K records in the report
+1. You can 'subscribe' to a report to get periodic reports - click on drop-down button at the right in **Report** tab and click **Subscribe**
+   - get daily, weekly or monthly reports - same report but refreshed data
+   - you can run report for yourself or as another person (your subordinate for e.g.)
+
+The above workflow should be the standard from now on, but there is an older admin experience available with Salesforce Classic.
+
+In Classic, you had to specify the type of report (Tabular, Summary, Matrix or Joined report) - to indicate the type of information displayed on the report. For e.g. tabular contained just a simple data table, summary/matrix reports allow aggregation/groups on fields. The types of reports refer to how information can be displayed on reports and are not to be confused with report types - which are just, templates.
+
+#### Report filters
+
+Report filters allow you to get to specific data of interest. You can use filters on field values in the parent object (on which the report is based), or use a "cross filter" to filter records based on a related entity (for e.g give me all contacts with account type 'Retail').
+
+Users can change the filter criteria while viewing reports.
+
+![report-filter](./img/report-filter.gif)
+
+Report filters work on top of relationship filters defined at the report type level - for e.g. if you have specified that Accounts need to have at least one contact at the report type level, you cannot see accounts with zero contacts in report despite removing all other filters.
+
+#### Bucket Fields
+
+While creating the report, you can not only group by field values as they exist in database, but also group by ad-hoc groups that group the actual values. These virtual fields that exist only for a report are called "bucket fields".
+
+For e.g. let's say we have an opportunity report that groups records by stage - Qualification, Prospecting, Value Proposition, Closed Won etc.. This is all good until you want them grouped as closed and open opportunities. Instead of creating a separate field in business layer, you can group by bucketing the stage values on the report.
+
+![salesforce-report-bucket-fields](./img/salesforce-report-bucket-fields.gif)
+
+You can create bucket fields for both row or column grouping.
+
+### Dashboard
+
+You can view or edit/create dashboards from **Dashboards** tab.
+
+To create a new dashboard -
+
+1. Navigate to **Dashboards**
+1. Click on **New** button
+1. Drag and drop reports (or even Visualforce pages) - these are called "dashboard components"
+
+You can also add reports to dashboard from the **Reports** tab.
+
+![salesforce-dashboards](./img/salesforce-dashboards.gif)
+
+You can specify a filter component for the overall dashboard that applies to all dashboard components.
+
+You can also customise dashboard components to have unique filtering criteria that is relevant to dashboard, display different charts as compared to the original report, etc. All these are configurable by the admin as well as the end-user who is the consumer of the dashboard.
+
+You can share dashboards through folders - similar to reports. You an share folders (if you are the owner/have relevant privileges) to other users or groups - either view, edit or manage access.
+
+Users can click on "Follow" button against dashboards (that they have access to) to get a notification in their Chatter feed when the dashboard is refreshed.
 
 ## Customising Salesforce UI
 
