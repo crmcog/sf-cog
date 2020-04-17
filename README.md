@@ -25,7 +25,8 @@ See https://github.com/crmcog/sf-cog/blob/master/CONTRIBUTING.md.
 
 Consider supporting us if you get benefited by this work.
 
-- [Patreon](https://patreon.com/crmcog)
+- [paypal.me/pragital](https://www.paypal.me/pragital)
+- [patreon](https://patreon.com/crmcog)
 
 ## Questions? Comments?
 
