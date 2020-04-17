@@ -34,19 +34,42 @@ Chatter enables tracking feeds of records significant to any individual user -
 
 ![salesforce-chatter-feed](./img/salesforce-chatter-feed.png)
 
-Chatter does not only promote collaboration between individuals and groups, but enables that with data access rules established by the core Salesforce product.
+Chatter does not only promote collaboration between individuals and groups, but also enables that with data access rules established by the core Salesforce product.
 
 ### Enabling Chatter
 
-### Setup feeds
+To enable chatter -
 
-### Chatter groups & members
+1. Go to **Setup** > **Home** tab
+1. Find for **Chatter**. Select **Feature Settings** > **Chatter** > **Chatter Settings**
+1. You can click on **Edit** button to edit settings and disable/enable chatter. In addition -
+   - you can enable approvals through Chatter
+   - enable publisher actions. Tick the box **Enable Publisher Actions**
+   - allow users to collaborate with customers and invite them to groups
+   - provide mods super powers to edit posts / comments
+1. While you are at this..
+   - setup which fields show up in Chatter when users "follow" an object to get updates in their Chatter feed - change fields against objects in **Feed Tracking**
+   - change groups UI - because, why not. **Groups** > **Group Layout**
+   - setup Chatter emails so that users can get updates on email
 
-### Share data on Chatter (with visibility rules)
+Users can now -
 
-### Chatter emails
+- start collaborating with internal employees or customers/partners (the latter has to be allowed by admin)
+- start "following" records and those updates show up in their feeds
+- approval requests start showing up in chatter and those can be approved at the click (or two) of a button
+- make announcements, ask questions and upload attachments
+- form groups and discuss their cat photos
+- mute every feed item so that there can be peace
 
-### Publisher actions
+### Publisher Actions
+
+You can reduce user clicks for getting things done by using publisher actions. Actions in Chatter refer to the "shortcuts" to a function that can be achieved easily enough by clicking on an option against a Chatter conversation (yes, that rhymes. Some of us are failed rappers here).
+
+Standard actions supplied by Salesforce includes Post, File, Link and Poll.
+
+You can see actions by clicking on the action bar at the top of the Chatter page, and on top of a conversation.
+
+![chatter-page](./img/chatter-page.jpg)
 
 ## Community Cloud
 
@@ -106,15 +129,24 @@ Community Cloud also provides the standard features expected from a typical webs
 
 ### Create and manage communities
 
-### Community cloud features
+To create a new community -
 
-### Branding & personalization
+1. Go to **Setup** > **Home** tab
+1. Find for **Communities**. Select **Feature Settings** > **Communities** > **All Communities**
+1. Click on **New Community**
+1. Select a template, provide a name and select an URL to create your beautiful community
 
-### User management
+Once the community is created, you can start customising it. Click on the top left icon to get started.
 
-### Topic management
+1. Change the theme
+1. Change/add sections to the page - content, sidebar, buttons, etc.
+1. Add Lightning components to show record lists/details
 
-### Collaboration with customers and partners
+When you are satisfied with your community, click on 'Publish' to make the community site live and rejoice.
+
+You can see all the analytics you need in the **Workspaces** link that you see when you click on the site icon on the toolbar. You can install additional AppExchange packages for better reporting. You can moderate conversations by heading to the **Moderation** link.
+
+Customers or partners who are the target audience for your community may now self-register, start asking questions, and get all the right solutions.
 
 ## Ideas
 
