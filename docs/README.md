@@ -69,4 +69,5 @@ See [Terms](/misc/terms)
 
 Consider supporting us if you have benefited from our work!
 
+- [paypal.me/pragital](https://www.paypal.me/pragital)
 - [Patreon](https://www.patreon.com/crmcog)
