@@ -375,6 +375,21 @@ All users in Salesforce are associated to at least one license.
 
 ### Users
 
+Surprise surprise - users are users of your app.
+
+To create new users -
+
+1. **Setup** > **Home** tab
+1. Find for **Users**
+1. Click on **New** button to create a new user
+
+   - Every user will need exactly one license - this license is provided by Salesforce based on your subscription plan
+   - Provide a profile and one or more permission sets
+   - Provide a role (that may or may not sit in the role hierarchy)
+   - User id has the same format as email id, but can be different from an email id (for e.g if your users have access to different salesforce apps, they can have same email id tagged different user ids)
+
+We will see profiles/permissions at least a million times in this guide - so, this is not the time or place to discuss those. Suffice to say they decide what the users see on the salesforce UI. We will also see more than enough pointers to other user security measures including password policies, login hour restrictions etc.
+
 ### Salesforce AppExchange
 
 [AppExchange](https://appexchange.salesforce.com/) is the app store for salesforce.com.

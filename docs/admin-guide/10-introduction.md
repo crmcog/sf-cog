@@ -22,7 +22,7 @@ Well, we are big fans of practical learning. We are also bigger fans of having a
 
 With this guide / course structure, you get -
 
-1. Rapid learning to prepare for potential Salesforce Administrator certification (ADM201)
+1. Rapid learning to prepare for potential Salesforce Administrator certification (ADM201) and Salesforce App Builder certification
 1. Equip yourself with the knowledge required by administrators. All the tools that you require to meet market expectations from an admin
 1. Practical guide to understand Salesforce from scratch
 1. Real-world problems in workshops and case studies to apply your knowledge

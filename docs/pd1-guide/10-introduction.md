@@ -12,6 +12,124 @@ meta:
 
 # Introduction
 
+Welcome to the Platform Developer I certification self-study guide!
+
+Have you gone through the [structure of a PD1 guide](/pd1-guide/structure/)? Are you already familiar with salesforce configuration and rearing to go to brave new worlds? Ok then, get started on your Salesforce developer journey from here!
+
+# What this course / guide is about?
+
+We are big fans of practical learning. We are also bigger fans of having an objective in sight. Hence.. this course.
+
+With this guide / course structure, you get -
+
+- Rapid learning to prepare for potential Salesforce Platform Developer I (PD1)
+- Equip yourself with the knowledge required by salesforce developers. Learn about the tools and the knowledge that need to be on your toolbelt
+- Practical guide to understand how to effectively change adapt Salesforce to your business using clicks and code
+- Real-world problems in workshops and case studies to apply your knowledge
+
+We tag learning to "certification" since -
+
+- We are more inclined to have a structure for our learning process
+- Salesforce world is vast and growing. Preparing for certification will impart adequate knowledge about most of the "headline" topics that developers should know
+- With this guide + some experience, you should be confident to attend Salesforce PD1 exam. Certifications provide credibility in any market
+
+To maximise benefits from the guide -
+
+- Go through the guide from the beginning (you are at the starting point - so congratulations)
+- Practice tasks from lessons and applied learning workshops
+- Make notes from the guide and from your tasks
+- Gather knowledge through Trailhead and learn by doing
+
+## About Salesforce and CRM
+
+At this point, we would typically go on a long rant about salesforce, CRM, and the market today - but, we spare you the trouble.
+
+We just refer you to [What is CRM?](/admin-guide/introduction/#what-is-crm) section of Admin guide.
+
+## Architecture
+
+Salesforce is cloud-native - this means that everything that the user needs is hosted in and delivered over "the cloud".
+
+Here are a few key features often associated with salesforce architecture -
+
+1. Multi-tenancy
+1. Meta-data driven
+1. Layered
+1. Infinitely (a more apt term may be "reasonably") scalable
+
+The layers refer to the different platform functions that stack-up to provide everything from an innovative UI on any device to powerful workflows and capabilities like AI, IoT etc..
+
+![salesforce-architecture](./img/salesforce-architecture.png)
+
+Salesforce provides a superior user experience that can be tailored for your organisation's unique needs. It can be deployed to different types of users - partners, employees or customers, and to multiple functions - sales, service, marketing etc. The application (as is the case with any complex system) is built using a layered approach and these layers may correspond to
+
+- business functions - sales, service et. al.
+- technology functions - IoT, AI
+- different parts of an app - UI layer, business layer and so forth
+
+### Multi-tenancy
+
+Salesforce is shared by multiple "tenants" or "organisations" or "orgs". Each of these tenants may have their own functions and data - all without impacting any other orgs sharing the same infrastructure.
+
+![salesforce-multitenancy](./img/salesforce-multitenancy.png)
+
+Multi-tenancy drives down the application costs for all, and enables continuous improvements to baseline functionality that can be shared and deployed for all. While delivering all this goodness, Salesforce also ensures that security is enforced as a practice across the board, and at the same time securing individual orgs from impacting each other.
+
+Salesforce platform's multi-tenant kernel is built ground-up and not a simple virtualisation. The data and application is secured and abstracted through a custom-designed relational-db like layer that abstracts the underlying data storage layer.
+
+### Meta-data driven
+
+While Salesforce provides you an application that can super-charge your business from day one, each business (or specifically an "org") can customise its own version. The orgs achieve not only data segregation but also functionality segregation. The functionality within an org is driven by meta-data - data about data.
+
+Upgrades to the application in functionality, bug fixes or new features are delivered with no/minimal impact to this meta-data driven behaviour and customisations continue to be supported through patch releases and updates.
+
+### MVC Inspiration
+
+Salesforce's model-view-controller architecture is a way to isolate and segregate design and dependencies of technology layers, which seamlessly integrate to form a whole.
+
+The MVC layers in both Lightning UI or Classic provide clear separation of concerns –
+
+- separate logic from UI
+- define data structure and rules in model
+- data is distinct from metadata
+- independently define components in the user interface layer
+- interactions b/w view and model in controller
+
+![salesforce-architecture-mvc](./img/salesforce-architecture-mvc.png)
+
+Each of these layers can independently do their function in any org without hard-dependency on other layers, but are useful when combined together.
+
+### Scalable
+
+Salesforce can scale to different functions (customer touch-points like sales or marketing, to backend functions like order processing) and to numerous groups/individuals.
+
+### Strong app ecosystem
+
+You can create your own apps or install apps from Salesforce AppExchange (or third parties for that matter). Multiple apps can co-exist without issues and come together to form a cohesive application for your users.
+
+## Apps, Apps and Apps
+
+This is the right time as any to bring your attention back to AppExchange. We saw [details on AppExchange in the admin guide](/admin-guide/platform-fundamentals/#salesforce-appexchange).
+
+AppExchange is the marketplace for all things Salesforce – consultants, apps, lightning components, which can be leveraged to get a head-start for your business.
+
+AppExchange apps should be part of your application customisation strategy -
+
+- Identify type of solution that can help – full-blown app vs individual component
+- Identify functionality available through apps vs. what you can build – complete set of functions for a vertical or horizontal function (e.g. Veeva for Pharma CRM), incremental (e.g., Conga composer for document generation), or apps that enable further customization (e.g. Skyvisualeditor)
+- Evaluate technical needs and boundaries – does the app support your edition and licenses? How you can deploy and maintain a managed app vs unmanaged app vs AppExchange component
+- Last factor here, but first on anyone's mind - pricing. Apps can deliver nirvana to you, but at what cost?
+
+### Trying Apps
+
+There are different types of trials possible for apps. There are three distinct (major?) ways to test and know the app -
+
+- Test drive: test on a vendor provided environment with functionality and data (read-only)
+- Trial: Install trial version in your own instance
+- Trialforce: Enable a trial org with vendor provided data & functionality. Distinct to you; read-write
+
+Enable apps for admins alone or for all users during testing and even in initial production runs.
+
 ## Workshop
 
 Workshop section in each chapter provides a set of activities that the students need to do after the theory and practice classes for individual lessons in the Salesforce Platform Developer I course.
