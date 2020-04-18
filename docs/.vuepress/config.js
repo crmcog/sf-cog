@@ -21,8 +21,8 @@ module.exports = {
       lang: "en-US",
       title: "sf-cog",
       description:
-        "Tutorials, knowledge articles and links to learn Salesforce.com and related technologies."
-    }
+        "Tutorials, knowledge articles and links to learn Salesforce.com and related technologies.",
+    },
   },
   description:
     "Tutorials, knowledge articles and links to learn Salesforce.com and related technologies.",
@@ -34,20 +34,20 @@ module.exports = {
     ["meta", { name: "apple-mobile-web-app-capable", content: "yes" }],
     [
       "meta",
-      { name: "apple-mobile-web-app-status-bar-style", content: "black" }
+      { name: "apple-mobile-web-app-status-bar-style", content: "black" },
     ],
     [
       "link",
-      { rel: "apple-touch-icon", href: `/images/icons/icon-152x152.png` }
+      { rel: "apple-touch-icon", href: `/images/icons/icon-152x152.png` },
     ],
     [
       "meta",
       {
         name: "msapplication-TileImage",
-        content: "/images/icons/icon-144x144.png"
-      }
+        content: "/images/icons/icon-144x144.png",
+      },
     ],
-    ["meta", { name: "msapplication-TileColor", content: "#ffffff" }]
+    ["meta", { name: "msapplication-TileColor", content: "#ffffff" }],
   ],
 
   themeConfig: {
@@ -71,13 +71,13 @@ module.exports = {
           "/salesforce-for-students/": getSideBar(
             "salesforce-for-students",
             "Salesforce for Students"
-          )
-        }
-      }
+          ),
+        },
+      },
     },
 
     repo: "crmcog/sf-cog",
-    editLinks: true
+    editLinks: true,
   },
 
   Sass: {},
@@ -89,18 +89,19 @@ module.exports = {
     "vuepress-plugin-clean-urls": {
       normalSuffix: "/",
       indexSuffix: "/",
-      notFoundPath: "/404.html"
+      notFoundPath: "/404.html",
     },
     sitemap: {
-      hostname: "https://sf-cog.crmcog.com"
+      hostname: "https://sf-cog.crmcog.com",
     },
     "@vuepress/pwa": {
       serviceWorker: true,
-      updatePopup: true
-    }
+      updatePopup: true,
+    },
+    "@vuepress/medium-zoom": {},
   },
 
-  evergreen: true
+  evergreen: true,
 };
 
 function getSideBar(folder, title) {
@@ -109,7 +110,7 @@ function getSideBar(folder, title) {
   const files = fs
     .readdirSync(path.join(`${__dirname}/../${folder}`))
     .filter(
-      item =>
+      (item) =>
         item.toLowerCase() != "readme.md" &&
         fs.statSync(path.join(`${__dirname}/../${folder}`, item)).isFile() &&
         extension.includes(path.extname(item))
