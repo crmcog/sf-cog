@@ -320,6 +320,10 @@ Here are the activities for the next two days (or weeks!? :))
 - Cancel leads with reason code when after two weeks past campaign end date but lead does not have any associated opportunity
 - Send discount code of 5% on service for active VIP customers who did not have any contact in the last twelve months
 
+## References & Further Study
+
+### Read
+
 ## Teaching Aids
 
 ### Presentation

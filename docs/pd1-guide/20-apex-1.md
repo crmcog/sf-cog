@@ -1093,9 +1093,11 @@ global class MyClass {
 }
 ```
 
-## Apex Error Handling
+## Error Handling in Apex
 
 Error handling anticipates and manages errors & any exceptional events that disturb normal flow.
+
+### `try` / `catch`
 
 In Apex, error handling and recovering from exceptions is implemented using `try`/`catch`/`finally` blocks.
 
@@ -1144,6 +1146,18 @@ When exception occurs in code, it typically occurs in the `try` block –
 
 Unhandled exceptions (if any) are shown to user, and an email alert is sent to developer in 'lastmodifiedby' field in failing class (this behaviour can be changed).
 
+### Built-in Exceptions
+
+You saw this code in `catch` -
+
+```java
+catch (Exception e) {
+    // Handle this exception here
+}
+```
+
+The `e` refers to a generic exception. We can also catch specific exceptions - these may be built-in or custom.
+
 Following are built-in exceptions -
 
 - DmlException
@@ -1152,7 +1166,7 @@ Following are built-in exceptions -
 - QueryException
 - SObjectException
 
-You can catch one or more types of exceptions -
+To catch one or more types of exceptions -
 
 ```java
 try {
@@ -1164,9 +1178,11 @@ try {
 
 ```
 
-`e.getMessage()` is one of the exception methods. There are others as well - `getStackTraceString`, `getTypeName`,`getCause`, `getLineNumber`.
+### Exception Methods
 
-And.. this is how it shows up in the logs -
+In the `catch` block we 'catch' an `e` and use its methods to display something smart. In the examples so far we have primarily used `e.getMessage()`, which is one of the exception methods. There are other exception methods available to us - `getStackTraceString`, `getTypeName`,`getCause`, `getLineNumber`.
+
+This is how exception methods show themselves in the logs -
 
 ```log
 14:01:24:939 USER_DEBUG [20]|DEBUG|getNumDml=2
@@ -1202,6 +1218,454 @@ Here are a few differences between Apex and other popular programming languages 
 - Exception classes must extend either exception or another user-defined exception (names should end with word 'Exception')
 - Classes & interfaces can be declared in triggers and anon blocks, but only as local
 
+## Security Rules
+
+Data security is baked into every relevant component in Salesforce - Apex is no exception. But, as a developer, you can also choose to override security rules and perform actions - as and when called for.
+
+We can classify security in Apex in four major buckets -
+
+### Data Sharing Rules
+
+Sharing rules applicable for logged-in user is optional in Apex. By default, Apex runs in what we call "system context" as opposed to the "user context". You can use Apex to access records, create or update records, even when the user's profile / permission sets do not grant those privileges.
+
+While Apex exhibits these super powers by default, it is a general recommendation to use `without sharing` keyword explicitly and announce to the (developer) world your intentions with the class.
+
+```java
+public without sharing class iamsuperclass {
+
+// Code here
+
+}
+```
+
+But, in general, you should limit the practice to minimum. Use `with sharing` keyword to force Apex to function under user privileges and use the same sharing rules.
+
+```java
+public with sharing class iamnormalandokwithit {
+    // Code here
+}
+```
+
+Apex can also inherit sharing rules from the caller when that context is not directly available (e.g. for inner Apex classes, classes executing from an async or batch call).
+In those cases, use `inherited sharing` to explicitly specify sharing instead of omitting keyword altogether
+
+```java
+public inherited sharing class InheritedSharingClass{
+    public List<Contact> getAllTheSecrets(){
+        return [SELECT Name FROM Contact];
+    }
+}
+```
+
+### Enforce Object & Field Permissions
+
+Apex can access fields of an object, update fields, create records, and do such amazing things.
+
+It is a recommended practice to check current user permission levels before permitting data operations in Apex. Use methods
+
+- `Schema.DescribeSObjectResult` to check object permissions
+- `Schema.DescribeFieldResult` for field permissions
+
+```java
+// check update permissions
+if (Schema.sObjectType.Contact.fields.Email.isUpdateable()) {
+   // Update contact phone number
+}
+
+//check read permissions
+if (Schema.sObjectType.Contact.fields.Email.isAccessible()) {
+   Contact c = [SELECT Email FROM Contact WHERE Id= :Id];
+}
+
+```
+
+Note that sharing rules coexist with object & field permissions.
+
+### Apex Managed Sharing
+
+Typically we use sharing rules configurations to provide rule-based or data-driven sharing of records across roles. You may have also noted at the time that we can create sharing rules using Apex as well -
+
+1. Evaluate conditions depending on the current context, or other data
+1. Create sharing records. These records are created by the Salesforce provided tools as well - we just use the very same entity to grant privileges through Apex
+
+```java
+public class JobSharing {
+   public static boolean manualShareRead(Id recordId, Id userOrGroupId){
+        // Create new sharing object for the custom object Job.
+        Job__Share jobShr  = new Job__Share();
+	    // Set the ID of record being shared. & ID of group being granted access
+      	jobShr.ParentId = recordId;
+	    jobShr.UserOrGroupId = userOrGroupId;
+
+        // Set the access level.
+        jobShr.AccessLevel = 'Read';
+
+        // Set rowCause to 'manual' for manual sharing.
+        jobShr.RowCause = Schema.Job__Share.RowCause.Manual;
+
+        // Insert the sharing record and capture the save result.
+        Database.SaveResult sr = Database.insert(jobShr,false);
+	//. . .
+   }
+}
+```
+
+While creating such Apex sharing rules, provide an 'Apex sharing reason' to specify a remark in the sharing record explaining why the data was shared (visible on object detail page). This can avoid a lot of headache in debugging the application!
+
+Recalculation on any changes to sharing rules needs to be done through another Apex class.
+
+### Class Execution
+
+You can provide permissions to execute Apex in Classes to permission sets and profiles.
+
+![provide-apex-execution-privilege](./img/provide-apex-execution-privilege.jpg)
+
+Apex will execute only for those users who have been granted the privileges - this may be considered an advantage to using trigger development patterns that heavily use Classes (see section on Trigger Patterns below). Trigger execution cannot be controlled in this way. You could, however, use controlled execution of code blocks within triggers or classes using your own code.
+
+### View code in Class/Triggers
+
+You may also have noted that users are not interested in "reading" Apex code. But, be aware that they could get those permissions if you have granted them `View Setup and Configuration`, which is typically granted for report configuration, and maybe a few additional super user tasks.
+
+Developers, administrators or anyone else do not have access to code in Managed packages.
+
+## Apex Testing
+
+Apex provides testing framework to write unit tests, run tests, check results and validate code coverage.
+
+Salesforce mandates that –
+
+- Unit tests must cover 75% of Apex code and those tests complete successfully for deployment
+- Every trigger must have coverage
+- All classes and triggers must compile successfully
+
+Salesforce runs all unit tests at multiple times -
+
+- at the time of production deployment (all tests in org namespace)
+- at the time of release upgrades
+
+Deployments may fail and rolled back if you don't meet test coverage requirements.
+
+Statements like `System.debug` and test methods/classes are not counted in code coverage. Also test classes do not count against the Apex code limit (6 MB).
+
+Let's see an example. Consider the below class.
+
+```java
+public class TemperatureConverter {
+    // Takes a Fahrenheit temperature and returns the Celsius equivalent.
+    public static Decimal FahrenheitToCelsius(Decimal fh) {
+        Decimal cs = (fh - 32) * 5/9;
+        return cs.setScale(2);
+    }
+}
+```
+
+Simple enough class - convert value to a true metric :). Now, let's see the test class -
+
+```java
+@isTest
+private class TemperatureConverterTest {
+    @isTest static void testWarmTemp() {
+        Decimal celsius = TemperatureConverter.FahrenheitToCelsius(70);
+        System.assertEquals(21.11,celsius);
+    }
+
+    @isTest static void testFreezingPoint() {
+        Decimal celsius = TemperatureConverter.FahrenheitToCelsius(32);
+        System.assertEquals(0,celsius);
+    }
+    @isTest static void testBoilingPoint() {
+        Decimal celsius = TemperatureConverter.FahrenheitToCelsius(212);
+        System.assertEquals(100,celsius,'Boiling point temperature is not expected.');
+    }
+
+    @isTest static void testNegativeTemp() {
+        Decimal celsius = TemperatureConverter.FahrenheitToCelsius(-10);
+        System.assertEquals(-23.33,celsius);
+    }
+
+}
+```
+
+You are coding test class to -
+
+1. Test the target class by providing various values and checking if the converted value is ok
+1. Subject the target class to boundary conditions and evaluate whether things are still holding up
+
+Let's also see an example with a trigger.
+
+```java
+trigger AccountDeletion on Account (before delete) {
+
+    // Prevent the deletion of accounts if they have related contacts.
+    for (Account a : [SELECT Id FROM Account
+                     WHERE Id IN (SELECT AccountId FROM Opportunity) AND
+                     Id IN :Trigger.old]) {
+        Trigger.oldMap.get(a.Id).addError(
+            'Cannot delete account with related opportunities.');
+    }
+
+}
+```
+
+The test class for the trigger looks like this -
+
+```java
+@isTest
+private class TestAccountDeletion {
+    @isTest static void TestDeleteAccountWithOneOpportunity() {
+        // Test data setup
+        // Create an account with an opportunity, and then try to delete it
+        Account acct = new Account(Name='Test Account');
+        insert acct;
+        Opportunity opp = new Opportunity(Name=acct.Name + ' Opportunity',
+                                       StageName='Prospecting',
+                                       CloseDate=System.today().addMonths(1),
+                                       AccountId=acct.Id);
+        insert opp;
+
+        // Perform test
+        Test.startTest();
+        Database.DeleteResult result = Database.delete(acct, false);
+        Test.stopTest();
+        // Verify
+        // In this case the deletion should have been stopped by the trigger,
+        // so verify that we got back an error.
+        System.assert(!result.isSuccess());
+        System.assert(result.getErrors().size() > 0);
+        System.assertEquals('Cannot delete account with related opportunities.',
+                             result.getErrors()[0].getMessage());
+    }
+}
+```
+
+### Running Tests
+
+Once you are done writing test classes, it's time to run them.
+
+Typically you run them through the IDE (e.g. VSCode) or with developer console during development or when targeting specific test class.
+
+When using developer console..
+
+1. In Developer Console, select Test > New Test
+1. Select Test class and hit Run.
+1. Verify code coverage in the developer console window itself
+
+![execute-apex-tests](./img/execute-apex-tests.jpg)
+
+In addition -
+
+- you can execute tests through APIs
+- use `ApexTestQueueItem` in an Apex class to run other Apex test classes
+- Create a test suite to batch run tests
+  - test suite is a collection of related/unrelated test classes that run together
+  - create test suites to run every time there is a deployment or release upgrade
+  - test suites can help execute all tests in one go
+- Test classes get executed during deployment to verify coverage
+
+![execute-apex-tests-test-suite](./img/execute-apex-tests-test-suite.jpg)
+
+### What to test?
+
+You should test every Apex code that you write. It should go through all flow paths and a typical recommendation is to aim for 100% test coverage.
+
+- While typical transactional classes and triggers are written to act on a single record, we should subject those to two kinds of tests -
+  1. Test against single record (as it will in real-world)
+  1. Test against 200 records (any Apex code can be executed against 200 records in a batch)
+- You should also test for both positive and negative scenarios. Design test cases that fail the target Apex class or trigger, and pass tests on those failures.
+- Test for security rules against users and privileges. Test classes using restricted users rather than running them under admin / super users
+
+## Test Considerations
+
+Here are a few things to consider while designing and developing your tests -
+
+### Pre-existing data vs test data
+
+Test classes don't 'normally' test classes/triggers on pre-existing data - there are exceptions.
+
+You can make "real" data visible to test classes by using a simple decorator in your test class -
+
+```
+@isTest(SeeAllData=true)
+```
+
+Note that the annotation can exist at the test class or test method level -
+
+- If test class has access to pre-existing data, so will the test methods
+- It is possible to annotate method with SeeAllData=true even if class has the value as false
+
+### Data for testing
+
+Using real data for testing is typically not the norm, and in fact recommendations are strongly made against it.
+
+However, some pre-existing data is always visible to test classes -
+
+- Profile
+- Organization
+- AsyncApexJob
+- CronTrigger
+- RecordType
+- ApexClass
+- ApexTrigger
+- ApexComponent
+- ApexPage
+
+Instead of using real data, you -
+
+1. let tests execute in their own world
+1. create your own test data for testing - prior to running tests
+1. execute tests against the test data
+
+Data created by test classes are not committed to DB. But, do note that the test data temporarily exists in the same DB - so custom constraints may throw errors while creating test data (e.g. for custom duplicate checks).
+
+You can follow a few good practices to standardize test data and make it easier on yourself.
+
+#### Use test data setup
+
+Create test data using methods with `@testSetup`.
+
+- Test setup method executed first in the test class before any other methods (there can be only one test setup method in class)
+- Can be used only for data created for tests (i.e., non pre-existing data)
+
+#### Create test data in a standard helper/factory
+
+Create test data using an utility class.
+
+Or make it better by using a "test data factory" to standardize test data creation. This speeds up authoring test classes and entire testing process, while keeping things adhering to pre-defined standards.
+
+```java
+@isTest
+public class TestDataFactory {
+    public static void createTestRecords(Integer numAccts, Integer numContactsPerAcct) {
+        List<Account> accts = new List<Account>();
+
+        for(Integer i=0;i<numAccts;i++) {
+            Account a = new Account(Name='TestAccount' + i);
+            accts.add(a);
+        }
+        insert accts;
+
+        List<Contact> cons = new List<Contact>();
+        for (Integer j=0;j<numAccts;j++) {
+            Account acct = accts[j];
+            // For each account just inserted, add contacts
+            for (Integer k=numContactsPerAcct*j;k<numContactsPerAcct*(j+1);k++)    {
+                cons.add(new Contact(firstname='Test'+k,
+                                     lastname='Test'+k,
+                                     AccountId=acct.Id));
+            }
+        }
+        insert cons; // Insert all contacts for all accounts
+    }
+}
+```
+
+#### Use test data from file
+
+Use static resource to store data file and use that file for loading test data. This approach is commonly used when developers see need to control test data sets or data quality / variety.
+
+```java
+List<sObject> ls = Test.loadData(Account.sObjectType, 'myResource');
+
+```
+
+### More!
+
+Also note that -
+
+- Test methods don't send emails
+- Any callouts need to be made through mock services (cannot call ext. services during testing)
+- SOSL returns empty results. You can use `Test.setFixedSearchResults()` to define search results
+- Test classes will not "see" changes to static variables in test classes or in target classes. They continue to see original value
+- Chatter feed and field history tracking do not show changes in test data since they require data to be committed (you do remember our notes above stating that test classes don't commit data, don't you?)
+
+## Testing Best Practices
+
+Here we go again with more best practices..
+
+- Create test class for each class and trigger
+- Bulk data tests – test for at least 20-200 records depending on the use case for your Apex class
+- Test as different users to validate relevant permissions and test security (`runAs` method)
+- Test all branches / loops in target Apex
+- Test using both valid and invalid inputs
+  - Fail invalid inputs and treat failure as valid in assert
+- Use System.assert to validate appropriate output
+- Manage all exceptions
+- Create all test data and use Test.start() to reset limits for the Apex testing
+- Tests run in parallel. In case of data contentions / deadlock, check 'Disable Parallel Apex Testing' flag
+- Rerun tests when Apex code changes in order to refresh code coverage
+- Code coverage does not cover managed packages
+- Code coverage may be impacted by-
+  - Test failures: it is a good practice to aim for 100% rate so that unexpected test failures will not hold up deployment since you did not meet 75% coverage
+  - Data dependency: if your tests use pre-existing data
+  - Metadata: Ensure tests are run in environment similar to production so that metadata differences are minimized
+
+## Debugging Apex and Salesforce
+
+Salesforce and Apex provide debugging tools and support that can share more information about what happens during execution of a function.
+
+To debug Apex specifically -
+
+- use Developer console and have fun with debug logs. Logs open in log inspector in Developer console (they can also be downloaded)
+- use your favourite IDE. A couple of them automatically download the log file after Apex execution - makes the process more seamless
+
+Any uncaught exceptions are emailed to developer/specified support personnel.
+
+### Debug Logs
+
+You would have previously seen how debugging can be enabled for specific users and/or specific functions. Debug logs have to be enabled – they do not generate automatically unless you are executing Apex in the developer console :)
+
+Debug logs contain information about Apex, and of course, the rest of Salesforce -
+
+- Database changes, HTTP callouts
+- Apex errors, Resources used by Apex
+- Automated workflow processes, such as: Workflow rules, Assignment rules, Approval processes, - Validation rules
+- Use class and trigger trace flags to generate detailed debug logs
+
+![apex-debug-logs](./img/apex-debug-logs.jpg)
+
+For debugging Apex you write your code and debugging statements in Apex and run them to see the resulting logs.
+
+- Class and trigger trace flags in Apex override other logging levels, including those set by user trace flags, but they don't cause logging to occur. However,developer console sets trace flag when it loads - so you have the automatic logging enabled when running Apex in the console.
+- API requests without debugging headers generate transient logs (not saved unless there is another logging rule in effect)
+- Entry points can set log levels (e.g. VF pages)
+
+Limits apply to debug logs -
+
+- Debug logs can be 5 MB or smaller (for larger logs, the older lines are removed)
+- System logs retained for 24 hours, monitoring logs for 5 days
+- Trace flags are automatically disabled if more than 250MB of log is generated within 15 min. Can be re-enabled after 15 min
+- When logs occupy more than 250MB of space, Salesforce will disable editing of trace flags
+
+### Debug Log Levels
+
+Following debug log levels exist -
+
+- NONE
+- ERROR
+- WARN
+- INFO
+- DEBUG
+- FINE
+- FINER
+- FINEST
+
+The below diagram shows default logging levels when no active trace flags are set -
+
+![default-log-levels](./img/default-log-levels.jpg)
+
+### Debug Log Categories
+
+| Log Category   | Description                                                                                                                                                                                                                                                                |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Database       | Includes information about database activity, including every data manipulation language (DML) statement or inline SOQL or SOSL query.                                                                                                                                     |
+| Workflow       | Includes information for workflow rules, flows, and processes, such as the rule name and the actions taken.                                                                                                                                                                |
+| Validation     | Includes information about validation rules, such as the name of the rule and whether the rule evaluated true or false.                                                                                                                                                    |
+| Callout        | Includes the request-response XML that the server is sending and receiving from an external web service. Useful when debugging issues related to using Lightning Platform web service API calls or troubleshooting user access to external objects via Salesforce Connect. |
+| Apex Code      | Includes information about Apex code. Can include information such as log messages generated by DML statements, inline SOQL or SOSL queries, the start and completion of any triggers, and the start and completion of any test method.                                    |
+| Apex Profiling | Includes cumulative profiling information, such as the limits for your namespace and the number of emails sent.                                                                                                                                                            |
+| Visualforce    | Includes information about Visualforce events, including serialization and deserialization of the view state or the evaluation of a formula field in a Visualforce page.                                                                                                   |
+| System         | Includes information about calls to all system methods such as the System.debug method.                                                                                                                                                                                    |
+
 ## References & Further Study
 
 ### Read
@@ -1209,9 +1673,11 @@ Here are a few differences between Apex and other popular programming languages 
 - [Apex Governor Limits](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_gov_limits.htm)
 - [Trigger patterns](https://developer.secure.force.com/cookbook/recipe/trigger-pattern-for-tidy-streamlined-bulkified-triggers)
 - [Apex Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_dev_guide.htm)
-- Documentation references for Apex
 - [Bulkification of Apex](https://blog.jeffdouglas.com/2009/04/20/writing-bulk-triggers-for-salesforce/)
 - [Bulkification in Flow](https://help.salesforce.com/articleView?id=vpm_admin_bulkification.htm&type=5)! – Understand concepts with better context
+- [Apex testing documentation](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_testing.htm)
+- [Monitor debug logs](https://help.salesforce.com/HTViewHelpDoc?id=code_add_users_debug_log.htm), [Apex debug logs](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_debugging_debug_log.htm)
+- [Apex Exceptions](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_exception_definition.htm)
 
 ### Watch
 
@@ -1220,6 +1686,9 @@ Here are a few differences between Apex and other popular programming languages 
 - [Apex Design Patterns](https://www.youtube.com/watch?v=tsa8Z2S1Agc)
 - [Advanced Apex](https://www.youtube.com/watch?v=fLVJqg5HNCk)
 - [Platform limits](https://www.youtube.com/watch?v=0wHRmS1j3r4)
+- [Apex debugging deep-dive](https://www.youtube.com/watch?v=Ns61TOtbIDg)[](https://www.youtube.com/watch?v=O2TvQ3rtpV0)
+- [Interactive debugging](https://www.youtube.com/watch?v=O2TvQ3rtpV0)
+- [Realtime Debugger](https://www.youtube.com/watch?v=zqBt_ZPRilw)
 
 ### Do
 
@@ -1228,10 +1697,14 @@ Here are a few differences between Apex and other popular programming languages 
    - [Platform Development Basics](https://trailhead.salesforce.com/content/learn/modules/platform_dev_basics)[](https://trailhead.salesforce.com/content/learn/modules/apex_database)
    - [Apex Basics and Database](https://trailhead.salesforce.com/content/learn/modules/apex_database)
    - [Module: Triggers](https://trailhead.salesforce.com/content/learn/modules/apex_triggers)
+   - [Unit: Generate logs in Developer Console](https://trailhead.salesforce.com/en/content/learn/modules/developer_console/developer_console_logs)
+   - [Unit: Debugging Diagnostics](https://trailhead.salesforce.com/en/content/learn/modules/apex_basics_dotnet/debugging_diagnostics)
 
 1. Follow groups/ topics --
 
    - [Apex](https://developer.salesforce.com/forums?dc=Apex_Code_Development)
+
+1. Checkout debugging helpers – [Apex Debugger Chrome Extension](https://chrome.google.com/webstore/detail/apex-debugger/mpckkbblhbfngaininanfjpdfjhbncjo?hl=en)
 
 ## Workshop
 
