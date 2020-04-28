@@ -493,7 +493,7 @@ SELECT Id FROM Contact WHERE (IsDeleted = false AND Name LIKE '%test%') OR (Name
 
 ```
 
-You can avoid this problem quite easily by 'escaping' user provided input. That will change the search string to an expected -
+You can avoid this problem quite easily by 'escaping' user provided input. That will change the search string in SOQL to an expected -
 
 ```
 SELECT Id FROM Contact WHERE (IsDeleted = false AND Name LIKE 'test\%\'\) OR \(Name LIKE'
