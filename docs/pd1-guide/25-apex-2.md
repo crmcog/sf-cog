@@ -38,7 +38,61 @@ Further read -
 
 - Documentation reference for [order of execution](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_triggers_order_of_execution.htm?search_text=order%20of%20execution)
 
-## Trigger Patterns
+## Apex Patterns
+
+Design patterns and frameworks extend the core language capabilities to make it more –
+
+- Easier to develop (questionable for some, but true)
+- Easier to maintain – scale better, minimize changes, easier refactoring
+
+Why use a pattern? A pattern provides a standard set of best practices that you will love adhering to -
+
+- Separation of duties
+- manage governed resources (limits) better
+- Standardize structure, coding and enforce best practices
+
+There are quite a few patterns in Salesforce Apex. They have their advantages, and we strongly recommend choosing a framework that you can wrap your head around, and start that on day one.
+
+Let us see some marquee advantages of using a pattern in Salesforce Apex -
+
+- Separation of Concerns
+  - As classes become bigger, code will become more difficult to manage.
+  - Mangling everything that Apex will do in one place will make it difficult to change the code in a 'safe' way
+- Standardized practices
+  - Classes/methods strewn over and stitched together as application gains complexity will make for harder to maintain code
+  - Individual developers can bring their own practice and make it more difficult for others to understand
+  - Documented standards are not always implemented (despite static code analysis)
+  - Newer developers will tend to take longer time to get onboarded and become productive
+- Manage resources better
+  - It is advisable to collate resource-sensitive operations like DML together. Non-standard code structures and interim updates to achieve specific use cases can happen
+  - Difficult to centralize such operations etc. using convention alone
+
+In triggers specifically patterns -
+
+- Standardize control over order of execution: Triggers don't guarantee order of execution, but that has to be mandated even if it does not be relevant immediately
+- Control over re-entrant code (e.g. recursion): Recursion due to triggers getting executed multiple times (e.g. trigger code updating field that will re-trigger trigger) will cause unneeded updates / resource consumption
+
+There is no one officially recommended Apex design pattern - that largely depends on your use case and how much code you are putting in. Following are a few patterns that are well known-
+
+- [FFLIB common patterns](https://github.com/financialforcedev/fflib-apex-common)
+  - Most popular
+  - Used by ISVs, large enterprises
+  - Changes the way you code the application
+  - Complex to setup. Needs some realignment from teams for good adoption
+- [Nebula framework](https://github.com/jongpie/NebulaFramework)
+  - Discussed in salesforce circles , but not actively maintained and used
+
+Specifically for triggers -
+
+- Trigger framework outlined in [Advanced Apex Programming in Salesforce](https://amzn.to/2OY10lW)
+
+- [Simple interface-based trigger patterns](https://developer.secure.force.com/cookbook/recipe/trigger-pattern-for-tidy-streamlined-bulkified-triggers)
+
+- [Lightweight Apex Trigger framework](http://chrisaldridge.com/triggers/lightweight-apex-trigger-framework/)
+
+By the way, if you are serious about Apex, **Advanced Apex Programming in Salesforce** is the one book that we strongly recommend you read and re-read.
+
+## Apex Trigger Patterns
 
 The initial instinct when you saw triggers is to cram all possible code and get stuff done.
 
@@ -274,6 +328,63 @@ trigger AccountTrigger on Account (after delete, after insert, after update){
 - Always test classes and functionality using large data sets
 - Do not hard code in your code. Pick up values from preferences, records or any other place that is easier to control/change
 
+## Standardized Test Data Management
+
+We saw quite a bit of test classes and how test data can be used in the previous chapter.
+
+Test data is generated in the test setup class, but can utilize a common Apex to generate data
+Typical implementations use –
+
+- Specific classes to generate data
+- Use data files
+- Reuse pre-existing data (not recommended)
+
+```java
+@isTest
+public class TestDataFactory {
+    public static void createTestRecords(Integer numAccts, Integer numContactsPerAcct) {
+        List<Account> accts = new List<Account>();
+
+        for(Integer i=0;i<numAccts;i++) {
+            Account a = new Account(Name='TestAccount' + i);
+            accts.add(a);
+        }
+        insert accts;
+
+        List<Contact> cons = new List<Contact>();
+        for (Integer j=0;j<numAccts;j++) {
+            Account acct = accts[j];
+            // For each account just inserted, add contacts
+            for (Integer k=numContactsPerAcct*j;k<numContactsPerAcct*(j+1);k++) {
+                cons.add(new Contact(firstname='Test'+k,
+                                     lastname='Test'+k,
+                                     AccountId=acct.Id));
+            }
+        }
+        // Insert all contacts for all accounts
+        insert cons;
+    }
+}
+```
+
+As your implementation grows, you will quickly realise the need to better standardize test data
+
+- one standard for generating test data and using it
+- make it easy to generate data variation
+- avoid elaborate test data code in each class
+
+A few practices to help -
+
+- Generate test data files from pre-existing data (most preferred to control data variation)
+  - Use all relationships & customizations existing in org
+  - Export data, modify user keys to avoid unique constraint errors
+  - Maintain data files through releases
+- Use mocking functionality provided by frameworks like FFLIB
+- Use [TDF](https://github.com/benahm/TDF)
+  - Auto generate test data (not all fields) for objects
+  - Get the right data distribution
+  - Execute tests against large volumes of data
+
 ## Workshop
 
 Here are the activities for the next two days (or weeks!? :))
@@ -323,6 +434,26 @@ Here are the activities for the next two days (or weeks!? :))
 ## References & Further Study
 
 ### Read
+
+- [Apex Design Patters](https://developer.salesforce.com/page/Apex_Design_Patterns)
+
+### Watch
+
+- [Apex Design Patterns](https://www.youtube.com/watch?v=tsa8Z2S1Agc)
+- [Apex Enterprise Patterns](https://www.youtube.com/watch?v=qlq46AEAlLI)
+
+### Do
+
+- Complete on Trailhead --
+
+  -[Service Layer](https://trailhead.salesforce.com/content/learn/modules/apex_patterns_sl?trail_id=force_com_dev_advanced)
+
+  - [Domain and Selector Layer](https://trailhead.salesforce.com/content/learn/modules/apex_patterns_dsl)
+
+- Go deeper (advanced)
+  - [Play around with FFLIB framework](https://github.com/financialforcedev/fflib-apex-common)
+  - [Advanced Apex Programming in Salesforce](https://amzn.to/2OY10lW)
+  - [Force.com Enterprise Architecture](https://amzn.to/2PEedFr)
 
 ## Teaching Aids
 
