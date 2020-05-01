@@ -12,10 +12,9 @@ meta:
 
 # Test Prep Discussion
 
-Test prep discussion is intended as a classroom activity.
+Test prep discussion is intended as a classroom activity if you are doing this self-study within an organisation framework, form a community within your organisation.
 
-- If you are doing this self-study within an organisation framework, form a community within your organisation.
-- If you are going solo, you can form communities for discussing your questions on the exam on any social media platform. Or just ask away them questions on [Salesforce Admin Trailblazers](https://success.salesforce.com/featuredGroupDetail?id=a1z3A000008Ct8bQAC), [reddit](https://www.reddit.com/r/salesforce/), or any of the tens of websites who are focused on providing admin help!
+If you are going solo, you can form communities for discussing your questions on the exam on any social media platform. Or just ask away them questions on [Salesforce Admin Trailblazers](https://success.salesforce.com/featuredGroupDetail?id=a1z3A000008Ct8bQAC), [reddit](https://www.reddit.com/r/salesforce/), or any of the tens of websites who are focused on providing admin help!
 
 ## Questions/Feedback?
 
