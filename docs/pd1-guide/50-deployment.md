@@ -158,7 +158,7 @@ You use Salesforce CLI to create and migrate packages -
 
 A high-level process flow is depicted below -
 
-![salesforce-create-and-manage-packages](./img/salesforce-create-and-manage-packages.jpg)
+![salesforce-create-and-manage-packages](./img/salesforce-create-and-manage-packages.png)
 
 Creating packages may not be a one-time activity, but can be incremental. You can create packages from existing metadata based on –
 

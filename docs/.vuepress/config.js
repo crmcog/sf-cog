@@ -15,6 +15,7 @@ module.exports = {
     ["link", { rel: "mask-icon", href: "/images/icons/safari-pinned-tab.svg", color: "#3eaf7c" }],
     ["meta", { name: "msapplication-TileImage", content: "/images/icons/icon-144x144.png" }],
     ["meta", { name: "msapplication-TileColor", content: "#000000" }]
+    ["script", { "data-ad-client":"ca-pub-7210759689565565", async:true, src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" }]
   ],
   locales: {
     "/": {
@@ -97,6 +98,31 @@ module.exports = {
     "@vuepress/pwa": {
       serviceWorker: true,
       updatePopup: true,
+    },
+    seo: {
+      siteTitle: (_, $site) => $site.title,
+      title: ($page) => $page.title,
+      description: ($page) => $page.frontmatter.description,
+      author: (_, $site) => $site.themeConfig.author,
+      tags: ($page) => $page.frontmatter.tags,
+      twitterCard: (_) => "summary_large_image",
+      type: ($page) =>
+        [
+          "admin-guide",
+          "pd1-guide",
+          "misc",
+          "why-learn-salesforce",
+          "salesforce-for-students",
+        ].some((folder) => $page.regularPath.startsWith("/" + folder))
+          ? "article"
+          : "website",
+      url: (_, $site, path) => ($site.themeConfig.domain || "") + path,
+      image: ($page, $site) =>
+        $page.frontmatter.image &&
+        ($site.themeConfig.domain || "") + $page.frontmatter.image,
+      publishedAt: ($page) =>
+        $page.frontmatter.date && new Date($page.frontmatter.date),
+      modifiedAt: ($page) => $page.lastUpdated && new Date($page.lastUpdated),
     },
     "@vuepress/medium-zoom": {},
   },
