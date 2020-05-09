@@ -65,7 +65,7 @@ Oh.. we also appreciate you telling us how we could improve - say, not many peop
 
 ## Terms of Use
 
-See [Terms](/misc/terms)
+See [Terms](/misc/terms) and our [Privacy Policy](/misc/privacy-policy). By using this website, you agree to the stated terms.
 
 ## Sponsors
 
