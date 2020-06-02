@@ -4,7 +4,7 @@ heroImage: /images/sf-cog_logo.png
 heroText: Learn Salesforce and stuff
 tagline: Tutorials. References. More.
 actionText: Get Started →
-actionLink: /why-learn-salesforce/
+actionLink: /why-learn-salesforce/start/
 features:
   - title: Practical Salesforce
     details: Focused on getting you up and running with Salesforce.com platform and tools.
