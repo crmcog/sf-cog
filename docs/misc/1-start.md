@@ -21,7 +21,7 @@ Find the [list of contributors on GitHub](https://github.com/crmcog/sf-cog/graph
 
 We are thankful to each one of them for their time invested in improving the end result.
 
-## Buy Content for Commercial Use
+## Supporting Us
 
-- Content on the website is available for personal or commercial use - no attribution required. Please consider supporting us if you have benefited from our work on [Patreon](https://www.patreon.com/crmcog)
-- Consider supporting content creators by buying third-party presentation artefacts and videos. The information is available in the 'More Info' links specified against the content available for sale.
+- Content on the website is available for personal use - no attribution required. Please consider supporting us if you have benefited from our work on [Patreon](https://www.patreon.com/crmcog)
+- Consider supporting content creators - more information is available in the 'More Info' links within specific chapters/lessons.

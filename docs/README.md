@@ -61,7 +61,7 @@ Found a bug? Want to ask for a new feature? [Create an issue](https://github.com
 
 Need to discuss more, have questions, or just want to tell us how awesome we are? [Head over to /r/sf_cog](https://reddit.com/r/sf_cog).
 
-Oh.. we also appreciate you telling us how we could improve - say, not many people doing the good deed nowadays.
+Oh.. we also appreciate you telling us how we could improve - not many people doing the good deed nowadays (`/s`).
 
 ## Terms of Use
 
