@@ -1,7 +1,7 @@
 ---
 title: Test Prep Discussion & Workshop Conclusion
 lang: en-US
-permalink: /pd1-guide/prep-final-workshop
+permalink: /dev-guide/prep-final-workshop
 metaTitle: Final test prep and conclusion of workshops
 meta:
   - name: description

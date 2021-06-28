@@ -1,7 +1,7 @@
 ---
 title: Lightning
 lang: en-US
-permalink: /pd1-guide/lightning-1
+permalink: /dev-guide/lightning-1
 metaTitle: Get started on Lightning framework and components.
 meta:
   - name: description

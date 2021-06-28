@@ -1,7 +1,7 @@
 ---
 title: Apex II
 lang: en-US
-permalink: /pd1-guide/apex-2
+permalink: /dev-guide/apex-2
 metaTitle: More examples, patterns and advanced Apex
 meta:
   - name: description

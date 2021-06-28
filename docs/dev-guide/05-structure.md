@@ -1,7 +1,7 @@
 ---
 title: Course Structure
 lang: en-US
-permalink: /pd1-guide/structure
+permalink: /dev-guide/structure
 metaTitle: Course structure for Salesforce.com Platform Developer I certification (PD1)
 meta:
   - name: description

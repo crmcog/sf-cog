@@ -1,7 +1,7 @@
 ---
 title: Deployment
 lang: en-US
-permalink: /pd1-guide/deployment
+permalink: /dev-guide/deployment
 metaTitle: Salesforce deployment processes and best practices.
 meta:
   - name: description

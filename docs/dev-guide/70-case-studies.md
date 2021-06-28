@@ -1,7 +1,7 @@
 ---
 title: Practice Case Studies
 lang: en-US
-permalink: /pd1-guide/case-studies
+permalink: /dev-guide/case-studies
 metaTitle: Practice case studies as part of PD1 certification study
 meta:
   - name: description
@@ -45,4 +45,4 @@ On the technical front -
 
 ## Case Studies
 
-<CaseStudyList caseStudyPath="/pd1-guide/_case-study"> </CaseStudyList>
+<CaseStudyList caseStudyPath="/dev-guide/_case-study"> </CaseStudyList>

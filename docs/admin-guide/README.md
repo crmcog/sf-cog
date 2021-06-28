@@ -27,7 +27,7 @@ To be an admin is not just about technology, but also about being the person eve
 
 So.. anyone can do this!
 
-- Ability to work on a browser
+- Ability to work through a browser
 - Analytical skills will certainly help
 - Willingness to explore :)
 - Able to spend at least 1-2 hours a day for a month

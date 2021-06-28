@@ -1,16 +1,16 @@
 ---
 title: Start Here
 lang: en-US
-permalink: /pd1-guide/start
-metaTitle: Salesforce.com Platform Developer I (PD1) certification guide
+permalink: /dev-guide/start
+metaTitle: Salesforce.com Developer Study Guide
 meta:
   - name: description
-    content: Salesforce.com PD1 guide is a structured way to study for the first-level developer certification. You will see the various components that make up a developer's career in Salesforce and dive into things that need to learn them!
+    content: Developer guide is a structured way to know Salesforce developer tasks and is useful for the first-level developer certification. You will see the various components that make up a developer's career in Salesforce and dive into things that need to learn them!
   - name: keywords
-    content: PD1-certification-study, certification-study-guide, course-material
+    content: PD1-certification-study, app-builder-study, salesforce-developer-guide, certification-study-guide, course-material
 ---
 
-# PD1 Certification Guide: Get Started
+# Developer Study Guide: Get Started
 
 Being a Salesforce developer is, for lack of a better word, cool. You not only create magic through apps and customizing implementations, but do it in a way that scales to thousands of users at no additional development cost.
 
@@ -42,7 +42,7 @@ Some good places for you to go and find out more about the career path -
 
 ## Pre-requisites
 
-You can go over this guide at all skill-levels, but we strongly recommend a working knowledge of salesforce. Did we hear you ask about the best place to get those skills? Well, this is your day - we have a [admin certification self-study guide](/admin-guide/start/) that can get you acquainted enough with salesforce to get started on this guide.
+You can go over this guide at all skill-levels, but we strongly recommend a working knowledge of salesforce. Did we hear you ask about the best place to get those skills? Well, this is your day - we have a [admin study guide](/admin-guide/start/) that can get you acquainted enough with salesforce to get started on this guide.
 
 Ideally you should -
 

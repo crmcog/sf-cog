@@ -1,7 +1,7 @@
 ---
 title: Introduction
 lang: en-US
-permalink: /pd1-guide/introduction
+permalink: /dev-guide/introduction
 metaTitle: A quick introduction to salesforce.com platform, becoming a developer, and PD1 certification.
 meta:
   - name: description
@@ -14,7 +14,7 @@ meta:
 
 Welcome to the Platform Developer I certification self-study guide!
 
-Have you gone through the [structure of a PD1 guide](/pd1-guide/structure/)? Are you already familiar with salesforce configuration and rearing to go to brave new worlds? Ok then, get started on your Salesforce developer journey from here!
+Have you gone through the [structure of a PD1 guide](/dev-guide/structure/)? Are you already familiar with salesforce configuration and rearing to go to brave new worlds? Ok then, get started on your Salesforce developer journey from here!
 
 # What this course / guide is about?
 

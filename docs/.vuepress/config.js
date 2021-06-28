@@ -43,9 +43,9 @@ module.exports = {
           ),
           "/admin-guide/": getSideBar(
             "admin-guide",
-            "Admin Certification Guide"
+            "Admin Study Guide"
           ),
-          "/pd1-guide/": getSideBar("pd1-guide", "PD1 Certification Guide"),
+          "/dev-guide/": getSideBar("dev-guide", "Developer Study Guide"),
           "/salesforce-for-students/": getSideBar(
             "salesforce-for-students",
             "Salesforce for Students"
@@ -86,7 +86,7 @@ module.exports = {
       type: ($page) =>
         [
           "admin-guide",
-          "pd1-guide",
+          "dev-guide",
           "misc",
           "why-learn-salesforce",
           "salesforce-for-students",

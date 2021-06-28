@@ -1,7 +1,7 @@
 ---
 title: Apex
 lang: en-US
-permalink: /pd1-guide/apex-1
+permalink: /dev-guide/apex-1
 metaTitle: Get started on Apex.
 meta:
   - name: description

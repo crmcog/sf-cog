@@ -2,15 +2,15 @@
 title: Course Structure
 lang: en-US
 permalink: /admin-guide/structure
-metaTitle: Course structure for Salesforce.com Administrator certification (ADM201)
+metaTitle: Study guide for Salesforce.com administrators
 meta:
   - name: description
     content: All of the knowledge that you need to pass ADM201 exam - organised in one page. Use this as a reference to evaluate yourself on the progress towards earning that sleek administrator credential.
   - name: keywords
-    content: ADM201-course-structure, admin-certification-guide
+    content: ADM201-course-structure, admin-certification-guide, salesforce-admin-study-guide
 ---
 
-# Course Structure - Admin Certification
+# Course Structure - Admin Study Guide
 
 Here's a structure of all the learning that you have to do in the journey to become a smart Salesforce admin. While the Internet has all the content that you can imagine and Salesforce Trailhead does a good job of organising it for admins, we often felt the need for a more "ah-i-get-it" structure that is also easy to teach students from non-Salesforce background.
 

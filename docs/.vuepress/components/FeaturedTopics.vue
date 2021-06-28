@@ -1,17 +1,28 @@
 <template>
-  <div class="features">
-    <div v-for="topic in topics" :key="topic.title" class="feature topicFeature">
-      <div class="topicHeader">
-        <img :src="topic.image" :alt="topic.title" class="topicImage" />
-        <span class="topicTitle">{{ topic.title }}</span>
-      </div>
-      <div>
-        <p class="topic-description">{{ topic.description }}</p>
-      </div>
+  <div class="columns is-multiline is-centered">
+    <div
+      class="column is-half-tablet is-one-quarter-desktop"
+      v-for="topic in topics"
+      :key="topic.title"
+    >
+      <div class="card is-fullheight">
+        <div class="topicHeader card-header">
+          <img
+            :src="topic.image"
+            :alt="topic.title"
+            class="topicImage card-header-icon"
+          />
+          <span class="topicTitle card-header-title">{{ topic.title }}</span>
+        </div>
+        <div class="topic-description card-content">
+          <p>
+            {{ topic.description }}<br />
+            {{ topic.descMore }}
+          </p>
+        </div>
 
-      <div>
-        <router-link :to="topic.to" tag="span">
-          <a>Go</a>
+        <router-link :to="topic.to" class="card-footer">
+          <a class="card-footer-item is-fullwidth primary" tag="span">Go</a>
         </router-link>
       </div>
     </div>
@@ -26,32 +37,40 @@ export default {
         {
           title: "Why Learn Salesforce?",
           image: "./images/code.png",
-          to: "/why-learn-salesforce",
+          to: "/why-learn-salesforce/",
           description:
-            "A basic introduction to Salesforce, why you should consider Salesforce as a career option, and what you can expect out of a Salesforce career. In short: you will get to decide whether you will be spending any time at all on this site!"
+            "A basic introduction to Salesforce, and why Salesforce is a good career option.",
         },
         {
-          title: "Admin Certification",
+          title: "Admin Guide",
           image: "./images/code.png",
-          to: "/admin-guide",
+          to: "/admin-guide/",
           description:
-            "Course structure for studying for Salesforce Administrator credential. Know everything there is to manage an org as an admin - enabling powerful functionality, working with AppExchange, data security, and more!"
+            "Admin knowledge that helps you manage Salesforce with clicks - create apps, secure data, & more!",
+          descMore: "Helpful for admin certification.",
         },
 
         {
-          title: "PD1 Certification",
+          title: "Developer Guide",
           image: "./images/code.png",
-          to: "/pd1-guide",
+          to: "/dev-guide/",
           description:
-            "Prepare for being a developer with Platform Developer I certification. Learn not only configuration, but also coding using Apex, creating complex UI using Lightning/VisualForce and enabling business rules and automation."
-        }
-      ]
+            "Learn configuration, Apex, Lightning, automation & more.",
+          descMore: "Helpful for AppBuilder & PD1 certifications.",
+        },
+        {
+          title: "LWC Guide",
+          image: "./images/lightning.svg",
+          to: "/lwc-guide/",
+          description: "Learn Lightning web components the pragmatic way.",
+        },
+      ],
     };
-  }
+  },
 };
 </script>
 
-<style lang="stylus" scoped>
+<style lang="scss" scoped>
 .topicFeature {
   border-width: 1px;
   border-color: red;
@@ -77,5 +96,24 @@ export default {
 
 .topic-description {
   font-size: 85%;
+}
+
+.card {
+  &.is-fullheight {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .card-content {
+      margin-bottom: auto;
+      padding: 10px;
+    }
+    .card-footer {
+      margin-top: auto;
+      .button {
+        border-radius: 0;
+      }
+    }
+  }
 }
 </style>

@@ -347,7 +347,7 @@ In addition we also have -
 1. Assignment rules
 1. Escalation rules for entities like Cases
 
-There are other components too - e.g. updating "stuff" on UI based on user actions, automated report generation and delivery, etc. - but we tend to focus on the forest than trees. (we had to use that sentence even though it's not super relevant in this context and we can be stubborn like that). We also do not discuss more on Apex solutions - they are part of the [salesforce developer learning series](/pd1-guide/).
+There are other components too - e.g. updating "stuff" on UI based on user actions, automated report generation and delivery, etc. - but we tend to focus on the forest than trees. (we had to use that sentence even though it's not super relevant in this context and we can be stubborn like that). We also do not discuss more on Apex solutions - they are part of the [salesforce developer learning series](/dev-guide/).
 
 Let us go over more details on the automation components in salesforce.
 

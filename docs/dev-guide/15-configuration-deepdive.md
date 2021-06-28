@@ -1,7 +1,7 @@
 ---
 title: Configuration Deep-dive
 lang: en-US
-permalink: /pd1-guide/configuration
+permalink: /dev-guide/configuration
 metaTitle: A deep-dive of Salesforce.com configuration.
 meta:
   - name: description

@@ -1,7 +1,7 @@
 ---
 title: Visualforce
 lang: en-US
-permalink: /pd1-guide/visualforce-1
+permalink: /dev-guide/visualforce-1
 metaTitle: Get started on Visualforce.
 meta:
   - name: description

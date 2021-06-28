@@ -1,7 +1,7 @@
 ---
 title: Tools
 lang: en-US
-permalink: /pd1-guide/tools
+permalink: /dev-guide/tools
 metaTitle: Tools and utilities available to a Salesforce.com developer.
 meta:
   - name: description

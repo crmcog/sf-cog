@@ -7,9 +7,9 @@ actionText: Get Started →
 actionLink: /why-learn-salesforce/start/
 features:
   - title: Practical Salesforce
-    details: Focused on getting you up and running with Salesforce.com platform and tools.
+    details: Focused on getting you up & running with Salesforce.com platform and tools.
   - title: Structured Learning
-    details: Easy to organise yourself - learn individual topics or study for certification.
+    details: Easy to organise - study specific topics, or for certification.
   - title: Free
     details: Free and open sourced content. Enjoy responsibly, and contribute.
 
@@ -18,20 +18,18 @@ footer: MIT Licensed | Copyright © 2020-present Prashanth Krishnamurthy
 
 ## What this is?
 
-Here's yet another attempt to collate salesforce.com learning materials, tutorials, links and stuff to (hopefully) make your learning process easier.
+Here's yet another attempt to collate salesforce.com learning materials, tutorials, and links to (hopefully) make your learning process easier. You can use the study materials here to -
 
-You can use the study materials here to -
-
-1. Self-educate on salesforce
+1. Self-educate on salesforce platform and technology
 1. Prepare for certification
 1. Use the guides as teaching aids
 1. Have a blast
 
-## Where to start?
+A good place to start is to go over [why you should learn salesforce](/why-learn-salesforce/) in this day and age. Or, you can jump to the topic of interest here or through the top navigation bar.
 
-A good place to start is to go over [why you should learn salesforce](/why-learn-salesforce/) in this day and age.
+<br>
 
-Or, you can jump to the topic of interest here or through the top navigation bar.
+## Salesforce Study Topics & Guides
 
 <FeaturedTopics/>
 
@@ -40,6 +38,8 @@ Or, you can jump to the topic of interest here or through the top navigation bar
 Think of this as a practical study guide that adds on to the many practical study guides on the Internet.. only better :)
 
 The aim is to have open source content that anyone can use as reference to study or teach Salesforce. We know there are alternatives (some of which are really good), but we see this guide as structured towards specific objectives, "to the point", easy to organize, and follow through. If you know of other excellent guides and study materials - feel free to add references and make this guide useful for all.
+
+**How this is different from Trailhead?** Guides and lessons here refer trailhead - quite a lot. Trailhead sets high standards when it comes to learning something, and there is no intent to compete there. The idea is to get as much information to consume in less time and fewer clicks.
 
 ## Technology behind the guide
 
@@ -67,13 +67,9 @@ Oh.. we also appreciate you telling us how we could improve - not many people do
 
 See [Terms](/misc/terms) and our [Privacy Policy](/misc/privacy-policy). By using this website, you agree to the stated terms.
 
-## Sponsors
-
-- [Pragital](https://pragital.com)
 
 ## Support Us
 
 Consider supporting us if you have benefited from our work!
 
-- [paypal.me/pragital](https://www.paypal.me/pragital)
 - [Patreon](https://www.patreon.com/crmcog)
